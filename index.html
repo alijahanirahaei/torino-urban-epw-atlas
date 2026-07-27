@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="data:,">
+    <meta name="description" content="Spatial lookup for Torino morphology classes and candidate urban EPW files.">
+    <meta name="theme-color" content="#f4f5f1">
+    <title>Torino Urban EPW Atlas</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%2315616d'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial' font-size='36' font-weight='700' fill='white'%3ET%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="assets/vendor/leaflet.css">
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Location and weather-file details">
+        <header class="brand-bar">
+          <div>
+            <p class="place-name">Torino</p>
+            <h1>Urban EPW Atlas</h1>
+          </div>
+          <div class="brand-actions">
+            <a class="icon-button" href="data/spatial/torino_urban_morphology_epw_atlas.gpkg" title="Download GeoPackage" aria-label="Download GeoPackage">
+              <i data-lucide="database"></i>
+            </a>
+            <button class="icon-button" id="about-button" type="button" title="About this release" aria-label="About this release">
+              <i data-lucide="info"></i>
+            </button>
+          </div>
+        </header>
+
+        <section class="lookup-panel" aria-labelledby="lookup-title">
+          <h2 id="lookup-title">Location</h2>
+          <form id="lookup-form" novalidate>
+            <div class="coordinate-fields">
+              <label>
+                <span>Latitude</span>
+                <input id="latitude" name="latitude" type="number" min="-90" max="90" step="any" inputmode="decimal" placeholder="45.0705" required>
+              </label>
+              <label>
+                <span>Longitude</span>
+                <input id="longitude" name="longitude" type="number" min="-180" max="180" step="any" inputmode="decimal" placeholder="7.6868" required>
+              </label>
+              <button class="command-button primary" id="find-button" type="submit">
+                <i data-lucide="search"></i>
+                <span>Find</span>
+              </button>
+              <button class="icon-button field-action" id="locate-button" type="button" title="Use current location" aria-label="Use current location">
+                <i data-lucide="locate-fixed"></i>
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <nav class="layer-tabs" aria-label="Map classification">
+          <button class="layer-tab active" type="button" data-mode="epw" aria-pressed="true">EPW A-D</button>
+          <button class="layer-tab" type="button" data-mode="k4" aria-pressed="false">k=4</button>
+          <button class="layer-tab" type="button" data-mode="k7" aria-pressed="false">k=7</button>
+          <button class="layer-tab" type="button" data-mode="k8" aria-pressed="false">k=8</button>
+        </nav>
+
+        <section class="result-panel empty" id="result-panel" aria-live="polite">
+          <div class="empty-result" id="empty-result">
+            <i data-lucide="map-pin"></i>
+            <p>No location selected</p>
+          </div>
+
+          <div class="result-content" id="result-content" hidden>
+            <div class="result-heading">
+              <span class="category-swatch" id="category-swatch" aria-hidden="true"></span>
+              <div class="result-title">
+                <p class="result-label">Candidate urban weather file</p>
+                <h2 id="category-title">Category</h2>
+              </div>
+              <span class="status-badge" id="status-badge">Status</span>
+            </div>
+
+            <div class="download-row">
+              <a class="command-button primary" id="epw-download" href="#" download>
+                <i data-lucide="download"></i>
+                <span>Download EPW</span>
+              </a>
+              <a class="icon-button" id="config-download" href="#" download title="Download UWG configuration" aria-label="Download UWG configuration">
+                <i data-lucide="braces"></i>
+              </a>
+              <button class="icon-button" id="share-result" type="button" title="Copy result link" aria-label="Copy result link">
+                <i data-lucide="link"></i>
+              </button>
+            </div>
+
+            <dl class="identity-list">
+              <div><dt>Grid</dt><dd id="grid-id">-</dd></div>
+              <div><dt>k=4</dt><dd id="cluster-k4">-</dd></div>
+              <div><dt>k=7</dt><dd id="cluster-k7">-</dd></div>
+              <div><dt>k=8</dt><dd id="cluster-k8">-</dd></div>
+            </dl>
+
+            <div class="metric-section">
+              <div class="section-heading">
+                <h3>Morphology</h3>
+                <span>500 m support</span>
+              </div>
+              <dl class="metric-grid">
+                <div><dt>Building cover</dt><dd id="metric-building">-</dd></div>
+                <div><dt>Average height</dt><dd id="metric-height">-</dd></div>
+                <div><dt>Facade / site</dt><dd id="metric-facade">-</dd></div>
+                <div><dt>Mapped green</dt><dd id="metric-green">-</dd></div>
+                <div><dt>UWG tree cover</dt><dd id="metric-tree">-</dd></div>
+                <div><dt>UWG grass cover</dt><dd id="metric-grass">-</dd></div>
+              </dl>
+            </div>
+
+            <div class="metric-section" id="uhi-section">
+              <div class="section-heading">
+                <h3>Representative modeled UHI<sup>*</sup></h3>
+                <span>vs. AvMY Caselle</span>
+              </div>
+              <dl class="metric-grid compact">
+                <div><dt>Annual</dt><dd id="uhi-annual">-</dd></div>
+                <div><dt>Summer</dt><dd id="uhi-summer">-</dd></div>
+                <div><dt>Daytime</dt><dd id="uhi-day">-</dd></div>
+                <div><dt>Nighttime</dt><dd id="uhi-night">-</dd></div>
+              </dl>
+              <p class="model-disclosure"><sup>*</sup>UWG-simulated difference from AvMY Caselle, not measured local UHI. Values inherit the model assumptions and may differ from observations.</p>
+            </div>
+
+            <div class="quality-message" id="quality-message" hidden>
+              <i data-lucide="triangle-alert"></i>
+              <p id="quality-text"></p>
+            </div>
+          </div>
+        </section>
+
+        <footer class="sidebar-footer">
+          <a href="docs/methodology.html">Method</a>
+          <a href="docs/data-guide.html">Data guide</a>
+          <a href="DATA_LICENSE.md" title="Derived data and research outputs are licensed CC BY 4.0">Data: CC BY 4.0</a>
+          <span id="release-status">Loading</span>
+        </footer>
+      </aside>
+
+      <main class="map-panel" aria-label="Torino classification map">
+        <div id="map"></div>
+        <div class="map-tools" aria-label="Map tools">
+          <button class="icon-button map-button" id="fit-map" type="button" title="Fit Torino extent" aria-label="Fit Torino extent">
+            <i data-lucide="scan"></i>
+          </button>
+        </div>
+        <div class="legend" id="legend" aria-label="Map legend"></div>
+        <div class="loading-state" id="loading-state">
+          <span class="loading-mark"></span>
+          <p>Loading atlas</p>
+        </div>
+      </main>
+    </div>
+
+    <dialog class="about-dialog" id="about-dialog">
+      <div class="dialog-heading">
+        <div>
+          <p class="place-name">Research release</p>
+          <h2>Torino Urban EPW Atlas</h2>
+        </div>
+        <button class="icon-button" id="close-about" type="button" title="Close" aria-label="Close">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <p><strong>Authors:</strong> Ali JahaniRahaei and Giacomo Chiesa.</p>
+      <p>The atlas links a 100 m assignment grid to morphology measured over overlapping 500 m supports. Seven retained morphology classes are reduced to four candidate UWG weather files.</p>
+      <p>Modeled UHI values are UWG simulations relative to AvMY Caselle, not measured local UHI. The assigned file reproduces the fixed UWG framework; it is not a guarantee of local observational accuracy. Municipal-edge supports and morphology outliers are explicitly flagged.</p>
+      <p>Repository code is MIT licensed. Derived spatial data, tables, figures, UWG configurations, and generated EPWs are reusable under CC BY 4.0 with attribution.</p>
+      <div class="dialog-links">
+        <a class="command-button" href="docs/repository-guide.html"><i data-lucide="book-open"></i><span>Guide</span></a>
+        <a class="command-button" href="data/spatial/torino_urban_morphology_epw_atlas.gpkg" download><i data-lucide="database"></i><span>GeoPackage</span></a>
+        <a class="icon-button" href="https://github.com/alijahanirahaei/torino-urban-epw-atlas" target="_blank" rel="noopener" title="Open source repository" aria-label="Open source repository"><i data-lucide="github"></i></a>
+        <a class="icon-button" href="DATA_LICENSE.md" title="View data license" aria-label="View data license"><i data-lucide="scale"></i></a>
+      </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="assets/vendor/leaflet.js"></script>
+    <script src="assets/vendor/lucide.min.js"></script>
+    <script src="assets/app.js"></script>
+  </body>
+</html>

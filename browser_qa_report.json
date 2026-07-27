@@ -1,0 +1,110 @@
+{
+  "status": "PASS",
+  "baseUrl": "http://127.0.0.1:8011",
+  "desktop": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "category": "C · Tall/dense",
+    "legendTitle": "k=7 morphology classes",
+    "downloadHref": "data/epw/torino_urban_epw_C_tall_dense_zone4A_flrh305.epw",
+    "configHref": "data/configs/category_c_tall_dense.json",
+    "disclosure": "*UWG-simulated difference from AvMY Caselle, not measured local UHI. Values inherit the model assumptions and may differ from observations.",
+    "dataLicenseHref": "DATA_LICENSE.md",
+    "guideHref": "docs/repository-guide.html",
+    "repositoryHref": "https://github.com/alijahanirahaei/torino-urban-epw-atlas",
+    "authorsVerified": true,
+    "layout": {
+      "bodyWidth": 1440,
+      "viewportWidth": 1440,
+      "mapRect": {
+        "x": 420,
+        "y": 0,
+        "width": 1020,
+        "height": 900,
+        "top": 0,
+        "right": 1440,
+        "bottom": 900,
+        "left": 420
+      },
+      "panelRect": {
+        "x": 0,
+        "y": 0,
+        "width": 420,
+        "height": 900,
+        "top": 0,
+        "right": 420,
+        "bottom": 900,
+        "left": 0
+      },
+      "visibleGridPaths": 0,
+      "canvasCount": 1
+    },
+    "consoleErrors": [],
+    "pageErrors": []
+  },
+  "mobile": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "category": "C · Tall/dense",
+    "legendTitle": "k=7 morphology classes",
+    "downloadHref": "data/epw/torino_urban_epw_C_tall_dense_zone4A_flrh305.epw",
+    "configHref": "data/configs/category_c_tall_dense.json",
+    "disclosure": "*UWG-simulated difference from AvMY Caselle, not measured local UHI. Values inherit the model assumptions and may differ from observations.",
+    "dataLicenseHref": "DATA_LICENSE.md",
+    "guideHref": "docs/repository-guide.html",
+    "repositoryHref": "https://github.com/alijahanirahaei/torino-urban-epw-atlas",
+    "authorsVerified": true,
+    "layout": {
+      "bodyWidth": 390,
+      "viewportWidth": 390,
+      "mapRect": {
+        "x": 0,
+        "y": 455.75,
+        "width": 390,
+        "height": 388.234375,
+        "top": 455.75,
+        "right": 390,
+        "bottom": 843.984375,
+        "left": 0
+      },
+      "panelRect": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 455.75,
+        "top": 0,
+        "right": 390,
+        "bottom": 455.75,
+        "left": 0
+      },
+      "visibleGridPaths": 0,
+      "canvasCount": 1
+    },
+    "consoleErrors": [],
+    "pageErrors": []
+  },
+  "guideDesktop": {
+    "viewport": {
+      "width": 1200,
+      "height": 900
+    },
+    "heading": "Use, data, and repository structure",
+    "bodyWidth": 1200,
+    "consoleErrors": [],
+    "pageErrors": []
+  },
+  "guideMobile": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "heading": "Use, data, and repository structure",
+    "bodyWidth": 390,
+    "consoleErrors": [],
+    "pageErrors": []
+  }
+}

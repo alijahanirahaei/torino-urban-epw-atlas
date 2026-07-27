@@ -1,0 +1,21 @@
+{
+  "name": "torino-urban-epw-atlas",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static map and coordinate lookup for Torino morphology classes and candidate urban EPWs.",
+  "author": "Ali JahaniRahaei and Giacomo Chiesa",
+  "homepage": "https://alijahanirahaei.github.io/torino-urban-epw-atlas/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alijahanirahaei/torino-urban-epw-atlas.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alijahanirahaei/torino-urban-epw-atlas/issues"
+  },
+  "scripts": {
+    "test:browser": "node tests/browser_qa.cjs"
+  },
+  "devDependencies": {
+    "playwright-core": "1.54.1"
+  }
+}

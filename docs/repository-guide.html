@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="data:,">
+    <title>Repository guide · Torino Urban EPW Atlas</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+    <style>
+      html,body{height:auto;overflow:auto}.doc{max-width:860px;margin:0 auto;padding:40px 24px 70px}.doc h1{font-size:28px}.doc h2{margin-top:32px}.doc p,.doc li{font-size:15px;line-height:1.65;color:#46514b}.doc code{background:#eef1ed;padding:2px 5px;border-radius:3px}.doc p code,.doc li code,.doc a{overflow-wrap:anywhere;word-break:break-word}.doc pre{overflow:auto;padding:14px;border:1px solid #d8ddd8;border-radius:5px;background:#f7f8f5;font-size:13px;line-height:1.55}.doc pre code{overflow-wrap:normal;word-break:normal}.doc table{width:100%;border-collapse:collapse}.doc th,.doc td{padding:10px;border:1px solid #d8ddd8;text-align:left;vertical-align:top;font-size:14px;line-height:1.45}.back{display:inline-flex;margin-bottom:28px}.doc-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:24px}
+    </style>
+  </head>
+  <body>
+    <main class="doc">
+      <a class="back" href="../index.html">Back to atlas</a>
+      <p class="place-name">Repository guide</p>
+      <h1>Use, data, and repository structure</h1>
+      <p><strong>Authors:</strong> Ali JahaniRahaei and Giacomo Chiesa.</p>
+      <p><a href="https://alijahanirahaei.github.io/torino-urban-epw-atlas/">Published atlas</a> · <a href="https://github.com/alijahanirahaei/torino-urban-epw-atlas">Source repository</a></p>
+      <p>The atlas is a static website. Hosted users need no installation: query a coordinate, inspect the assignment and quality fields, then download the candidate EPW or exact UWG JSON configuration.</p>
+
+      <h2>Run locally</h2>
+      <pre><code>python3 -m http.server 8000</code></pre>
+      <p>Open <code>http://localhost:8000</code>. Serving over HTTP is required because browsers can block local GeoJSON requests from a <code>file://</code> page.</p>
+
+      <h2>Command-line lookup</h2>
+      <pre><code>python3 scripts/lookup.py 45.0757395 7.6785426</code></pre>
+      <p>The command uses only the Python standard library and returns the same grid, morphology, category, EPW, configuration, and warning information as JSON.</p>
+
+      <h2>Primary research downloads</h2>
+      <table>
+        <thead><tr><th>Need</th><th>File</th></tr></thead>
+        <tbody>
+          <tr><td>Complete GIS package</td><td><a href="../data/spatial/torino_urban_morphology_epw_atlas.gpkg" download>GeoPackage</a></td></tr>
+          <tr><td>Non-spatial assignments</td><td><a href="../data/tables/grid_assignments.csv" download>CSV table</a></td></tr>
+          <tr><td>WGS84 spatial distribution</td><td><a href="../data/spatial/torino_urban_morphology_epw_atlas_wgs84.geojson.zip" download>Zipped GeoJSON</a></td></tr>
+          <tr><td>Field definitions</td><td><a href="../data/tables/data_dictionary.csv" download>Data dictionary</a></td></tr>
+        </tbody>
+      </table>
+
+      <h2>Repository automation</h2>
+      <p>GitHub Actions validates pushes and pull requests. The Pages workflow repeats validation before deploying the static atlas from <code>main</code>, and maintainers can also start it manually. The workflows use scoped GitHub permissions and store no deployment credentials.</p>
+
+      <h2>Scientific scope</h2>
+      <p>The four files are candidate UWG outputs. Displayed UHI is modeled relative to AvMY Caselle, not measured local UHI. Edge and outlier warnings should be retained in downstream interpretation.</p>
+
+      <h2>Licensing</h2>
+      <p>Software is MIT licensed. Derived data, figures, UWG configurations, and EPWs are CC BY 4.0 and require attribution to both authors.</p>
+
+      <div class="doc-links">
+        <a href="repository-guide.md">Complete file-by-file catalog</a>
+        <a href="data-guide.html">Data guide</a>
+        <a href="methodology.html">Method summary</a>
+        <a href="../DATA_LICENSE.md">Data license</a>
+      </div>
+    </main>
+  </body>
+</html>

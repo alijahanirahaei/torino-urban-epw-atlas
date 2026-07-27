@@ -1,0 +1,24 @@
+field,unit_or_type,definition
+grid_id,integer,Stable identifier of the 100 m assignment location
+center_lon,decimal degrees,"Assignment-cell center longitude, WGS84"
+center_lat,decimal degrees,"Assignment-cell center latitude, WGS84"
+fit_eligible,boolean,True when the support entered clustering model fitting
+edge_support,boolean,True when the 500 m support crosses the municipal boundary
+qa_score,integer,Count of active morphology QA flags
+qa_reasons,text,Semicolon-delimited QA reasons
+assignment_status,text,"clean_fit_member, edge_provisional, or another documented status"
+building_fraction,0-1 fraction,"Unioned building footprint area divided by 250,000 m2"
+avg_height_m,m,Building-footprint-area-weighted mean valid height
+facade_to_site_ratio,ratio,Exposed compound perimeter times mean height divided by support area
+uwg_tree_cover_fraction,0-1 fraction,Constrained tree-canopy fraction passed to UWG
+uwg_grass_cover_fraction,0-1 fraction,Constrained residual grass fraction passed to UWG
+green_pct,percent,Mapped green area as a percentage of the support
+tree_canopy_pct,percent,Estimated unioned tree-canopy area as a percentage of the support
+road_fraction,0-1 fraction,Unioned road-surface area divided by support area
+cluster_k4_provisional,integer,Raw CLARA k=4 morphology assignment
+cluster_k7_provisional,integer,Raw CLARA k=7 retained morphology assignment
+cluster_k8_provisional,integer,Raw CLARA k=8 sensitivity assignment
+distance_to_medoid_k7,robust-scaled distance,Euclidean distance to the assigned k=7 medoid
+outlier_gt_cluster_p99_k7,boolean,True above the fitted class 99th-percentile distance
+epw_category,A-D,Reduced weather-output category derived from the k=7 medoids
+epw_filename,text,Recommended candidate EPW filename for the location

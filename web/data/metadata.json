@@ -1,0 +1,231 @@
+{
+  "title": "Torino Urban EPW Atlas",
+  "authors": [
+    "Ali JahaniRahaei",
+    "Giacomo Chiesa"
+  ],
+  "licenses": {
+    "software": "MIT",
+    "derived_research_outputs": "CC BY 4.0"
+  },
+  "repository_url": "https://github.com/alijahanirahaei/torino-urban-epw-atlas",
+  "site_url": "https://alijahanirahaei.github.io/torino-urban-epw-atlas/",
+  "version": "0.1.0",
+  "status": "candidate research release",
+  "generated_at_utc": "2026-07-23T14:33:25+00:00",
+  "crs": {
+    "canonical": "EPSG:3003",
+    "web": "EPSG:4326"
+  },
+  "bounds_wgs84": [
+    7.578844,
+    45.006783,
+    7.773366,
+    45.140092
+  ],
+  "location_count": 12997,
+  "fit_location_count": 10593,
+  "edge_location_count": 1980,
+  "unassigned_location_count": 135,
+  "support": {
+    "assignment_grid_m": 100,
+    "morphology_support_m": 500
+  },
+  "cluster_descriptors": {
+    "4": {
+      "0": "open, low-rise, green",
+      "1": "open, low-rise, mixed-green",
+      "2": "moderate-density, taller, mixed-green",
+      "3": "dense, taller, low-green"
+    },
+    "7": {
+      "0": "open, low-rise, mixed-green",
+      "1": "open, low-rise, green",
+      "2": "open, mid-rise, green",
+      "3": "moderate-density, mid-rise, mixed-green",
+      "4": "moderate-density, taller, mixed-green",
+      "5": "dense, taller, low-green",
+      "6": "dense, mid-rise, low-green"
+    },
+    "8": {
+      "0": "open, low-rise, mixed-green",
+      "1": "open, low-rise, green",
+      "2": "open, low-rise, green",
+      "3": "moderate-density, mid-rise, mixed-green",
+      "4": "moderate-density, mid-rise, mixed-green",
+      "5": "moderate-density, taller, mixed-green",
+      "6": "dense, taller, low-green",
+      "7": "dense, mid-rise, low-green"
+    }
+  },
+  "cluster_colors": {
+    "4": [
+      "#57A773",
+      "#A8DADC",
+      "#F4A261",
+      "#D1495B"
+    ],
+    "7": [
+      "#5AB4AC",
+      "#A8DADC",
+      "#80B918",
+      "#FFD166",
+      "#F4A261",
+      "#D1495B",
+      "#6D597A"
+    ],
+    "8": [
+      "#4EA8DE",
+      "#72EFDD",
+      "#80B918",
+      "#FFD166",
+      "#E9C46A",
+      "#F4A261",
+      "#D1495B",
+      "#6D597A"
+    ]
+  },
+  "categories": {
+    "A": {
+      "name": "Open low-rise",
+      "slug": "open_lowrise",
+      "description": "Open, predominantly low-rise urban fabric",
+      "source_clusters": [
+        0,
+        1
+      ],
+      "representative_cluster": 1,
+      "representative_grid_id": 3788,
+      "color": "#2A9D8F",
+      "epw_filename": "torino_urban_epw_A_open_lowrise_zone4A_flrh305.epw",
+      "config_filename": "category_a_open_lowrise.json",
+      "location_count": 4697,
+      "uhi_mean_c": {
+        "annual": 1.689,
+        "winter_oct_mar": 1.745,
+        "summer_apr_sep": 1.632,
+        "daytime_07_18": 0.276,
+        "nighttime_19_06": 3.101
+      },
+      "representative_inputs": {
+        "building_fraction": 0.0468,
+        "average_height_m": 7.35,
+        "facade_to_site_ratio": 0.111,
+        "tree_cover_fraction": 0.0027,
+        "grass_cover_fraction": 0.412
+      },
+      "epw_validation": {
+        "line_count": 8768,
+        "weather_rows": 8760,
+        "sha256": "67d38b2bed8364f32f986f4e49a5b0dc0e787ce1f30f9399bca86bd839d63977"
+      }
+    },
+    "B": {
+      "name": "Mid-rise mixed",
+      "slug": "midrise_mixed",
+      "description": "Mixed mid-rise urban fabric",
+      "source_clusters": [
+        2,
+        3
+      ],
+      "representative_cluster": 3,
+      "representative_grid_id": 10925,
+      "color": "#E9C46A",
+      "epw_filename": "torino_urban_epw_B_midrise_mixed_zone4A_flrh305.epw",
+      "config_filename": "category_b_midrise_mixed.json",
+      "location_count": 3535,
+      "uhi_mean_c": {
+        "annual": 1.781,
+        "winter_oct_mar": 1.845,
+        "summer_apr_sep": 1.717,
+        "daytime_07_18": 0.319,
+        "nighttime_19_06": 3.242
+      },
+      "representative_inputs": {
+        "building_fraction": 0.2054,
+        "average_height_m": 11.88,
+        "facade_to_site_ratio": 0.397,
+        "tree_cover_fraction": 0.0182,
+        "grass_cover_fraction": 0.1439
+      },
+      "epw_validation": {
+        "line_count": 8768,
+        "weather_rows": 8760,
+        "sha256": "f54fe4a57e6b9aece90e54fcad12035a3d6b26ce8c937207e8bd5a09f80e8b88"
+      }
+    },
+    "C": {
+      "name": "Tall/dense",
+      "slug": "tall_dense",
+      "description": "Taller and denser urban fabric",
+      "source_clusters": [
+        4,
+        5
+      ],
+      "representative_cluster": 5,
+      "representative_grid_id": 4849,
+      "color": "#E76F51",
+      "epw_filename": "torino_urban_epw_C_tall_dense_zone4A_flrh305.epw",
+      "config_filename": "category_c_tall_dense.json",
+      "location_count": 4217,
+      "uhi_mean_c": {
+        "annual": 1.844,
+        "winter_oct_mar": 1.912,
+        "summer_apr_sep": 1.777,
+        "daytime_07_18": 0.362,
+        "nighttime_19_06": 3.327
+      },
+      "representative_inputs": {
+        "building_fraction": 0.3206,
+        "average_height_m": 15.71,
+        "facade_to_site_ratio": 0.86,
+        "tree_cover_fraction": 0.0313,
+        "grass_cover_fraction": 0.0541
+      },
+      "epw_validation": {
+        "line_count": 8768,
+        "weather_rows": 8760,
+        "sha256": "a199968782f5db147db0b50dfd2328cbe56577a90a9b931c198fa9e81d7dd4d9"
+      }
+    },
+    "D": {
+      "name": "Large-footprint",
+      "slug": "large_footprint",
+      "description": "Dense, large-footprint, low-facade urban fabric",
+      "source_clusters": [
+        6
+      ],
+      "representative_cluster": 6,
+      "representative_grid_id": 1524,
+      "color": "#6D597A",
+      "epw_filename": "torino_urban_epw_D_large_footprint_zone4A_flrh305.epw",
+      "config_filename": "category_d_large_footprint.json",
+      "location_count": 413,
+      "uhi_mean_c": {
+        "annual": 1.947,
+        "winter_oct_mar": 2.005,
+        "summer_apr_sep": 1.89,
+        "daytime_07_18": 0.448,
+        "nighttime_19_06": 3.446
+      },
+      "representative_inputs": {
+        "building_fraction": 0.5769,
+        "average_height_m": 13.27,
+        "facade_to_site_ratio": 0.222,
+        "tree_cover_fraction": 0.0033,
+        "grass_cover_fraction": 0.0136
+      },
+      "epw_validation": {
+        "line_count": 8768,
+        "weather_rows": 8760,
+        "sha256": "73a25421d9a20e2d878f7aa66793f2b6e51da19f125a740b54b7ede089a74e70"
+      }
+    }
+  },
+  "limitations": [
+    "The four EPWs are a medoid-level candidate library pending within-cluster UWG sampling.",
+    "The library reproduces the fixed UWG setup; it is not a guarantee of local observational accuracy.",
+    "Municipal-edge supports are provisional because no external GIS halo was used.",
+    "The workflow does not generate morphology-dependent humidity-ratio changes."
+  ]
+}

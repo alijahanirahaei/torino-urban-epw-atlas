@@ -1,0 +1,34 @@
+{
+  "release_version": "0.1.0",
+  "authors": [
+    "Ali JahaniRahaei",
+    "Giacomo Chiesa"
+  ],
+  "licenses": {
+    "software": "MIT",
+    "derived_research_outputs": "CC BY 4.0"
+  },
+  "repository_url": "https://github.com/alijahanirahaei/torino-urban-epw-atlas",
+  "site_url": "https://alijahanirahaei.github.io/torino-urban-epw-atlas/",
+  "generated_at_utc": "2026-07-23T14:33:25+00:00",
+  "source_files": {
+    "cluster_geopackage": {
+      "source_workspace_path": "outputs/clustering_torino_regular_grid_20260713/spatial/torino_regular_grid_cluster_candidates.gpkg",
+      "sha256": "3295f0a32c9d064ec4cbe8e4797f1721cc589c5a21730201bc0c83a892f1e7ba"
+    },
+    "epw_assignment_table": {
+      "source_workspace_path": "outputs/uwg_zone4a_flrh305_library_stations_20260714/torino_grid_zone4a_flrh305_epw_assignments.csv",
+      "sha256": "7a55a6f15d187d061cedbf1b225080abb5733d8412984ab79f0cf5eb4a281f9e"
+    },
+    "accepted_run_validation": {
+      "source_workspace_path": "outputs/uwg_zone4a_flrh305_library_stations_20260714/VALIDATION_REPORT.json",
+      "sha256": "bdd3fc960f67ca734b8acd6c648536283233b3199f889172b31bc820a3941217"
+    }
+  },
+  "record_counts": {
+    "grid_assignments": 12997,
+    "cluster_medoids": 19,
+    "city_boundaries": 1,
+    "epw_files": 4
+  }
+}

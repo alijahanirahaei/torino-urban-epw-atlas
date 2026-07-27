@@ -1,0 +1,9 @@
+*.epw text eol=lf
+*.csv text eol=lf
+*.json text eol=lf
+*.geojson text eol=lf
+*.css text eol=lf
+*.txt text eol=lf
+*.gpkg binary
+*.zip binary
+*.png binary
