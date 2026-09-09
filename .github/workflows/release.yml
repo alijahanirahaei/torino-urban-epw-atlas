@@ -1,0 +1,35 @@
+name: Publish versioned research release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - run: python scripts/validate_release.py
+      - run: python -m unittest discover -s tests -v
+      - run: python scripts/reproduce_reduction.py --check
+      - name: Publish release and primary downloads
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh release create "$GITHUB_REF_NAME"
+          --verify-tag --title "Torino Urban EPW Atlas $GITHUB_REF_NAME"
+          --notes-file "docs/release-notes-$GITHUB_REF_NAME.md"
+          data/epw/*.epw data/spatial/torino_urban_morphology_epw_atlas.gpkg
+          checksums.sha256

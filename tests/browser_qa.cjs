@@ -26,7 +26,7 @@ async function testViewport(browser, viewport, screenshotName) {
   await page.locator("#category-title").waitFor({ state: "visible" });
 
   const category = (await page.locator("#category-title").textContent()).trim();
-  if (category !== "C · Tall/dense") throw new Error(`Unexpected Consolata result: ${category}`);
+  if (category !== "C · Mixed/tall urban") throw new Error(`Unexpected Consolata result: ${category}`);
 
   const disclosure = (await page.locator(".model-disclosure").textContent()).trim();
   if (!disclosure.includes("not measured local UHI")) {
@@ -76,7 +76,39 @@ async function testViewport(browser, viewport, screenshotName) {
   if (layout.mapRect.width < 280 || layout.mapRect.height < 250) throw new Error(`Map too small: ${JSON.stringify(layout.mapRect)}`);
   if (layout.visibleGridPaths + layout.canvasCount === 0) throw new Error("No rendered grid paths or canvas found");
 
+  await page.waitForFunction(() => {
+    const map = document.querySelector("#map").getBoundingClientRect();
+    const tiles = [...document.querySelectorAll(".leaflet-tile-pane img")].filter((img) => {
+      const r=img.getBoundingClientRect();
+      return r.right>map.left && r.left<map.right && r.bottom>map.top && r.top<map.bottom;
+    });
+    if (!tiles.length || !tiles.every((img) => img.complete && img.naturalWidth>0)) return false;
+    return [.1,.5,.9].every((x) => [.1,.5,.9].every((y) => tiles.some((img) => {
+      const r=img.getBoundingClientRect();
+      const px=map.left+map.width*x, py=map.top+map.height*y;
+      return px>=r.left && px<=r.right && py>=r.top && py<=r.bottom;
+    })));
+  }, null, { timeout: 45000 });
+  const loadedTiles=await page.locator(".leaflet-tile-loaded").count();
   await page.screenshot({ path: path.join(root, "docs", screenshotName), fullPage: true });
+
+  const geo = await (await page.request.get(new URL("web/data/torino_lookup.geojson",baseUrl).href)).json();
+  for (const status of ["out_of_domain", "unassigned"]) {
+    const p=geo.features.find((f)=>f.properties.recommendation===status && !f.properties.edge).properties;
+    await page.locator("#latitude").fill(String(p.lat));
+    await page.locator("#longitude").fill(String(p.lon));
+    await page.locator("#find-button").click();
+    if (await page.locator("#epw-download").getAttribute("href")) throw new Error(`${status} still has a location download`);
+    if (!(await page.locator("#quality-text").textContent()).trim()) throw new Error(`${status} missing warning`);
+  }
+  await page.locator("#latitude").fill("45.08168097268994");
+  await page.locator("#longitude").fill("7.61225301548547");
+  await page.locator("#find-button").click();
+  if (!(await page.locator("#category-title").textContent()).startsWith("C ·")) throw new Error("Alenia mapping is stale");
+  await page.locator("#latitude").fill("45.5");
+  await page.locator("#longitude").fill("8.0");
+  await page.locator("#find-button").click();
+  if (await page.locator("#result-content").isVisible()) throw new Error("Outside query retains a stale result");
   await page.close();
   return {
     viewport,
@@ -89,6 +121,8 @@ async function testViewport(browser, viewport, screenshotName) {
     guideHref,
     repositoryHref,
     authorsVerified: true,
+    loadedTiles,
+    restrictedDownloadsVerified: true,
     layout,
     consoleErrors,
     pageErrors,

@@ -1,6 +1,6 @@
 {
   "name": "torino-urban-epw-atlas",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Static map and coordinate lookup for Torino morphology classes and candidate urban EPWs.",
   "author": "Ali JahaniRahaei and Giacomo Chiesa",

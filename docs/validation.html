@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>validation | Torino Urban EPW Atlas</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../assets/styles.css"><style>html,body{height:auto;overflow:auto}main{max-width:960px;margin:auto;padding:32px 24px 60px}h1{font-size:28px}h2{font-size:22px;margin-top:32px}p,li{line-height:1.65}table{border-collapse:collapse;width:100%;table-layout:fixed}td,th{border:1px solid #ccd3cf;padding:10px;vertical-align:top;text-align:left}td,code,a{overflow-wrap:anywhere}pre{overflow:auto;padding:16px;background:#f1f4f2}pre code{overflow-wrap:normal}img{max-width:100%}</style><main><a href="../index.html">Back to atlas</a><h1 id="release-validation">Release Validation</h1>
+<p><code>scripts/validate_release.py</code> checks:</p>
+<ul>
+<li>required repository files;</li>
+<li>12,997-row agreement among metadata, CSV, GeoPackage, and web GeoJSON;</li>
+<li>GeoPackage layers, CRS, geometry validity, and unique identifiers;</li>
+<li>zipped shapefile components;</li>
+<li>EPW dimensions, 35-field weather rows, and SHA-256 hashes;</li>
+<li>accepted <code>zone</code>, <code>flr_h</code>, and <code>charlength</code> JSON values;</li>
+<li>every distributed checksum;</li>
+<li>known coordinate assignments for Consolata, Giardini Reali, Alenia, and Reiss
+  Romoli; and</li>
+<li>absence of private absolute filesystem paths;</li>
+<li>absence of repository placeholders, common secret patterns, sensitive key or
+  environment files, unsafe archive members, and unignored local dependencies;</li>
+<li>presence of Ali JahaniRahaei and Giacomo Chiesa in citation, attribution, web,
+  and release metadata; and</li>
+<li>complete file-by-file coverage in <code>docs/repository-guide.md</code>.</li>
+</ul>
+<p>The report is written to <code>validation_report.json</code>. A public release should be made
+only when its status is <code>PASS</code>.</p>
+<p>Version 0.2.0 additionally checks the revised representative identities, exact
+category counts, the seven-layer inventory, every k4/k7/k8 label across spatial
+formats, corrected canopy fields, the 20 C6-domain restrictions, missing
+download filenames, RH/dew-point/pressure plausibility, Alenia's revised C
+assignment and repository-contained source hashes. Unit tests cover missing
+inputs, polygon holes and shared boundaries. The subset-search replay is tested
+separately. Browser QA checks desktop/mobile layouts, actual loaded map tiles,
+restricted and ordinary lookups, errors and download routes.</p>
+<p>These are technical and consistency checks. They do not turn modeled weather
+into locally validated observations. The scientific caveats in methodology and
+the research evidence guide remain applicable after all tests pass.</p></main></html>

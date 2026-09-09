@@ -1,24 +1,61 @@
 field,unit_or_type,definition
-grid_id,integer,Stable identifier of the 100 m assignment location
-center_lon,decimal degrees,"Assignment-cell center longitude, WGS84"
-center_lat,decimal degrees,"Assignment-cell center latitude, WGS84"
-fit_eligible,boolean,True when the support entered clustering model fitting
-edge_support,boolean,True when the 500 m support crosses the municipal boundary
-qa_score,integer,Count of active morphology QA flags
-qa_reasons,text,Semicolon-delimited QA reasons
-assignment_status,text,"clean_fit_member, edge_provisional, or another documented status"
-building_fraction,0-1 fraction,"Unioned building footprint area divided by 250,000 m2"
-avg_height_m,m,Building-footprint-area-weighted mean valid height
-facade_to_site_ratio,ratio,Exposed compound perimeter times mean height divided by support area
-uwg_tree_cover_fraction,0-1 fraction,Constrained tree-canopy fraction passed to UWG
-uwg_grass_cover_fraction,0-1 fraction,Constrained residual grass fraction passed to UWG
-green_pct,percent,Mapped green area as a percentage of the support
-tree_canopy_pct,percent,Estimated unioned tree-canopy area as a percentage of the support
-road_fraction,0-1 fraction,Unioned road-surface area divided by support area
-cluster_k4_provisional,integer,Raw CLARA k=4 morphology assignment
-cluster_k7_provisional,integer,Raw CLARA k=7 retained morphology assignment
-cluster_k8_provisional,integer,Raw CLARA k=8 sensitivity assignment
-distance_to_medoid_k7,robust-scaled distance,Euclidean distance to the assigned k=7 medoid
-outlier_gt_cluster_p99_k7,boolean,True above the fitted class 99th-percentile distance
-epw_category,A-D,Reduced weather-output category derived from the k=7 medoids
-epw_filename,text,Recommended candidate EPW filename for the location
+grid_id,integer,Stable ID of the 100 m assignment cell; not a building-block ID
+grid_row,integer,Row in the projected regular lattice
+grid_col,integer,Column in the projected regular lattice
+center_x_3003,m,"Assignment centre easting, EPSG:3003"
+center_y_3003,m,"Assignment centre northing, EPSG:3003"
+center_lon,degrees,"Assignment centre longitude, WGS84"
+center_lat,degrees,"Assignment centre latitude, WGS84"
+fit_eligible,boolean,Membership of the archived strict-fit population; no new fitting
+edge_support,boolean,500 m support crosses the municipal boundary; no external GIS halo
+qa_score,integer,"Count of extraction QA flags, separate from the physical domain guard"
+qa_reasons,text,Recorded extraction QA reasons
+exclusion_reason,text,"Reason for exclusion from archived strict fitting, if any"
+assignment_status,text,Archived extraction/fitting status; see separate recommendation_status
+building_fraction,fraction,Unioned footprint area / 250000 m2 support area
+avg_height_m,m,Footprint-area-weighted valid building height
+facade_to_site_ratio,ratio,Exposed compound perimeter times compound mean height / support area; shared walls excluded
+uwg_tree_cover_fraction,fraction,"Corrected unioned canopy / support area, capped at 1 - building fraction"
+uwg_grass_cover_fraction,fraction,"max(mapped green fraction - tree cover, 0), capped at remaining nonbuilt area"
+road_fraction,fraction,Unioned mapped street area / support area
+green_pct,percent,Mapped green polygon union / support area; not tree canopy
+tree_canopy_pct,percent,"Corrected estimated canopy union / support area, before UWG cap"
+tree_count,integer,Recorded tree count in support
+tree_density_ha,trees/ha,Recorded tree count / support hectares
+tree_mean_height_m,m,Mean available tree height in support
+building_count,integer,Recorded intersecting building feature count
+height_valid_footprint_frac,fraction,Share of footprint area with a valid building height
+cluster_k4_provisional,integer/null,Corrected nearest-medoid k=4 label using archived scaler and medoid IDs; not a refit
+cluster_k4_label,text,"Descriptive morphology name, not formal LCZ"
+distance_to_medoid_k4,scaled distance,"Euclidean five-feature distance after archived median/IQR scaling, using corrected inputs"
+distance_ratio_p95_k4,ratio,Corrected distance / corrected strict-fit class 95th-percentile distance
+outlier_gt_cluster_p99_k4,boolean,Corrected distance exceeds corrected strict-fit class 99th percentile
+cluster_k7_provisional,integer/null,Corrected nearest-medoid k=7 label using archived scaler and medoid IDs; not a refit
+cluster_k7_label,text,"Descriptive morphology name, not formal LCZ"
+distance_to_medoid_k7,scaled distance,"Euclidean five-feature distance after archived median/IQR scaling, using corrected inputs"
+distance_ratio_p95_k7,ratio,Corrected distance / corrected strict-fit class 95th-percentile distance
+outlier_gt_cluster_p99_k7,boolean,Corrected distance exceeds corrected strict-fit class 99th percentile
+cluster_k8_provisional,integer/null,Corrected nearest-medoid k=8 label using archived scaler and medoid IDs; not a refit
+cluster_k8_label,text,"Descriptive morphology name, not formal LCZ"
+distance_to_medoid_k8,scaled distance,"Euclidean five-feature distance after archived median/IQR scaling, using corrected inputs"
+distance_ratio_p95_k8,ratio,Corrected distance / corrected strict-fit class 95th-percentile distance
+outlier_gt_cluster_p99_k8,boolean,Corrected distance exceeds corrected strict-fit class 99th percentile
+epw_category,A-D,"Weather category of k7 class, retained even if recommendation withheld"
+epw_category_name,text,Descriptive weather category name; not a formal LCZ classification
+representative_k7_cluster,integer,Selected fixed-template weather representative class
+representative_grid_id,integer,Grid ID of the selected weather representative
+epw_filename,text/null,Candidate download filename; null for unassigned and out-of-domain locations
+release_version,text,Version of these assignments and derived fields
+archived_building_fraction,fraction,Frozen v0.1 training/display value before correction: Unioned footprint area / 250000 m2 support area
+archived_avg_height_m,m,Frozen v0.1 training/display value before correction: Footprint-area-weighted valid building height
+archived_facade_to_site_ratio,ratio,Frozen v0.1 training/display value before correction: Exposed compound perimeter times compound mean height / support area; shared walls excluded
+archived_uwg_tree_cover_fraction,fraction,"Frozen v0.1 training/display value before correction: Corrected unioned canopy / support area, capped at 1 - building fraction"
+archived_uwg_grass_cover_fraction,fraction,"Frozen v0.1 training/display value before correction: max(mapped green fraction - tree cover, 0), capped at remaining nonbuilt area"
+canopy_area_delta_m2,m2,"Corrected minus archived union canopy area, including GeometryCollection polygons"
+canopy_corrected_gt_2p5_m2,boolean,Absolute canopy-area correction exceeds 2.5 m2
+archived_k4,integer/null,Unchanged original class label before bounded canopy correction
+archived_k7,integer/null,Unchanged original class label before bounded canopy correction
+archived_k8,integer/null,Unchanged original class label before bounded canopy correction
+c6_out_of_domain,boolean,k7=C6 and unrounded building fraction >= 0.7951808541001185
+epw_recommendation_available,boolean,False for missing assignment or the diagnosed C6 high-density domain
+recommendation_status,text,"candidate, provisional (edge/QA/distance), out_of_domain, or unassigned"

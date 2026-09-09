@@ -1,1 +1,67 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Method · Torino Urban EPW Atlas</title><link rel="stylesheet" href="../assets/styles.css"><style>html,body{height:auto;overflow:auto}.doc{max-width:760px;margin:0 auto;padding:40px 24px 70px}.doc h1{font-size:28px}.doc h2{margin-top:30px}.doc p,.doc li{font-size:15px;line-height:1.65;color:#46514b}.back{display:inline-flex;margin-bottom:28px}</style></head><body><main class="doc"><a class="back" href="../index.html">Back to atlas</a><p class="place-name">Method</p><h1>Spatial assignment and weather reduction</h1><p>Torino is sampled with deterministic 100 x 100 m assignment cells. Each cell center receives an overlapping 500 x 500 m morphology support. The assignment cell identifies where a category applies; the larger support supplies the neighborhood statistics passed to UWG.</p><p>Five primary variables are robust-scaled and clustered: building fraction, area-weighted building height, facade-to-site ratio, UWG tree-cover fraction, and UWG grass-cover fraction. K-means diagnostics scan k=2-12, followed by CLARA-style k-medoids for k=4, k=7, and k=8. The raw k=7 solution is retained for physical resolution and interpretability.</p><p>Annual UWG outputs from the seven medoids are reduced by exhaustive subset selection using maximum hourly dry-bulb RMSE and cluster-share-weighted mean RMSE. The resulting A-D products are weather categories, not a second k=4 morphology solution.</p><h2>Model scope</h2><p>The common configuration uses UWG 5.3.4, AvMY Caselle forcing, a 500 m characteristic length, DOE reference zone 4A, and 3.05 m floor height. The four-file result remains a medoid-level candidate pending stratified within-class simulations.</p></main></body></html>
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>methodology | Torino Urban EPW Atlas</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../assets/styles.css"><style>html,body{height:auto;overflow:auto}main{max-width:960px;margin:auto;padding:32px 24px 60px}h1{font-size:28px}h2{font-size:22px;margin-top:32px}p,li{line-height:1.65}table{border-collapse:collapse;width:100%;table-layout:fixed}td,th{border:1px solid #ccd3cf;padding:10px;vertical-align:top;text-align:left}td,code,a{overflow-wrap:anywhere}pre{overflow:auto;padding:16px;background:#f1f4f2}pre code{overflow-wrap:normal}img{max-width:100%}</style><main><a href="../index.html">Back to atlas</a><h1 id="method-summary">Method Summary</h1>
+<p>Torino was sampled with deterministic 100 x 100 m assignment cells. Each cell
+center received an overlapping 500 x 500 m morphology support. The assignment cell
+answers where a category applies; the larger support supplies the neighborhood
+statistics passed to UWG.</p>
+<p>Five primary variables were robust-scaled and clustered: building fraction,
+area-weighted building height, facade-to-site ratio, UWG tree-cover fraction, and
+UWG grass-cover fraction. K-means diagnostics scanned k=2-12. CLARA-style
+k-medoids was then used for candidate k=4, k=7, and k=8 solutions. The raw k=7
+solution was retained for physical resolution and interpretability.</p>
+<p>One annual UWG output was generated for each k=7 medoid using AvMY Caselle as
+common forcing. Exhaustive subset selection minimized the maximum hourly dry-bulb
+RMSE across represented medoids, followed by the cluster-share-weighted mean
+RMSE. Four representatives were retained at the current evidence level.</p>
+<p>The adopted common UWG configuration uses version 5.3.4, <code>charlength=500 m</code>, DOE
+reference zone <code>4A</code>, and <code>flr_h=3.05 m</code>. All non-morphology assumptions remain
+common across categories.</p>
+<h2 id="interpretation">Interpretation</h2>
+<p>The seven classes describe morphology; A-D describe reduced modeled weather
+products. Their cardinalities need not be equal. Four files are a practical
+fidelity/complexity choice, not a uniquely necessary minimum. The final-template
+representatives are C1/C2/C4/C6: A=C0+C1, B=C2, C=C3+C4+C5 and D=C6.</p>
+<p>UHI values shown by the atlas are outputs of the fixed UWG framework relative to
+AvMY Caselle. They are not measured local UHI values, calibrated corrections, or
+guarantees of point-scale meteorological accuracy.</p>
+<h2 id="versioned-canopy-correction">Versioned Canopy Correction</h2>
+<p>The archive filtered polygonal components inside some GeometryCollections.
+Correcting this affects canopy union areas by more than 2.5 m2 in 75 supports.
+The original training values, scaler and medoid IDs are retained. Corrected
+five-feature vectors are assigned to the fixed medoid identities; there is no
+new fit. Two k4 and three k8 labels change, and no k7 labels change. Corrected
+distances, class percentiles and profiles are rebuilt together. No meaningful
+medoid input change required a UWG rerun.</p>
+<p>Tree cover is canopy fraction capped at nonbuilt area. Grass cover is residual
+mapped green after subtracting tree cover, capped at remaining nonbuilt area.
+Canopy percentage and mapped green percentage are distinct fields and can overlap.</p>
+<h2 id="evidence-and-applicability">Evidence And Applicability</h2>
+<p>105 stratified non-medoid supports give small typical temperature-compression
+errors (weighted mean about 0.05 C and weighted P95 about 0.10 C). Stress testing
+reveals an industrial tail error up to 1.33 C even relative to its own C6 medoid.
+Accordingly, k7=C6 supports with unrounded building fraction at or above
+0.7951808541001185 have no location EPW recommendation. There are 20 overlapping
+supports at two industrial sites, not 20 independent neighborhoods. The cutoff
+is an empirical guard for this setup, not a universal physical threshold.</p>
+<p>Classifications have moderate feature/spatial robustness. k4 was strongest on
+the statistical ranking; k7 was retained to distinguish useful morphology strata.
+k8 is a sensitivity alternative. No manual cluster-island cleanup was adopted.
+Buffer-based spatial and HDBSCAN diagnostics are supplied in <code>research/evidence/</code>.</p>
+<p>Agreement with observed urban weather remains location dependent. The four
+station supports map to C (Consolata, Giardini Reali, Alenia) and D (Reiss Romoli);
+they do not evaluate A/B. Alenia is at the municipal edge. In the separate 2022
+temperature test, annual improvement over Caselle occurred only at Consolata.
+No claim of validated morphology-dependent moisture or UDI response is made.</p>
+<h2 id="reproduction-and-precision">Reproduction And Precision</h2>
+<p><code>scripts/build_release.py</code> reconstructs this release from supplied frozen
+features and artifacts. <code>scripts/reproduce_reduction.py</code> repeats exhaustive
+minimax subset selection. <code>research/uwg/reproduce_uwg.py</code> reruns the seven exact
+annual UWG configurations with separately acquired, hash-checked AvMY Caselle.
+See <code>research/README.md</code> for the distinction between these reproduction levels
+and fresh reconstruction from upstream municipal GIS.</p>
+<p>Public files use one-decimal EPW serialization. The three-decimal diagnostics
+are supplied separately; the maximum four-file medoid RMSE is respectively
+0.05820 and 0.04019 C. Extra serialization digits do not imply weather accuracy.
+Temperature-series compression is not equivalence of every EPW variable.</p>
+<p>Period summaries use Apr-Sep and Oct-Mar seasons and EPW clock hours 07-18
+and 19-06. They are not astronomical day/night definitions. Every displayed UHI
+is mean representative dry-bulb temperature minus the common AvMY Caselle source.</p></main></html>

@@ -1,5 +1,5 @@
 {
-  "release_version": "0.1.0",
+  "release_version": "0.2.0",
   "authors": [
     "Ali JahaniRahaei",
     "Giacomo Chiesa"
@@ -10,25 +10,43 @@
   },
   "repository_url": "https://github.com/alijahanirahaei/torino-urban-epw-atlas",
   "site_url": "https://alijahanirahaei.github.io/torino-urban-epw-atlas/",
-  "generated_at_utc": "2026-07-23T14:33:25+00:00",
   "source_files": {
-    "cluster_geopackage": {
-      "source_workspace_path": "outputs/clustering_torino_regular_grid_20260713/spatial/torino_regular_grid_cluster_candidates.gpkg",
-      "sha256": "3295f0a32c9d064ec4cbe8e4797f1721cc589c5a21730201bc0c83a892f1e7ba"
+    "archived_atlas_v0.1.gpkg.zip": {
+      "repository_path": "research/inputs/archived_atlas_v0.1.gpkg.zip",
+      "sha256": "9021ebda63b920de6cf3db69399f4adcb7b65335ca12a343d1c0fb4bb22fa505"
     },
-    "epw_assignment_table": {
-      "source_workspace_path": "outputs/uwg_zone4a_flrh305_library_stations_20260714/torino_grid_zone4a_flrh305_epw_assignments.csv",
-      "sha256": "7a55a6f15d187d061cedbf1b225080abb5733d8412984ab79f0cf5eb4a281f9e"
+    "candidate_cluster_descriptors.csv": {
+      "repository_path": "research/inputs/candidate_cluster_descriptors.csv",
+      "sha256": "d58a46fa165aff8befde0b888fe6a11552f8b84374bd8cebe79e01c5cb5a2e1b"
     },
-    "accepted_run_validation": {
-      "source_workspace_path": "outputs/uwg_zone4a_flrh305_library_stations_20260714/VALIDATION_REPORT.json",
-      "sha256": "bdd3fc960f67ca734b8acd6c648536283233b3199f889172b31bc820a3941217"
+    "canopy_corrected_fixed_assignments.csv": {
+      "repository_path": "research/inputs/canopy_corrected_fixed_assignments.csv",
+      "sha256": "024a3607d9c373787ef31f1e00bbeb966c000403bcfef2419fe37d200fdb6f7d"
+    },
+    "diagnostic_corrected_features.csv": {
+      "repository_path": "research/inputs/diagnostic_corrected_features.csv",
+      "sha256": "3c36149a100161df89e048064362b19fcf1dede32e559616ebd7dc1679d2c7d5"
+    },
+    "k7_hourly_temperature_precision3.csv.gz": {
+      "repository_path": "research/inputs/k7_hourly_temperature_precision3.csv.gz",
+      "sha256": "6d12fb23b0d0007fa11cbd64e1d76547ae5afcf2d33a70274409c908ca64213c"
+    },
+    "library_provenance.csv": {
+      "repository_path": "research/inputs/library_provenance.csv",
+      "sha256": "c58574d9c2692fb123dad8fe08fff2fc0495adb0e2b49b324ebbd90990f16616"
+    },
+    "robust_scale_stats.csv": {
+      "repository_path": "research/inputs/robust_scale_stats.csv",
+      "sha256": "4006e7570d2e4820eb81530d65efcc082237b829f1c2eaf10c61e8969772967c"
     }
   },
+  "public_epw_precision_decimals": 1,
+  "canopy_policy": "Archived scaler and medoid identities, corrected fixed assignments; not a refit",
   "record_counts": {
     "grid_assignments": 12997,
     "cluster_medoids": 19,
     "city_boundaries": 1,
+    "gpkg_layers": 7,
     "epw_files": 4
   }
 }

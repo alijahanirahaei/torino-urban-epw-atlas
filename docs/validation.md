@@ -20,3 +20,16 @@
 
 The report is written to `validation_report.json`. A public release should be made
 only when its status is `PASS`.
+
+Version 0.2.0 additionally checks the revised representative identities, exact
+category counts, the seven-layer inventory, every k4/k7/k8 label across spatial
+formats, corrected canopy fields, the 20 C6-domain restrictions, missing
+download filenames, RH/dew-point/pressure plausibility, Alenia's revised C
+assignment and repository-contained source hashes. Unit tests cover missing
+inputs, polygon holes and shared boundaries. The subset-search replay is tested
+separately. Browser QA checks desktop/mobile layouts, actual loaded map tiles,
+restricted and ordinary lookups, errors and download routes.
+
+These are technical and consistency checks. They do not turn modeled weather
+into locally validated observations. The scientific caveats in methodology and
+the research evidence guide remain applicable after all tests pass.

@@ -75,6 +75,11 @@
               <span class="status-badge" id="status-badge">Status</span>
             </div>
 
+            <div class="quality-message" id="quality-message" hidden>
+              <i data-lucide="triangle-alert"></i>
+              <p id="quality-text"></p>
+            </div>
+
             <div class="download-row">
               <a class="command-button primary" id="epw-download" href="#" download>
                 <i data-lucide="download"></i>
@@ -117,17 +122,13 @@
               </div>
               <dl class="metric-grid compact">
                 <div><dt>Annual</dt><dd id="uhi-annual">-</dd></div>
-                <div><dt>Summer</dt><dd id="uhi-summer">-</dd></div>
-                <div><dt>Daytime</dt><dd id="uhi-day">-</dd></div>
-                <div><dt>Nighttime</dt><dd id="uhi-night">-</dd></div>
+                <div><dt>Apr-Sep</dt><dd id="uhi-summer">-</dd></div>
+                <div><dt>07-18 local EPW</dt><dd id="uhi-day">-</dd></div>
+                <div><dt>19-06 local EPW</dt><dd id="uhi-night">-</dd></div>
               </dl>
               <p class="model-disclosure"><sup>*</sup>UWG-simulated difference from AvMY Caselle, not measured local UHI. Values inherit the model assumptions and may differ from observations.</p>
             </div>
 
-            <div class="quality-message" id="quality-message" hidden>
-              <i data-lucide="triangle-alert"></i>
-              <p id="quality-text"></p>
-            </div>
           </div>
         </section>
 
@@ -167,6 +168,7 @@
       <p><strong>Authors:</strong> Ali JahaniRahaei and Giacomo Chiesa.</p>
       <p>The atlas links a 100 m assignment grid to morphology measured over overlapping 500 m supports. Seven retained morphology classes are reduced to four candidate UWG weather files.</p>
       <p>Modeled UHI values are UWG simulations relative to AvMY Caselle, not measured local UHI. The assigned file reproduces the fixed UWG framework; it is not a guarantee of local observational accuracy. Municipal-edge supports and morphology outliers are explicitly flagged.</p>
+      <p>For 20 high-density C6 supports, the location recommendation is withheld because the common building-stock assumptions have a demonstrated applicability limit. Dark cells retain their morphology labels. A location below this threshold is not guaranteed accurate.</p>
       <p>Repository code is MIT licensed. Derived spatial data, tables, figures, UWG configurations, and generated EPWs are reusable under CC BY 4.0 with attribution.</p>
       <div class="dialog-links">
         <a class="command-button" href="docs/repository-guide.html"><i data-lucide="book-open"></i><span>Guide</span></a>

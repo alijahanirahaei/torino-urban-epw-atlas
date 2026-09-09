@@ -31,8 +31,14 @@ The release translates 12,997 regularly sampled Torino locations into:
 
 The k=4 morphology solution and the four EPW categories are different products.
 The EPW categories were obtained by reducing the outputs of the seven morphology
-medoids: A represents C0+C1, B represents C2+C3, C represents C4+C5, and D retains
+medoids: A represents C0+C1, B represents C2, C represents C3+C4+C5, and D retains
 C6.
+
+**v0.2.0 updates the earlier prototype.** B and C have new representatives;
+2,445 C3 assignments move from B to C, including Alenia. Morphology k=7 is
+unchanged. The atlas withholds location EPW recommendations for 20 high-density
+C6 supports and 135 incomplete assignments. These are counts of overlapping
+sampling supports, not independent neighborhoods.
 
 ## Open The Tool
 
@@ -83,10 +89,10 @@ maintenance, and file-level documentation.
 
 | Category | Morphology interpretation | k=7 source classes | Representative grid | Annual modeled UHI* |
 |---|---|---|---:|---:|
-| A | Open low-rise | C0+C1 | 3788 | 1.689 degC |
-| B | Mid-rise mixed | C2+C3 | 10925 | 1.781 degC |
-| C | Tall/dense | C4+C5 | 4849 | 1.844 degC |
-| D | Large-footprint | C6 | 1524 | 1.947 degC |
+| A | Open low-rise | C0+C1 | 3788 | 1.69 degC |
+| B | Tree-rich mid-rise | C2 | 10026 | 1.75 degC |
+| C | Mixed/tall urban | C3+C4+C5 | 5210 | 1.81 degC |
+| D | Large-footprint | C6 | 1524 | 1.95 degC |
 
 \* UHI values are UWG-simulated annual mean differences from AvMY Caselle under
 the accepted common configuration. They are not measured local UHI values or
@@ -121,22 +127,32 @@ Install the maintainer dependencies:
 
 ```bash
 python3 -m pip install -r requirements.txt
-python3 scripts/build_release.py --workspace /path/to/source-workspace
+python3 scripts/build_release.py
+python3 scripts/reproduce_reduction.py --check
 python3 scripts/validate_release.py
 python3 -m unittest discover -s tests -v
 ```
 
-`build_release.py` expects the validated source artifacts documented in
-`release_manifest.json`. End users do not need the upstream research workspace
-to use the published atlas.
+The builder uses only supplied `research/inputs/` artifacts and existing hashed
+EPWs, not the authors' private workspace. It reproduces fixed-classifier
+assignments and exports, not a fresh GIS extraction or clustering fit. See the
+[reproducibility guide](research/README.md) for the exact boundary of this claim,
+the seven-medoid reduction and the reusable UWG runner.
 
 ## Scientific Status
 
-Version 0.1.0 is a **candidate research release**.
+Version 0.2.0 is a **candidate research release with explicit applicability limits**.
 
-- The four-file reduction has been tested on the seven k=7 medoids and at four
-  urban station supports; stratified within-class UWG sampling remains necessary
-  before claiming a final citywide file count.
+- Seven-medoid reduction and 105 stratified non-medoid supports support small
+  typical temperature-compression errors, but stress testing found a dense
+  industrial failure domain. Four files are a fidelity/complexity compromise,
+  not a uniquely necessary minimum for Torino.
+- For k7=C6 and building fraction >= 0.7951808541001185, location downloads are
+  withheld. Raw category D remains available for expert inspection, not as an
+  approved recommendation for those locations. Below-threshold membership is
+  not an accuracy guarantee.
+- Corrected canopy fields use the archived scaler and medoid identities. Two
+  k4 and three k8 labels change, no k7 labels change; archived inputs are retained.
 - Library EPWs closely reproduce their assigned fixed-template UWG outputs, but
   absolute agreement with measured urban stations is location dependent.
 - Supports crossing the municipal boundary are marked provisional because no
@@ -150,6 +166,11 @@ Version 0.1.0 is a **candidate research release**.
 
 The atlas returns a **morphology-matched candidate EPW**, not a certified or
 observationally exact local weather file.
+
+Public EPWs use standard one-decimal serialization. Three-decimal diagnostic
+temperature series are supplied for research reproduction; extra digits are not
+extra meteorological accuracy. The four-representative maximum medoid RMSE is
+0.05820 C at one decimal and 0.04019 C at three decimals.
 
 ## Citation
 

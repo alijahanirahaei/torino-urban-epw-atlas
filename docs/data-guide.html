@@ -1,1 +1,109 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Data guide · Torino Urban EPW Atlas</title><link rel="stylesheet" href="../assets/styles.css"><style>html,body{height:auto;overflow:auto}.doc{max-width:820px;margin:0 auto;padding:40px 24px 70px}.doc h1{font-size:28px}.doc h2{margin-top:30px}.doc p,.doc li{font-size:15px;line-height:1.65;color:#46514b}.doc code{background:#eef1ed;padding:2px 5px;border-radius:3px}.back{display:inline-flex;margin-bottom:28px}</style></head><body><main class="doc"><a class="back" href="../index.html">Back to atlas</a><p class="place-name">Data guide</p><h1>Formats and assignment fields</h1><p>The canonical GeoPackage uses EPSG:3003 and contains the 12,997 assignment polygons, 19 medoids, and exact city boundary. Zipped shapefiles use the same metric CRS. The GeoJSON and browser lookup use WGS84.</p><h2>Key fields</h2><ul><li><code>cluster_k4_provisional</code>, <code>cluster_k7_provisional</code>, and <code>cluster_k8_provisional</code>: raw morphology assignments.</li><li><code>epw_category</code>: reduced A-D weather category derived from k=7 medoid outputs.</li><li><code>edge_support</code>: the 500 m support crosses the municipal GIS boundary.</li><li><code>qa_score</code> and <code>qa_reasons</code>: explicit data-quality conditions.</li><li><code>distance_to_medoid_k7</code>: robust-scaled morphology distance.</li></ul><h2>Weather and configuration downloads</h2><p>Each A-D category links to one annual candidate EPW and the exact UWG JSON configuration used to generate it. These are modeled research outputs, not measured local weather records. Displayed UHI is UWG-simulated relative to AvMY Caselle and may differ from observations.</p><h2>Downloads</h2><p><a href="../data/spatial/torino_urban_morphology_epw_atlas.gpkg" download>GeoPackage</a> · <a href="../data/tables/grid_assignments.csv" download>CSV</a> · <a href="../data/spatial/torino_urban_morphology_epw_atlas_wgs84.geojson.zip" download>GeoJSON</a></p><h2>License</h2><p>Repository code is MIT licensed. Derived spatial data, tables, figures, UWG configurations, and generated EPWs are CC BY 4.0 and require attribution to Ali JahaniRahaei and Giacomo Chiesa. See the <a href="../DATA_LICENSE.md">data license</a> and the <a href="repository-guide.html">repository guide</a>.</p></main></body></html>
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>data-guide | Torino Urban EPW Atlas</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../assets/styles.css"><style>html,body{height:auto;overflow:auto}main{max-width:960px;margin:auto;padding:32px 24px 60px}h1{font-size:28px}h2{font-size:22px;margin-top:32px}p,li{line-height:1.65}table{border-collapse:collapse;width:100%;table-layout:fixed}td,th{border:1px solid #ccd3cf;padding:10px;vertical-align:top;text-align:left}td,code,a{overflow-wrap:anywhere}pre{overflow:auto;padding:16px;background:#f1f4f2}pre code{overflow-wrap:normal}img{max-width:100%}</style><main><a href="../index.html">Back to atlas</a><h1 id="data-guide">Data Guide</h1>
+<h2 id="recommended-formats">Recommended Formats</h2>
+<ul>
+<li>Use the GeoPackage for QGIS, ArcGIS Pro, Python, and other modern GIS software.</li>
+<li>Use the zipped shapefiles for software requiring the legacy ESRI format.</li>
+<li>Use the CSV when geometry is unnecessary.</li>
+<li>Use the WGS84 GeoJSON for web mapping.</li>
+</ul>
+<p>The GeoPackage and shapefiles use EPSG:3003 to preserve the 100 m metric grid. The
+GeoJSON and browser lookup use EPSG:4326.</p>
+<h2 id="assignment-fields">Assignment Fields</h2>
+<ul>
+<li><code>cluster_k4_provisional</code>, <code>cluster_k7_provisional</code>, and
+  <code>cluster_k8_provisional</code> are corrected fixed-medoid morphology labels, not a new fit.</li>
+<li><code>epw_category</code> is the reduced A-D weather category derived from the k=7 medoid
+  weather outputs.</li>
+<li><code>epw_filename</code> identifies the candidate annual EPW, or is null when withheld.</li>
+<li><code>recommendation_status</code> is candidate, provisional, out_of_domain or unassigned.</li>
+<li><code>epw_recommendation_available</code> is false for the 20 C6-domain exclusions and
+  135 incomplete-feature locations. Retained category labels are not approval.</li>
+<li><code>fit_eligible</code> indicates whether the row entered model fitting.</li>
+<li><code>edge_support</code> marks 500 m supports extending beyond the municipal GIS.</li>
+<li><code>qa_score</code> and <code>qa_reasons</code> expose data-quality conditions.</li>
+<li><code>distance_to_medoid_k7</code> measures morphology distance in robust-scaled input
+  space; <code>outlier_gt_cluster_p99_k7</code> flags extreme class members. Both use
+  corrected inputs and corrected strict-fit class distance percentiles.</li>
+<li><code>archived_*</code> fields retain original values/labels, while displayed canopy and
+  UWG tree/grass fields include the bounded correction described in methodology.</li>
+</ul>
+<p>See <code>data/tables/data_dictionary.csv</code> for definitions and units.</p>
+<h2 id="geopackage-layers">GeoPackage Layers</h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th style="text-align: right;">Records</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>grid_assignments</td>
+<td style="text-align: right;">12,997</td>
+<td>Canonical full attributes, corrected features and domain flags</td>
+</tr>
+<tr>
+<td>cluster_medoids</td>
+<td style="text-align: right;">19</td>
+<td>Medoids for k4, k7 and k8; corrected display metrics</td>
+</tr>
+<tr>
+<td>city_boundary</td>
+<td style="text-align: right;">1</td>
+<td>Exact municipal study boundary</td>
+</tr>
+<tr>
+<td>morphology_k4</td>
+<td style="text-align: right;">12,997</td>
+<td>Convenient k4 thematic view</td>
+</tr>
+<tr>
+<td>morphology_k7</td>
+<td style="text-align: right;">12,997</td>
+<td>Convenient k7 thematic view</td>
+</tr>
+<tr>
+<td>morphology_k8</td>
+<td style="text-align: right;">12,997</td>
+<td>Convenient k8 thematic view</td>
+</tr>
+<tr>
+<td>weather_categories</td>
+<td style="text-align: right;">12,997</td>
+<td>Weather assignments and recommendation availability</td>
+</tr>
+</tbody>
+</table>
+<p>In QGIS, open the GeoPackage and select the desired layers; they are not separate
+files. In Python:</p>
+<pre><code class="language-python">import geopandas as gpd
+import pyogrio
+path = &quot;data/spatial/torino_urban_morphology_epw_atlas.gpkg&quot;
+print(pyogrio.list_layers(path))
+grid = gpd.read_file(path, layer=&quot;grid_assignments&quot;)
+k7 = gpd.read_file(path, layer=&quot;morphology_k7&quot;)
+</code></pre>
+<p>Shapefile equivalents abbreviate fields: GRID_ID, CLUSTER/LABEL or EPW_CAT,
+EPW_FILE, REC_STATUS, EPW_AVAIL, OUT_DOMAIN, EDGE and QA_SCORE. Preserve these
+flags in downstream analyses. The four-file library remains available for expert
+inspection, but a withheld location has no recommended filename in any format.</p>
+<h2 id="coordinate-lookup">Coordinate Lookup</h2>
+<p>The web application performs point-in-polygon lookup against the 100 m assignment
+geometry. The CLI equivalent is:</p>
+<pre><code class="language-bash">python3 scripts/lookup.py LATITUDE LONGITUDE
+</code></pre>
+<p>Coordinates outside a published assignment polygon are not silently snapped to a
+neighboring cell.
+Municipal coverage is checked first. On a shared assignment boundary the first
+covering grid in ascending grid-ID order is selected. Polygon holes are excluded.</p>
+<h2 id="weather-and-configuration-downloads">Weather And Configuration Downloads</h2>
+<p>Each A-D category links to one annual candidate EPW and the exact UWG JSON
+configuration used to generate it. The EPW is a modeled research output, not a
+measured local weather record. Displayed UHI values are UWG-simulated differences
+from AvMY Caselle and may differ from observations at the queried location.</p>
+<h2 id="license">License</h2>
+<p>Repository code is MIT licensed. Derived spatial data, tables, figures, UWG
+configurations, and generated EPWs are available under CC BY 4.0. Reuse and
+adaptation require attribution, a link to the license, and an indication of any
+changes; see <code>DATA_LICENSE.md</code> for the recommended credit and source notices.</p></main></html>

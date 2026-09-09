@@ -1,58 +1,486 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="icon" href="data:,">
-    <title>Repository guide · Torino Urban EPW Atlas</title>
-    <link rel="stylesheet" href="../assets/styles.css">
-    <style>
-      html,body{height:auto;overflow:auto}.doc{max-width:860px;margin:0 auto;padding:40px 24px 70px}.doc h1{font-size:28px}.doc h2{margin-top:32px}.doc p,.doc li{font-size:15px;line-height:1.65;color:#46514b}.doc code{background:#eef1ed;padding:2px 5px;border-radius:3px}.doc p code,.doc li code,.doc a{overflow-wrap:anywhere;word-break:break-word}.doc pre{overflow:auto;padding:14px;border:1px solid #d8ddd8;border-radius:5px;background:#f7f8f5;font-size:13px;line-height:1.55}.doc pre code{overflow-wrap:normal;word-break:normal}.doc table{width:100%;border-collapse:collapse}.doc th,.doc td{padding:10px;border:1px solid #d8ddd8;text-align:left;vertical-align:top;font-size:14px;line-height:1.45}.back{display:inline-flex;margin-bottom:28px}.doc-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:24px}
-    </style>
-  </head>
-  <body>
-    <main class="doc">
-      <a class="back" href="../index.html">Back to atlas</a>
-      <p class="place-name">Repository guide</p>
-      <h1>Use, data, and repository structure</h1>
-      <p><strong>Authors:</strong> Ali JahaniRahaei and Giacomo Chiesa.</p>
-      <p><a href="https://alijahanirahaei.github.io/torino-urban-epw-atlas/">Published atlas</a> · <a href="https://github.com/alijahanirahaei/torino-urban-epw-atlas">Source repository</a></p>
-      <p>The atlas is a static website. Hosted users need no installation: query a coordinate, inspect the assignment and quality fields, then download the candidate EPW or exact UWG JSON configuration.</p>
-
-      <h2>Run locally</h2>
-      <pre><code>python3 -m http.server 8000</code></pre>
-      <p>Open <code>http://localhost:8000</code>. Serving over HTTP is required because browsers can block local GeoJSON requests from a <code>file://</code> page.</p>
-
-      <h2>Command-line lookup</h2>
-      <pre><code>python3 scripts/lookup.py 45.0757395 7.6785426</code></pre>
-      <p>The command uses only the Python standard library and returns the same grid, morphology, category, EPW, configuration, and warning information as JSON.</p>
-
-      <h2>Primary research downloads</h2>
-      <table>
-        <thead><tr><th>Need</th><th>File</th></tr></thead>
-        <tbody>
-          <tr><td>Complete GIS package</td><td><a href="../data/spatial/torino_urban_morphology_epw_atlas.gpkg" download>GeoPackage</a></td></tr>
-          <tr><td>Non-spatial assignments</td><td><a href="../data/tables/grid_assignments.csv" download>CSV table</a></td></tr>
-          <tr><td>WGS84 spatial distribution</td><td><a href="../data/spatial/torino_urban_morphology_epw_atlas_wgs84.geojson.zip" download>Zipped GeoJSON</a></td></tr>
-          <tr><td>Field definitions</td><td><a href="../data/tables/data_dictionary.csv" download>Data dictionary</a></td></tr>
-        </tbody>
-      </table>
-
-      <h2>Repository automation</h2>
-      <p>GitHub Actions validates pushes and pull requests. The Pages workflow repeats validation before deploying the static atlas from <code>main</code>, and maintainers can also start it manually. The workflows use scoped GitHub permissions and store no deployment credentials.</p>
-
-      <h2>Scientific scope</h2>
-      <p>The four files are candidate UWG outputs. Displayed UHI is modeled relative to AvMY Caselle, not measured local UHI. Edge and outlier warnings should be retained in downstream interpretation.</p>
-
-      <h2>Licensing</h2>
-      <p>Software is MIT licensed. Derived data, figures, UWG configurations, and EPWs are CC BY 4.0 and require attribution to both authors.</p>
-
-      <div class="doc-links">
-        <a href="repository-guide.md">Complete file-by-file catalog</a>
-        <a href="data-guide.html">Data guide</a>
-        <a href="methodology.html">Method summary</a>
-        <a href="../DATA_LICENSE.md">Data license</a>
-      </div>
-    </main>
-  </body>
-</html>
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>repository-guide | Torino Urban EPW Atlas</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../assets/styles.css"><style>html,body{height:auto;overflow:auto}main{max-width:960px;margin:auto;padding:32px 24px 60px}h1{font-size:28px}h2{font-size:22px;margin-top:32px}p,li{line-height:1.65}table{border-collapse:collapse;width:100%;table-layout:fixed}td,th{border:1px solid #ccd3cf;padding:10px;vertical-align:top;text-align:left}td,code,a{overflow-wrap:anywhere}pre{overflow:auto;padding:16px;background:#f1f4f2}pre code{overflow-wrap:normal}img{max-width:100%}</style><main><a href="../index.html">Back to atlas</a><h1 id="use-data-and-repository-structure">Use, data, and repository structure</h1>
+<p><strong>Authors: Ali JahaniRahaei and Giacomo Chiesa.</strong></p>
+<p>The <a href="https://alijahanirahaei.github.io/torino-urban-epw-atlas/">published atlas</a>
+needs no installation. Enter a location, inspect its morphology and applicability
+flags, and download its candidate EPW and exact UWG JSON when available.
+This is modeled weather, not a measurement or certified local correction.</p>
+<h2 id="run-locally">Run Locally</h2>
+<p>Download or clone the public repository, open a terminal in its root, then run:</p>
+<pre><code class="language-bash">python3 -m http.server 8000
+</code></pre>
+<p>Open <code>http://localhost:8000</code>; stop with Ctrl+C. No database or backend is needed.
+Only basemap tiles require an external service. Avoid opening index.html as a
+file URL because browsers restrict local data loading.</p>
+<p>The Python standard-library equivalent is:</p>
+<pre><code class="language-bash">python3 scripts/lookup.py 45.0757395 7.6785426
+</code></pre>
+<h2 id="research-downloads">Research Downloads</h2>
+<p>The <a href="../data/spatial/torino_urban_morphology_epw_atlas.gpkg">GeoPackage</a> contains
+seven named layers. Open <code>morphology_k4</code>, <code>morphology_k7</code>, <code>morphology_k8</code> or
+<code>weather_categories</code> for convenient thematic maps, and <code>grid_assignments</code> for
+the full canonical attributes. See <a href="data-guide.md">data-guide.md</a>.</p>
+<p>Four exact JSON/EPW pairs, shapefiles, CSV, GeoJSON, field definitions and figures
+are listed below. The <a href="../research/README.md">research guide</a> describes supplied
+scientific evidence, portable reconstruction and the limits of reproducibility.</p>
+<h2 id="repository-automation">Repository Automation</h2>
+<p>GitHub Actions validates pull requests and validates <code>main</code> before deploying
+GitHub Pages. The site is staged from an explicit public-file allowlist; local
+environments, Git internals and research execution logs are never staged.
+Contributors can fork the repository and configure Pages to use GitHub Actions.
+No deployment token needs to be embedded in this project.</p>
+<h2 id="attribution">Attribution</h2>
+<p>Code is MIT licensed. Derived research outputs are CC BY 4.0 with attribution to
+both authors and the stated upstream sources. See <a href="../DATA_LICENSE.md">DATA_LICENSE.md</a>
+and <a href="../THIRD_PARTY_NOTICES.md">THIRD_PARTY_NOTICES.md</a>. The source weather DOI is
+not an atlas DOI; no atlas archival identifier is claimed until one is issued.</p>
+<h2 id="complete-file-catalog">Complete File Catalog</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.gitattributes</code></td>
+<td>Repository application, licensing, attribution, dependency, release or contributor metadata: .gitattributes</td>
+</tr>
+<tr>
+<td><code>.github/workflows/pages.yml</code></td>
+<td>Repository validation and allowlisted GitHub Pages deployment automation.</td>
+</tr>
+<tr>
+<td><code>.github/workflows/release.yml</code></td>
+<td>Repository validation and allowlisted GitHub Pages deployment automation.</td>
+</tr>
+<tr>
+<td><code>.github/workflows/validate.yml</code></td>
+<td>Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy.</td>
+</tr>
+<tr>
+<td><code>.gitignore</code></td>
+<td>Repository application, licensing, attribution, dependency, release or contributor metadata: .gitignore</td>
+</tr>
+<tr>
+<td><code>.nojekyll</code></td>
+<td>Repository application, licensing, attribution, dependency, release or contributor metadata: .nojekyll</td>
+</tr>
+<tr>
+<td><code>AUTHORS.md</code></td>
+<td>Repository application, licensing, attribution, dependency, release or contributor metadata: AUTHORS.md</td>
+</tr>
+<tr>
+<td><code>CHANGELOG.md</code></td>
+<td>Repository application, licensing, attribution, dependency, release or contributor metadata: CHANGELOG.md</td>
+</tr>
+<tr>
+<td><code>CITATION.cff</code></td>
+<td>Repository application, licensing, attribution, dependency, release or contributor metadata: CITATION.cff</td>
+</tr>
+<tr>
+<td><code>CONTRIBUTING.md</code></td>
+<td>Repository application, licensing, attribution, dependency, release or contributor metadata: CONTRIBUTING.md</td>
+</tr>
+<tr>
+<td><code>DATA_LICENSE.md</code></td>
+<td>Repository application, licensing, attribution, dependency, release or contributor metadata: DATA_LICENSE.md</td>
+</tr>
+<tr>
+<td><code>LICENSE</code></td>
+<td>Repository application, licensing, attribution, dependency, release or contributor metadata: LICENSE</td>
+</tr>
+<tr>
+<td><code>Makefile</code></td>
+<td>Repository application, licensing, attribution, dependency, release or contributor metadata: Makefile</td>
+</tr>
+<tr>
+<td><code>README.md</code></td>
+<td>Repository application, licensing, attribution, dependency, release or contributor metadata: README.md</td>
+</tr>
+<tr>
+<td><code>THIRD_PARTY_NOTICES.md</code></td>
+<td>Repository application, licensing, attribution, dependency, release or contributor metadata: THIRD_PARTY_NOTICES.md</td>
+</tr>
+<tr>
+<td><code>assets/app.js</code></td>
+<td>Repository application, licensing, attribution, dependency, release or contributor metadata: app.js</td>
+</tr>
+<tr>
+<td><code>assets/styles.css</code></td>
+<td>Repository application, licensing, attribution, dependency, release or contributor metadata: styles.css</td>
+</tr>
+<tr>
+<td><code>assets/vendor/leaflet-LICENSE.txt</code></td>
+<td>Bundled third-party browser asset; see THIRD_PARTY_NOTICES.md.</td>
+</tr>
+<tr>
+<td><code>assets/vendor/leaflet.css</code></td>
+<td>Bundled third-party browser asset; see THIRD_PARTY_NOTICES.md.</td>
+</tr>
+<tr>
+<td><code>assets/vendor/leaflet.js</code></td>
+<td>Bundled third-party browser asset; see THIRD_PARTY_NOTICES.md.</td>
+</tr>
+<tr>
+<td><code>assets/vendor/lucide-LICENSE.txt</code></td>
+<td>Bundled third-party browser asset; see THIRD_PARTY_NOTICES.md.</td>
+</tr>
+<tr>
+<td><code>assets/vendor/lucide.min.js</code></td>
+<td>Bundled third-party browser asset; see THIRD_PARTY_NOTICES.md.</td>
+</tr>
+<tr>
+<td><code>browser_qa_report.json</code></td>
+<td>Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy.</td>
+</tr>
+<tr>
+<td><code>checksums.sha256</code></td>
+<td>Repository application, licensing, attribution, dependency, release or contributor metadata: checksums.sha256</td>
+</tr>
+<tr>
+<td><code>data/README.md</code></td>
+<td>Repository application, licensing, attribution, dependency, release or contributor metadata: README.md</td>
+</tr>
+<tr>
+<td><code>data/configs/category_a_v0.2.0.json</code></td>
+<td>Exact annual UWG JSON for the named released weather category.</td>
+</tr>
+<tr>
+<td><code>data/configs/category_b_v0.2.0.json</code></td>
+<td>Exact annual UWG JSON for the named released weather category.</td>
+</tr>
+<tr>
+<td><code>data/configs/category_c_v0.2.0.json</code></td>
+<td>Exact annual UWG JSON for the named released weather category.</td>
+</tr>
+<tr>
+<td><code>data/configs/category_d_v0.2.0.json</code></td>
+<td>Exact annual UWG JSON for the named released weather category.</td>
+</tr>
+<tr>
+<td><code>data/epw/torino_urban_epw_A_v0.2.0.epw</code></td>
+<td>Annual representative modeled weather; category and hashes in epw_library_manifest.csv.</td>
+</tr>
+<tr>
+<td><code>data/epw/torino_urban_epw_B_v0.2.0.epw</code></td>
+<td>Annual representative modeled weather; category and hashes in epw_library_manifest.csv.</td>
+</tr>
+<tr>
+<td><code>data/epw/torino_urban_epw_C_v0.2.0.epw</code></td>
+<td>Annual representative modeled weather; category and hashes in epw_library_manifest.csv.</td>
+</tr>
+<tr>
+<td><code>data/epw/torino_urban_epw_D_v0.2.0.epw</code></td>
+<td>Annual representative modeled weather; category and hashes in epw_library_manifest.csv.</td>
+</tr>
+<tr>
+<td><code>data/figures/cluster_profiles_k4.png</code></td>
+<td>Research figure; corrected maps/profiles and source-relative UHI, with method/selection figures retained.</td>
+</tr>
+<tr>
+<td><code>data/figures/cluster_profiles_k7.png</code></td>
+<td>Research figure; corrected maps/profiles and source-relative UHI, with method/selection figures retained.</td>
+</tr>
+<tr>
+<td><code>data/figures/cluster_profiles_k8.png</code></td>
+<td>Research figure; corrected maps/profiles and source-relative UHI, with method/selection figures retained.</td>
+</tr>
+<tr>
+<td><code>data/figures/cluster_selection_diagnostics.png</code></td>
+<td>Research figure; corrected maps/profiles and source-relative UHI, with method/selection figures retained.</td>
+</tr>
+<tr>
+<td><code>data/figures/epw_uhi_by_period.png</code></td>
+<td>Research figure; corrected maps/profiles and source-relative UHI, with method/selection figures retained.</td>
+</tr>
+<tr>
+<td><code>data/figures/map_clusters_k4.png</code></td>
+<td>Research figure; corrected maps/profiles and source-relative UHI, with method/selection figures retained.</td>
+</tr>
+<tr>
+<td><code>data/figures/map_clusters_k7.png</code></td>
+<td>Research figure; corrected maps/profiles and source-relative UHI, with method/selection figures retained.</td>
+</tr>
+<tr>
+<td><code>data/figures/map_clusters_k8.png</code></td>
+<td>Research figure; corrected maps/profiles and source-relative UHI, with method/selection figures retained.</td>
+</tr>
+<tr>
+<td><code>data/figures/morphology_support_method.png</code></td>
+<td>Research figure; corrected maps/profiles and source-relative UHI, with method/selection figures retained.</td>
+</tr>
+<tr>
+<td><code>data/spatial/torino_clusters_k4_epsg3003.zip</code></td>
+<td>Spatial exchange archive; CRS and fields documented in data-guide.md.</td>
+</tr>
+<tr>
+<td><code>data/spatial/torino_clusters_k7_epsg3003.zip</code></td>
+<td>Spatial exchange archive; CRS and fields documented in data-guide.md.</td>
+</tr>
+<tr>
+<td><code>data/spatial/torino_clusters_k8_epsg3003.zip</code></td>
+<td>Spatial exchange archive; CRS and fields documented in data-guide.md.</td>
+</tr>
+<tr>
+<td><code>data/spatial/torino_epw_categories_epsg3003.zip</code></td>
+<td>Spatial exchange archive; CRS and fields documented in data-guide.md.</td>
+</tr>
+<tr>
+<td><code>data/spatial/torino_urban_morphology_epw_atlas.gpkg</code></td>
+<td>Seven-layer EPSG:3003 GIS package, including canonical grid and named thematic views.</td>
+</tr>
+<tr>
+<td><code>data/spatial/torino_urban_morphology_epw_atlas_wgs84.geojson.zip</code></td>
+<td>Spatial exchange archive; CRS and fields documented in data-guide.md.</td>
+</tr>
+<tr>
+<td><code>data/tables/cluster_medoids_k4_k7_k8.csv</code></td>
+<td>Tabular research export; field names, units and population identified in data/research guides.</td>
+</tr>
+<tr>
+<td><code>data/tables/cluster_profiles_k4_k7_k8.csv</code></td>
+<td>Tabular research export; field names, units and population identified in data/research guides.</td>
+</tr>
+<tr>
+<td><code>data/tables/cluster_selection_metrics_k2_k12.csv</code></td>
+<td>Tabular research export; field names, units and population identified in data/research guides.</td>
+</tr>
+<tr>
+<td><code>data/tables/corrected_distance_thresholds.csv</code></td>
+<td>Tabular research export; field names, units and population identified in data/research guides.</td>
+</tr>
+<tr>
+<td><code>data/tables/data_dictionary.csv</code></td>
+<td>Tabular research export; field names, units and population identified in data/research guides.</td>
+</tr>
+<tr>
+<td><code>data/tables/epw_library_manifest.csv</code></td>
+<td>Tabular research export; field names, units and population identified in data/research guides.</td>
+</tr>
+<tr>
+<td><code>data/tables/epw_period_metrics.csv</code></td>
+<td>Tabular research export; field names, units and population identified in data/research guides.</td>
+</tr>
+<tr>
+<td><code>data/tables/grid_assignments.csv</code></td>
+<td>Tabular research export; field names, units and population identified in data/research guides.</td>
+</tr>
+<tr>
+<td><code>docs/atlas-mobile.png</code></td>
+<td>Public user/research documentation or verified desktop/mobile atlas screenshot.</td>
+</tr>
+<tr>
+<td><code>docs/atlas-preview.png</code></td>
+<td>Public user/research documentation or verified desktop/mobile atlas screenshot.</td>
+</tr>
+<tr>
+<td><code>docs/data-guide.html</code></td>
+<td>Public user/research documentation or verified desktop/mobile atlas screenshot.</td>
+</tr>
+<tr>
+<td><code>docs/data-guide.md</code></td>
+<td>Public user/research documentation or verified desktop/mobile atlas screenshot.</td>
+</tr>
+<tr>
+<td><code>docs/methodology.html</code></td>
+<td>Public user/research documentation or verified desktop/mobile atlas screenshot.</td>
+</tr>
+<tr>
+<td><code>docs/methodology.md</code></td>
+<td>Public user/research documentation or verified desktop/mobile atlas screenshot.</td>
+</tr>
+<tr>
+<td><code>docs/release-notes-v0.2.0.md</code></td>
+<td>Public user/research documentation or verified desktop/mobile atlas screenshot.</td>
+</tr>
+<tr>
+<td><code>docs/repository-guide-intro.md</code></td>
+<td>Public user/research documentation or verified desktop/mobile atlas screenshot.</td>
+</tr>
+<tr>
+<td><code>docs/repository-guide.html</code></td>
+<td>Public user/research documentation or verified desktop/mobile atlas screenshot.</td>
+</tr>
+<tr>
+<td><code>docs/repository-guide.md</code></td>
+<td>Public user/research documentation or verified desktop/mobile atlas screenshot.</td>
+</tr>
+<tr>
+<td><code>docs/validation.html</code></td>
+<td>Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy.</td>
+</tr>
+<tr>
+<td><code>docs/validation.md</code></td>
+<td>Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy.</td>
+</tr>
+<tr>
+<td><code>index.html</code></td>
+<td>Repository application, licensing, attribution, dependency, release or contributor metadata: index.html</td>
+</tr>
+<tr>
+<td><code>package-lock.json</code></td>
+<td>Repository application, licensing, attribution, dependency, release or contributor metadata: package-lock.json</td>
+</tr>
+<tr>
+<td><code>package.json</code></td>
+<td>Repository application, licensing, attribution, dependency, release or contributor metadata: package.json</td>
+</tr>
+<tr>
+<td><code>release_manifest.json</code></td>
+<td>Repository application, licensing, attribution, dependency, release or contributor metadata: release_manifest.json</td>
+</tr>
+<tr>
+<td><code>requirements.txt</code></td>
+<td>Repository application, licensing, attribution, dependency, release or contributor metadata: requirements.txt</td>
+</tr>
+<tr>
+<td><code>research/README.md</code></td>
+<td>Repository application, licensing, attribution, dependency, release or contributor metadata: README.md</td>
+</tr>
+<tr>
+<td><code>research/evidence/buffered_spatial_stability.csv</code></td>
+<td>Curated scientific diagnostic table; interpretation and populations in research/README.md.</td>
+</tr>
+<tr>
+<td><code>research/evidence/feature_sensitivity.csv</code></td>
+<td>Curated scientific diagnostic table; interpretation and populations in research/README.md.</td>
+</tr>
+<tr>
+<td><code>research/evidence/hdbscan_sweep.csv</code></td>
+<td>Curated scientific diagnostic table; interpretation and populations in research/README.md.</td>
+</tr>
+<tr>
+<td><code>research/evidence/nonmedoid_annual_results.csv</code></td>
+<td>Curated scientific diagnostic table; interpretation and populations in research/README.md.</td>
+</tr>
+<tr>
+<td><code>research/evidence/nonmedoid_sampling.csv</code></td>
+<td>Curated scientific diagnostic table; interpretation and populations in research/README.md.</td>
+</tr>
+<tr>
+<td><code>research/evidence/nonmedoid_weighted_summary.csv</code></td>
+<td>Curated scientific diagnostic table; interpretation and populations in research/README.md.</td>
+</tr>
+<tr>
+<td><code>research/inputs/archived_atlas_v0.1.gpkg.zip</code></td>
+<td>Frozen reconstruction input; historical fields are evidence, not current recommendations.</td>
+</tr>
+<tr>
+<td><code>research/inputs/candidate_cluster_descriptors.csv</code></td>
+<td>Frozen reconstruction input; historical fields are evidence, not current recommendations.</td>
+</tr>
+<tr>
+<td><code>research/inputs/canopy_corrected_fixed_assignments.csv</code></td>
+<td>Frozen reconstruction input; historical fields are evidence, not current recommendations.</td>
+</tr>
+<tr>
+<td><code>research/inputs/diagnostic_corrected_features.csv</code></td>
+<td>Frozen reconstruction input; historical fields are evidence, not current recommendations.</td>
+</tr>
+<tr>
+<td><code>research/inputs/k7_hourly_temperature_precision3.csv.gz</code></td>
+<td>Frozen reconstruction input; historical fields are evidence, not current recommendations.</td>
+</tr>
+<tr>
+<td><code>research/inputs/library_provenance.csv</code></td>
+<td>Frozen reconstruction input; historical fields are evidence, not current recommendations.</td>
+</tr>
+<tr>
+<td><code>research/inputs/robust_scale_stats.csv</code></td>
+<td>Frozen reconstruction input; historical fields are evidence, not current recommendations.</td>
+</tr>
+<tr>
+<td><code>research/uwg/configs/k7_cluster_00_grid_12618.json</code></td>
+<td>Exact annual k7-medoid UWG configuration, indexed and hashed in the run manifest.</td>
+</tr>
+<tr>
+<td><code>research/uwg/configs/k7_cluster_01_grid_3788.json</code></td>
+<td>Exact annual k7-medoid UWG configuration, indexed and hashed in the run manifest.</td>
+</tr>
+<tr>
+<td><code>research/uwg/configs/k7_cluster_02_grid_10026.json</code></td>
+<td>Exact annual k7-medoid UWG configuration, indexed and hashed in the run manifest.</td>
+</tr>
+<tr>
+<td><code>research/uwg/configs/k7_cluster_03_grid_10925.json</code></td>
+<td>Exact annual k7-medoid UWG configuration, indexed and hashed in the run manifest.</td>
+</tr>
+<tr>
+<td><code>research/uwg/configs/k7_cluster_04_grid_5210.json</code></td>
+<td>Exact annual k7-medoid UWG configuration, indexed and hashed in the run manifest.</td>
+</tr>
+<tr>
+<td><code>research/uwg/configs/k7_cluster_05_grid_4849.json</code></td>
+<td>Exact annual k7-medoid UWG configuration, indexed and hashed in the run manifest.</td>
+</tr>
+<tr>
+<td><code>research/uwg/configs/k7_cluster_06_grid_1524.json</code></td>
+<td>Exact annual k7-medoid UWG configuration, indexed and hashed in the run manifest.</td>
+</tr>
+<tr>
+<td><code>research/uwg/reproduce_uwg.py</code></td>
+<td>Pinned UWG 5.3.4 runner with forcing preparation, hashes, resume and heartbeat.</td>
+</tr>
+<tr>
+<td><code>research/uwg/run_manifest.csv</code></td>
+<td>Tabular research export; field names, units and population identified in data/research guides.</td>
+</tr>
+<tr>
+<td><code>scripts/build_release.py</code></td>
+<td>Portable reconstruction of assignments, spatial exports, metrics and figures from supplied inputs.</td>
+</tr>
+<tr>
+<td><code>scripts/lookup.py</code></td>
+<td>Standard-library coordinate lookup with explicit domain and outside-city handling.</td>
+</tr>
+<tr>
+<td><code>scripts/release_docs.py</code></td>
+<td>Builds complete field dictionary, file catalog and browser-readable guides.</td>
+</tr>
+<tr>
+<td><code>scripts/release_figures.py</code></td>
+<td>Regenerates corrected maps, profiles and released EPW UHI chart.</td>
+</tr>
+<tr>
+<td><code>scripts/reproduce_reduction.py</code></td>
+<td>Exhaustive representative subset search from seven supplied hourly temperature series.</td>
+</tr>
+<tr>
+<td><code>scripts/stage_site.py</code></td>
+<td>Repository application, licensing, attribution, dependency, release or contributor metadata: stage_site.py</td>
+</tr>
+<tr>
+<td><code>scripts/validate_release.py</code></td>
+<td>Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy.</td>
+</tr>
+<tr>
+<td><code>tests/browser_qa.cjs</code></td>
+<td>Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy.</td>
+</tr>
+<tr>
+<td><code>tests/test_lookup.py</code></td>
+<td>Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy.</td>
+</tr>
+<tr>
+<td><code>tests/test_release_science.py</code></td>
+<td>Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy.</td>
+</tr>
+<tr>
+<td><code>validation_report.json</code></td>
+<td>Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy.</td>
+</tr>
+<tr>
+<td><code>web/data/metadata.json</code></td>
+<td>Browser lookup geometry, metadata or boundary generated from the canonical grid.</td>
+</tr>
+<tr>
+<td><code>web/data/torino_boundary.geojson</code></td>
+<td>Browser lookup geometry, metadata or boundary generated from the canonical grid.</td>
+</tr>
+<tr>
+<td><code>web/data/torino_lookup.geojson</code></td>
+<td>Browser lookup geometry, metadata or boundary generated from the canonical grid.</td>
+</tr>
+</tbody>
+</table></main></html>

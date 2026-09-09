@@ -1,9 +1,9 @@
 cff-version: 1.2.0
-message: "If you use this atlas, please cite the accompanying paper and this release. Code is MIT licensed; derived data, configurations, figures, and EPWs are CC BY 4.0."
+message: "Please cite this atlas version and acknowledge the stated upstream sources. Code is MIT licensed; derived data, configurations, figures, and EPWs are CC BY 4.0."
 title: "Torino Urban EPW Atlas"
 type: software
-version: 0.1.0
-date-released: 2026-07-23
+version: 0.2.0
+date-released: 2026-09-09
 authors:
   - family-names: "JahaniRahaei"
     given-names: "Ali"
@@ -19,13 +19,3 @@ keywords:
   - urban heat island
   - Torino
   - geospatial classification
-preferred-citation:
-  type: generic
-  title: "From urban morphology to a practical EPW library: error-controlled weather-file reduction for Torino, Italy"
-  authors:
-    - family-names: "JahaniRahaei"
-      given-names: "Ali"
-    - family-names: "Chiesa"
-      given-names: "Giacomo"
-  year: 2026
-  notes: "Companion article and archival identifiers will be added when they become publicly available."

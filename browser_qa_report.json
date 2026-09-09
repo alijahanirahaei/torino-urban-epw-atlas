@@ -1,20 +1,22 @@
 {
   "status": "PASS",
-  "baseUrl": "http://127.0.0.1:8011",
+  "baseUrl": "http://127.0.0.1:8127",
   "desktop": {
     "viewport": {
       "width": 1440,
       "height": 900
     },
-    "category": "C · Tall/dense",
+    "category": "C · Mixed/tall urban",
     "legendTitle": "k=7 morphology classes",
-    "downloadHref": "data/epw/torino_urban_epw_C_tall_dense_zone4A_flrh305.epw",
-    "configHref": "data/configs/category_c_tall_dense.json",
+    "downloadHref": "data/epw/torino_urban_epw_C_v0.2.0.epw",
+    "configHref": "data/configs/category_c_v0.2.0.json",
     "disclosure": "*UWG-simulated difference from AvMY Caselle, not measured local UHI. Values inherit the model assumptions and may differ from observations.",
     "dataLicenseHref": "DATA_LICENSE.md",
     "guideHref": "docs/repository-guide.html",
     "repositoryHref": "https://github.com/alijahanirahaei/torino-urban-epw-atlas",
     "authorsVerified": true,
+    "loadedTiles": 25,
+    "restrictedDownloadsVerified": true,
     "layout": {
       "bodyWidth": 1440,
       "viewportWidth": 1440,
@@ -49,15 +51,17 @@
       "width": 390,
       "height": 844
     },
-    "category": "C · Tall/dense",
+    "category": "C · Mixed/tall urban",
     "legendTitle": "k=7 morphology classes",
-    "downloadHref": "data/epw/torino_urban_epw_C_tall_dense_zone4A_flrh305.epw",
-    "configHref": "data/configs/category_c_tall_dense.json",
+    "downloadHref": "data/epw/torino_urban_epw_C_v0.2.0.epw",
+    "configHref": "data/configs/category_c_v0.2.0.json",
     "disclosure": "*UWG-simulated difference from AvMY Caselle, not measured local UHI. Values inherit the model assumptions and may differ from observations.",
     "dataLicenseHref": "DATA_LICENSE.md",
     "guideHref": "docs/repository-guide.html",
     "repositoryHref": "https://github.com/alijahanirahaei/torino-urban-epw-atlas",
     "authorsVerified": true,
+    "loadedTiles": 6,
+    "restrictedDownloadsVerified": true,
     "layout": {
       "bodyWidth": 390,
       "viewportWidth": 390,
