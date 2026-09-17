@@ -22,6 +22,11 @@ the full canonical attributes. See <a href="data-guide.md">data-guide.md</a>.</p
 <p>Four exact JSON/EPW pairs, shapefiles, CSV, GeoJSON, field definitions and figures
 are listed below. The <a href="../research/README.md">research guide</a> describes supplied
 scientific evidence, portable reconstruction and the limits of reproducibility.</p>
+<p>The <a href="../research/supplementary/README.md">supplementary package</a> includes its
+PDF/Word document, CSV tables S1-S13, figures S1-S6 and heat-sensitivity
+configurations, results and runner. A separate
+<a href="https://github.com/alijahanirahaei/torino-urban-epw-atlas/releases/tag/supplement-v1.0.0">supplement-v1.0.0 release</a>
+provides the complete ZIP. The atlas data and weather files remain at v0.2.0.</p>
 <h2 id="repository-automation">Repository Automation</h2>
 <p>GitHub Actions validates pull requests and validates <code>main</code> before deploying
 GitHub Pages. The site is staged from an explicit public-file allowlist; local
@@ -52,6 +57,10 @@ not an atlas DOI; no atlas archival identifier is claimed until one is issued.</
 </tr>
 <tr>
 <td><code>.github/workflows/release.yml</code></td>
+<td>Repository validation and allowlisted GitHub Pages deployment automation.</td>
+</tr>
+<tr>
+<td><code>.github/workflows/supplement.yml</code></td>
 <td>Repository validation and allowlisted GitHub Pages deployment automation.</td>
 </tr>
 <tr>
@@ -291,6 +300,10 @@ not an atlas DOI; no atlas archival identifier is claimed until one is issued.</
 <td>Public user/research documentation or verified desktop/mobile atlas screenshot.</td>
 </tr>
 <tr>
+<td><code>docs/release-notes-supplement-v1.0.0.md</code></td>
+<td>Public user/research documentation or verified desktop/mobile atlas screenshot.</td>
+</tr>
+<tr>
 <td><code>docs/release-notes-v0.2.0.md</code></td>
 <td>Public user/research documentation or verified desktop/mobile atlas screenshot.</td>
 </tr>
@@ -391,6 +404,654 @@ not an atlas DOI; no atlas archival identifier is claimed until one is issued.</
 <td>Frozen reconstruction input; historical fields are evidence, not current recommendations.</td>
 </tr>
 <tr>
+<td><code>research/supplementary/CHECKSUMS.sha256</code></td>
+<td>Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/CITATION.cff</code></td>
+<td>Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/FILE_INDEX.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/LICENSE.md</code></td>
+<td>Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/LICENSES/MIT.txt</code></td>
+<td>Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/README.md</code></td>
+<td>Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/SUPPLEMENTARY_MATERIAL.md</code></td>
+<td>Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/configs/category_A.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/configs/category_B.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/configs/category_C.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/configs/category_D.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/configs/common_template.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/configuration_provenance.json</code></td>
+<td>Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/figures/figureS1_official_building_use.png</code></td>
+<td>Clean supplementary document or numbered research figure; see research/supplementary/README.md.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/figures/figureS2_official_building_use.png</code></td>
+<td>Clean supplementary document or numbered research figure; see research/supplementary/README.md.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/figures/figureS3_medoid_reduction_curves.pdf</code></td>
+<td>Clean supplementary document or numbered research figure; see research/supplementary/README.md.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/figures/figureS3_medoid_reduction_curves.png</code></td>
+<td>Clean supplementary document or numbered research figure; see research/supplementary/README.md.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/figures/figureS4_existing_vs_regenerated_files.pdf</code></td>
+<td>Clean supplementary document or numbered research figure; see research/supplementary/README.md.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/figures/figureS4_existing_vs_regenerated_files.png</code></td>
+<td>Clean supplementary document or numbered research figure; see research/supplementary/README.md.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/figures/figureS5_nonmedoid_spatial_tests.pdf</code></td>
+<td>Clean supplementary document or numbered research figure; see research/supplementary/README.md.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/figures/figureS5_nonmedoid_spatial_tests.png</code></td>
+<td>Clean supplementary document or numbered research figure; see research/supplementary/README.md.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/figures/figureS6_traffic_timing_profiles.pdf</code></td>
+<td>Clean supplementary document or numbered research figure; see research/supplementary/README.md.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/figures/figureS6_traffic_timing_profiles.png</code></td>
+<td>Clean supplementary document or numbered research figure; see research/supplementary/README.md.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/README.md</code></td>
+<td>Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/changed_keys.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/baseline__C0__grid_12618.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/baseline__C1__grid_3788.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/baseline__C2__grid_10026.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/baseline__C3__grid_10925.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/baseline__C4__grid_5210.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/baseline__C5__grid_4849.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/baseline__C6__grid_1524.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/baseline__N10776__grid_10776.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/baseline__N1121__grid_1121.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/baseline__N11610__grid_11610.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/baseline__N12052__grid_12052.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/baseline__N1754__grid_1754.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/baseline__N4239__grid_4239.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/baseline__N4735__grid_4735.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/baseline__N5953__grid_5953.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/baseline__N6199__grid_6199.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/baseline__N8117__grid_8117.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/baseline__N8703__grid_8703.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/baseline__N8769__grid_8769.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/baseline__N9106__grid_9106.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/baseline__N921__grid_921.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/heat_10__C0__grid_12618.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/heat_10__C1__grid_3788.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/heat_10__C2__grid_10026.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/heat_10__C3__grid_10925.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/heat_10__C4__grid_5210.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/heat_10__C5__grid_4849.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/heat_10__C6__grid_1524.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/heat_40__C0__grid_12618.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/heat_40__C1__grid_3788.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/heat_40__C2__grid_10026.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/heat_40__C3__grid_10925.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/heat_40__C4__grid_5210.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/heat_40__C5__grid_4849.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/heat_40__C6__grid_1524.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/hvac_0__C0__grid_12618.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/hvac_0__C1__grid_3788.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/hvac_0__C2__grid_10026.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/hvac_0__C3__grid_10925.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/hvac_0__C4__grid_5210.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/hvac_0__C5__grid_4849.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/hvac_0__C6__grid_1524.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/hvac_half__C0__grid_12618.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/hvac_half__C1__grid_3788.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/hvac_half__C2__grid_10026.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/hvac_half__C3__grid_10925.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/hvac_half__C4__grid_5210.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/hvac_half__C5__grid_4849.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/hvac_half__C6__grid_1524.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_down__C0__grid_12618.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_down__C1__grid_3788.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_down__C2__grid_10026.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_down__C3__grid_10925.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_down__C4__grid_5210.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_down__C5__grid_4849.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_down__C6__grid_1524.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_down__N10776__grid_10776.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_down__N1121__grid_1121.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_down__N11610__grid_11610.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_down__N12052__grid_12052.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_down__N1754__grid_1754.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_down__N4239__grid_4239.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_down__N4735__grid_4735.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_down__N5953__grid_5953.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_down__N6199__grid_6199.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_down__N8117__grid_8117.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_down__N8703__grid_8703.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_down__N8769__grid_8769.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_down__N9106__grid_9106.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_down__N921__grid_921.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_up__C0__grid_12618.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_up__C1__grid_3788.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_up__C2__grid_10026.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_up__C3__grid_10925.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_up__C4__grid_5210.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_up__C5__grid_4849.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_up__C6__grid_1524.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_up__N10776__grid_10776.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_up__N1121__grid_1121.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_up__N11610__grid_11610.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_up__N12052__grid_12052.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_up__N1754__grid_1754.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_up__N4239__grid_4239.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_up__N4735__grid_4735.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_up__N5953__grid_5953.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_up__N6199__grid_6199.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_up__N8117__grid_8117.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_up__N8703__grid_8703.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_up__N8769__grid_8769.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_up__N9106__grid_9106.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/spatial_road_up__N921__grid_921.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/timing_flat__C0__grid_12618.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/timing_flat__C1__grid_3788.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/timing_flat__C2__grid_10026.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/timing_flat__C3__grid_10925.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/timing_flat__C4__grid_5210.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/timing_flat__C5__grid_4849.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/timing_flat__C6__grid_1524.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/timing_late__C0__grid_12618.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/timing_late__C1__grid_3788.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/timing_late__C2__grid_10026.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/timing_late__C3__grid_10925.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/timing_late__C4__grid_5210.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/timing_late__C5__grid_4849.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/configs/timing_late__C6__grid_1524.json</code></td>
+<td>Supplementary UWG configuration; exact roles and hashes are documented in the package manifests.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/fit_population_heat_scenarios.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/nonmedoid_selection_frozen.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/reproduce_heat.py</code></td>
+<td>Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/results/all_127_subsets.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/results/epw_field_scope.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/results/medoid_compression_errors.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/results/medoid_pairwise_periods.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/results/monthly_day_night_medoid_response.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/results/nonmedoid_errors.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/results/output_quality.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/results/reduction_curves.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/results/scenario_summary.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/results/support_characteristics.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/results/support_responses.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/run_manifest.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/heat_sensitivity/schedule_audit.json</code></td>
+<td>Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/source_hashes.json</code></td>
+<td>Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/supplementary_material.docx</code></td>
+<td>Clean supplementary document or numbered research figure; see research/supplementary/README.md.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/supplementary_material.pdf</code></td>
+<td>Clean supplementary document or numbered research figure; see research/supplementary/README.md.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/tables/S10_heat_scenarios.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/tables/S11_heat_scenario_summary.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/tables/S12_heat_nonmedoid_summary.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/tables/S13_heat_support_characteristics.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/tables/S1_minimax_curve.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/tables/S2_representative_centres.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/tables/S3_feature_sensitivity.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/tables/S4_parameter_scenarios.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/tables/S5_station_2022_intervals.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/tables/S6_station_2022_periods.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/tables/S7_canopy_imputation.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/tables/S8_scale_statistics.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/tables/S9_industrial_sites.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
 <td><code>research/uwg/configs/k7_cluster_00_grid_12618.json</code></td>
 <td>Exact annual k7-medoid UWG configuration, indexed and hashed in the run manifest.</td>
 </tr>
@@ -455,6 +1116,10 @@ not an atlas DOI; no atlas archival identifier is claimed until one is issued.</
 <td>Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy.</td>
 </tr>
 <tr>
+<td><code>scripts/validate_supplement.py</code></td>
+<td>Validates supplementary files and creates the deterministic versioned ZIP and document downloads.</td>
+</tr>
+<tr>
 <td><code>tests/browser_qa.cjs</code></td>
 <td>Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy.</td>
 </tr>
@@ -464,6 +1129,10 @@ not an atlas DOI; no atlas archival identifier is claimed until one is issued.</
 </tr>
 <tr>
 <td><code>tests/test_release_science.py</code></td>
+<td>Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy.</td>
+</tr>
+<tr>
+<td><code>tests/test_supplement.py</code></td>
 <td>Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy.</td>
 </tr>
 <tr>

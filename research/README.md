@@ -4,6 +4,17 @@ This directory contains versioned inputs, configurations and evidence supporting
 the atlas. Derived data are CC BY 4.0; code is MIT licensed.
 Credit Ali JahaniRahaei and Giacomo Chiesa, together with the upstream sources.
 
+## Supplementary Package
+
+[Supplementary material version 1.0.0](supplementary/README.md) contains Sections
+S1-S7, all 13 supplementary CSV tables, six figures, exact configurations,
+heat-sensitivity results and a reusable annual runner. Read the PDF or download
+the complete package from its [tagged release](https://github.com/alijahanirahaei/torino-urban-epw-atlas/releases/tag/supplement-v1.0.0).
+This supplement does not change the atlas v0.2.0 classifications or EPWs.
+`supplementary/FILE_INDEX.csv` identifies every content file and its checksum.
+The limits below still apply; providing the supplement does not imply complete
+reconstruction of all scientific analyses from raw observations.
+
 ## Reproduction Levels
 
 1. **Use:** serve the static atlas or query coordinates without GIS/UWG installs.

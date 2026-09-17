@@ -1,0 +1,45 @@
+{
+  "description": "Hashes of source analysis artifacts used to prepare the supplement. These are descriptive source identifiers, not file paths in this package. Packaged-file hashes are in CHECKSUMS.sha256.",
+  "sources": [
+    {
+      "source_id": "medoid_reduction_curve_source",
+      "sha256": "9697dbfa1b1b5f77fd193ea87275c8e0c503ad240aa221ea1f417bb4d1e5e841"
+    },
+    {
+      "source_id": "representative_centres_source",
+      "sha256": "cbec4c3ca3c558b8d351c5938ca2aecedbb472278bff497422901ed2df9eabc6"
+    },
+    {
+      "source_id": "clustering_feature_sensitivity_source",
+      "sha256": "06fc1caee8199893dac0bcda5f2b36e3e22705f68dd1ada8fbceac455d4d1f17"
+    },
+    {
+      "source_id": "common_parameter_scenarios_source",
+      "sha256": "89a7c2b9d731e290a86800ec632cd795e3600e0e9a66f8687825f9eb22b52d8d"
+    },
+    {
+      "source_id": "station_2022_temporal_intervals_source",
+      "sha256": "87fb11d8b90a399db611a0386f31b758c98927d090c2061d915be57e0b8542cb"
+    },
+    {
+      "source_id": "station_2022_period_metrics_source",
+      "sha256": "297debf20240f7221146e682190657e3abf3ef3354e0a65a8a4693f574edc203"
+    },
+    {
+      "source_id": "canopy_imputation_donor_groups_source",
+      "sha256": "ad9691727ce676c878c122c6cf68f5b55b18880e7133f26dc7a6fbf485e5f8ab"
+    },
+    {
+      "source_id": "support_scale_statistics_source",
+      "sha256": "5781e2dca2d54f2a765d4f6724445467f7845ce4f87a6610675d836cf4cc4ca2"
+    },
+    {
+      "source_id": "industrial_site_summary_source",
+      "sha256": "d8de90b8da32bbddaa269fe1b95e9e953bb601b3a6e5e584c552bbb81a5c7161"
+    },
+    {
+      "source_id": "representative_configuration_provenance_source",
+      "sha256": "4762ef8eb79a3ae8ac80af0b66df9dc79f06e2732f740cbafedb99cb05f5f8f1"
+    }
+  ]
+}

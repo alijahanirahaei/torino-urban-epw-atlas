@@ -1,0 +1,9 @@
+precision,station_id,station_label,qc_variant,period,candidate_model,block_days,replicates,n_days,n_hours,caselle_rmse_c,candidate_rmse_c,rmse_improvement_vs_caselle_c,improvement_ci_low_c,improvement_ci_high_c,bootstrap_conclusion
+3,consolata,Consolata,primary,annual,exact_support_uwg,7,5000,365,8760,2.103664176630037,1.3707204560819326,0.732943720548104,0.5913917594154429,0.8683390213228149,clear_improvement
+3,consolata,Consolata,primary,annual,assigned_category_uwg,7,5000,365,8760,2.103664176630037,1.321799734069538,0.7818644425604986,0.6436359520532275,0.9152090630643488,clear_improvement
+3,giardini_reali,Giardini Reali,primary,annual,exact_support_uwg,7,5000,365,8760,1.3754953445658675,2.5659444095942248,-1.1904490650283572,-1.3482306624133842,-1.0311333450659943,clear_degradation
+3,giardini_reali,Giardini Reali,primary,annual,assigned_category_uwg,7,5000,365,8760,1.3754953445658675,2.566814252057638,-1.1913189074917705,-1.3486933253644813,-1.0324902612746898,clear_degradation
+3,alenia,Alenia,primary,annual,exact_support_uwg,7,5000,365,8760,1.5930471075137709,1.8526301235734264,-0.2595830160596559,-0.4219517474602823,-0.1123696258382803,clear_degradation
+3,alenia,Alenia,primary,annual,assigned_category_uwg,7,5000,365,8760,1.5930471075137709,1.9106169227688672,-0.3175698152550967,-0.4794571952245886,-0.1696794791962636,clear_degradation
+3,reiss_romoli,Reiss Romoli,primary,annual,exact_support_uwg,7,5000,365,8760,1.45840932613484,1.929355239084932,-0.4709459129500921,-0.5637688929658934,-0.3782184764020497,clear_degradation
+3,reiss_romoli,Reiss Romoli,primary,annual,assigned_category_uwg,7,5000,365,8760,1.45840932613484,2.0276065883619903,-0.5691972622271504,-0.6667736394946379,-0.472399244465979,clear_degradation

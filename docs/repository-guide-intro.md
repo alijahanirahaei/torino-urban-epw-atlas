@@ -36,6 +36,12 @@ Four exact JSON/EPW pairs, shapefiles, CSV, GeoJSON, field definitions and figur
 are listed below. The [research guide](../research/README.md) describes supplied
 scientific evidence, portable reconstruction and the limits of reproducibility.
 
+The [supplementary package](../research/supplementary/README.md) includes its
+PDF/Word document, CSV tables S1-S13, figures S1-S6 and heat-sensitivity
+configurations, results and runner. A separate
+[supplement-v1.0.0 release](https://github.com/alijahanirahaei/torino-urban-epw-atlas/releases/tag/supplement-v1.0.0)
+provides the complete ZIP. The atlas data and weather files remain at v0.2.0.
+
 ## Repository Automation
 
 GitHub Actions validates pull requests and validates `main` before deploying

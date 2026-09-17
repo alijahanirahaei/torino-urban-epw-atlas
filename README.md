@@ -14,6 +14,7 @@ and the machine-readable [CITATION.cff](CITATION.cff).
 
 - **Web atlas:** https://alijahanirahaei.github.io/torino-urban-epw-atlas/
 - **Source repository:** https://github.com/alijahanirahaei/torino-urban-epw-atlas
+- **Supplementary methods and data:** [version 1.0.0 downloads](https://github.com/alijahanirahaei/torino-urban-epw-atlas/releases/tag/supplement-v1.0.0)
 
 ![Torino Urban EPW Atlas](docs/atlas-preview.png)
 
@@ -111,6 +112,7 @@ of the model and may differ from observations at a queried location.
 | `data/epw/` | Four annual candidate EPWs |
 | `data/configs/` | Exact UWG JSON configurations for A-D |
 | `data/figures/` | k=4/7/8 maps, profiles, diagnostics, and method figures |
+| `research/supplementary/` | Sections S1-S7, supplementary CSV tables and figures, heat-sensitivity configurations, runner and file index |
 | `scripts/build_release.py` | Rebuilds the public package from validated source artifacts |
 | `scripts/validate_release.py` | Validates geometry, tables, EPWs, hashes, configs, and known lookups |
 | `checksums.sha256` | SHA-256 hashes for every distributed data and web-data file |
@@ -121,6 +123,18 @@ and [validation notes](docs/validation.md) for details. The
 every file in the repository and identifies which files visitors, researchers,
 and maintainers actually need.
 
+## Supplementary Material
+
+The [supplementary package](research/supplementary/README.md) contains the
+readable PDF and Word document, all 13 CSV tables, six figures, and the exact
+configurations and results for the heat-sensitivity experiment. Its
+[version 1.0.0 release](https://github.com/alijahanirahaei/torino-urban-epw-atlas/releases/tag/supplement-v1.0.0)
+provides a complete ZIP and separate document downloads. The supplement is
+versioned separately; the atlas data and EPWs remain at v0.2.0.
+
+Run `python3 scripts/validate_supplement.py` to check its file inventory,
+checksums, CSV structure and configuration provenance without simulating UWG.
+
 ## Rebuild And Validate
 
 Install the maintainer dependencies:
@@ -130,6 +144,7 @@ python3 -m pip install -r requirements.txt
 python3 scripts/build_release.py
 python3 scripts/reproduce_reduction.py --check
 python3 scripts/validate_release.py
+python3 scripts/validate_supplement.py
 python3 -m unittest discover -s tests -v
 ```
 

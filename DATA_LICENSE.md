@@ -12,7 +12,7 @@ indicate whether changes were made. It does not imply endorsement by the authors
 
 Please credit:
 
-> Torino Urban EPW Atlas, Ali JahaniRahaei and Giacomo Chiesa, version 0.1.0
+> Torino Urban EPW Atlas, Ali JahaniRahaei and Giacomo Chiesa, version 0.2.0
 > (2026).
 
 Where space permits, please also link to the

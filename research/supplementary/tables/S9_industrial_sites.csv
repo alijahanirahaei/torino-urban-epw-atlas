@@ -1,0 +1,3 @@
+site_id,overlapping_tail_supports,min_built_fraction,max_built_fraction,max_source_overlap_excess_frac,max_abs_stored_area_relative_delta,min_height_valid_footprint_frac,median_industrial_share,min_industrial_share,median_largest_unit_share,dominant_named_facility
+site_01,17,0.8069352551851235,0.9007083314996973,8.152762158520478e-16,5.916282289652753e-13,0.9999034745453248,0.9998089323003267,0.9610285275498504,0.7470972771273439,FIAT MIRAFIORI
+site_02,3,0.7975086973461791,0.8267689442974575,5.838949328796522e-16,3.1603313242101204e-13,0.9747593569743186,0.9879780483090088,0.9647666834802692,0.7301676682710024,IVECO

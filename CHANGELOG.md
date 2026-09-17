@@ -1,5 +1,14 @@
 # Changelog
 
+## Supplement 1.0.0 - 2026-09-17
+
+- Published the separate supplementary document, tables S1-S13 and figures S1-S6.
+- Added exact heat-sensitivity configurations, results, runner, file index,
+  licences, citation metadata and integrity checks.
+- Added a separately tagged supplementary release with PDF, Word and ZIP downloads.
+- Updated research documentation and the complete file catalog.
+- Atlas v0.2.0 classifications, EPWs, model assumptions and restrictions are unchanged.
+
 ## 0.2.0 - 2026-09-09
 
 - Updated fixed-template representatives to C1/C2/C4/C6; reassigned morphology

@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "Please cite both authors, this supplement version, and the accompanying article when available."
+type: dataset
+title: "Supplementary material for Morphology-based classification and error-controlled reduction of urban weather files with Torino as a case study"
+authors:
+  - given-names: Ali
+    family-names: JahaniRahaei
+  - given-names: Giacomo
+    family-names: Chiesa
+version: 1.0.0
+date-released: 2026-09-17
+url: "https://github.com/alijahanirahaei/torino-urban-epw-atlas/releases/tag/supplement-v1.0.0"
+repository-code: "https://github.com/alijahanirahaei/torino-urban-epw-atlas"
+license:
+  - CC-BY-4.0
+  - MIT

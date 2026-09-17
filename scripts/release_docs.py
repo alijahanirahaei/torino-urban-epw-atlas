@@ -176,6 +176,16 @@ def write_dictionary(repo, grid):
 
 def describe(path):
     p = Path(path)
+    if p.parts[:2] == ("research", "supplementary"):
+        if "configs" in p.parts:
+            return "Supplementary UWG configuration; exact roles and hashes are documented in the package manifests."
+        if p.suffix == ".csv":
+            return "Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv."
+        if p.suffix in {".docx", ".pdf", ".png"}:
+            return "Clean supplementary document or numbered research figure; see research/supplementary/README.md."
+        return "Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv."
+    if p.name == "validate_supplement.py":
+        return "Validates supplementary files and creates the deterministic versioned ZIP and document downloads."
     if p.parts[:2] == ("research", "inputs"):
         return "Frozen reconstruction input; historical fields are evidence, not current recommendations."
     if p.parts[:2] == ("research", "evidence"):

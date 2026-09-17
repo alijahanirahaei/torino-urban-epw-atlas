@@ -7,3 +7,6 @@
 *.gpkg binary
 *.zip binary
 *.png binary
+
+# Preserve archived supplementary file bytes and their SHA-256 provenance.
+research/supplementary/** -text

@@ -36,6 +36,12 @@ Four exact JSON/EPW pairs, shapefiles, CSV, GeoJSON, field definitions and figur
 are listed below. The [research guide](../research/README.md) describes supplied
 scientific evidence, portable reconstruction and the limits of reproducibility.
 
+The [supplementary package](../research/supplementary/README.md) includes its
+PDF/Word document, CSV tables S1-S13, figures S1-S6 and heat-sensitivity
+configurations, results and runner. A separate
+[supplement-v1.0.0 release](https://github.com/alijahanirahaei/torino-urban-epw-atlas/releases/tag/supplement-v1.0.0)
+provides the complete ZIP. The atlas data and weather files remain at v0.2.0.
+
 ## Repository Automation
 
 GitHub Actions validates pull requests and validates `main` before deploying
@@ -58,6 +64,7 @@ not an atlas DOI; no atlas archival identifier is claimed until one is issued.
 | `.gitattributes` | Repository application, licensing, attribution, dependency, release or contributor metadata: .gitattributes |
 | `.github/workflows/pages.yml` | Repository validation and allowlisted GitHub Pages deployment automation. |
 | `.github/workflows/release.yml` | Repository validation and allowlisted GitHub Pages deployment automation. |
+| `.github/workflows/supplement.yml` | Repository validation and allowlisted GitHub Pages deployment automation. |
 | `.github/workflows/validate.yml` | Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy. |
 | `.gitignore` | Repository application, licensing, attribution, dependency, release or contributor metadata: .gitignore |
 | `.nojekyll` | Repository application, licensing, attribution, dependency, release or contributor metadata: .nojekyll |
@@ -117,6 +124,7 @@ not an atlas DOI; no atlas archival identifier is claimed until one is issued.
 | `docs/data-guide.md` | Public user/research documentation or verified desktop/mobile atlas screenshot. |
 | `docs/methodology.html` | Public user/research documentation or verified desktop/mobile atlas screenshot. |
 | `docs/methodology.md` | Public user/research documentation or verified desktop/mobile atlas screenshot. |
+| `docs/release-notes-supplement-v1.0.0.md` | Public user/research documentation or verified desktop/mobile atlas screenshot. |
 | `docs/release-notes-v0.2.0.md` | Public user/research documentation or verified desktop/mobile atlas screenshot. |
 | `docs/repository-guide-intro.md` | Public user/research documentation or verified desktop/mobile atlas screenshot. |
 | `docs/repository-guide.html` | Public user/research documentation or verified desktop/mobile atlas screenshot. |
@@ -142,6 +150,168 @@ not an atlas DOI; no atlas archival identifier is claimed until one is issued.
 | `research/inputs/k7_hourly_temperature_precision3.csv.gz` | Frozen reconstruction input; historical fields are evidence, not current recommendations. |
 | `research/inputs/library_provenance.csv` | Frozen reconstruction input; historical fields are evidence, not current recommendations. |
 | `research/inputs/robust_scale_stats.csv` | Frozen reconstruction input; historical fields are evidence, not current recommendations. |
+| `research/supplementary/CHECKSUMS.sha256` | Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv. |
+| `research/supplementary/CITATION.cff` | Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv. |
+| `research/supplementary/FILE_INDEX.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/LICENSE.md` | Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv. |
+| `research/supplementary/LICENSES/MIT.txt` | Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv. |
+| `research/supplementary/README.md` | Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv. |
+| `research/supplementary/SUPPLEMENTARY_MATERIAL.md` | Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv. |
+| `research/supplementary/configs/category_A.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/configs/category_B.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/configs/category_C.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/configs/category_D.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/configs/common_template.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/configuration_provenance.json` | Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv. |
+| `research/supplementary/figures/figureS1_official_building_use.png` | Clean supplementary document or numbered research figure; see research/supplementary/README.md. |
+| `research/supplementary/figures/figureS2_official_building_use.png` | Clean supplementary document or numbered research figure; see research/supplementary/README.md. |
+| `research/supplementary/figures/figureS3_medoid_reduction_curves.pdf` | Clean supplementary document or numbered research figure; see research/supplementary/README.md. |
+| `research/supplementary/figures/figureS3_medoid_reduction_curves.png` | Clean supplementary document or numbered research figure; see research/supplementary/README.md. |
+| `research/supplementary/figures/figureS4_existing_vs_regenerated_files.pdf` | Clean supplementary document or numbered research figure; see research/supplementary/README.md. |
+| `research/supplementary/figures/figureS4_existing_vs_regenerated_files.png` | Clean supplementary document or numbered research figure; see research/supplementary/README.md. |
+| `research/supplementary/figures/figureS5_nonmedoid_spatial_tests.pdf` | Clean supplementary document or numbered research figure; see research/supplementary/README.md. |
+| `research/supplementary/figures/figureS5_nonmedoid_spatial_tests.png` | Clean supplementary document or numbered research figure; see research/supplementary/README.md. |
+| `research/supplementary/figures/figureS6_traffic_timing_profiles.pdf` | Clean supplementary document or numbered research figure; see research/supplementary/README.md. |
+| `research/supplementary/figures/figureS6_traffic_timing_profiles.png` | Clean supplementary document or numbered research figure; see research/supplementary/README.md. |
+| `research/supplementary/heat_sensitivity/README.md` | Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv. |
+| `research/supplementary/heat_sensitivity/changed_keys.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/heat_sensitivity/configs/baseline__C0__grid_12618.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/baseline__C1__grid_3788.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/baseline__C2__grid_10026.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/baseline__C3__grid_10925.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/baseline__C4__grid_5210.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/baseline__C5__grid_4849.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/baseline__C6__grid_1524.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/baseline__N10776__grid_10776.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/baseline__N1121__grid_1121.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/baseline__N11610__grid_11610.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/baseline__N12052__grid_12052.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/baseline__N1754__grid_1754.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/baseline__N4239__grid_4239.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/baseline__N4735__grid_4735.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/baseline__N5953__grid_5953.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/baseline__N6199__grid_6199.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/baseline__N8117__grid_8117.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/baseline__N8703__grid_8703.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/baseline__N8769__grid_8769.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/baseline__N9106__grid_9106.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/baseline__N921__grid_921.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/heat_10__C0__grid_12618.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/heat_10__C1__grid_3788.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/heat_10__C2__grid_10026.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/heat_10__C3__grid_10925.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/heat_10__C4__grid_5210.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/heat_10__C5__grid_4849.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/heat_10__C6__grid_1524.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/heat_40__C0__grid_12618.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/heat_40__C1__grid_3788.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/heat_40__C2__grid_10026.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/heat_40__C3__grid_10925.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/heat_40__C4__grid_5210.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/heat_40__C5__grid_4849.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/heat_40__C6__grid_1524.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/hvac_0__C0__grid_12618.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/hvac_0__C1__grid_3788.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/hvac_0__C2__grid_10026.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/hvac_0__C3__grid_10925.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/hvac_0__C4__grid_5210.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/hvac_0__C5__grid_4849.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/hvac_0__C6__grid_1524.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/hvac_half__C0__grid_12618.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/hvac_half__C1__grid_3788.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/hvac_half__C2__grid_10026.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/hvac_half__C3__grid_10925.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/hvac_half__C4__grid_5210.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/hvac_half__C5__grid_4849.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/hvac_half__C6__grid_1524.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_down__C0__grid_12618.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_down__C1__grid_3788.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_down__C2__grid_10026.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_down__C3__grid_10925.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_down__C4__grid_5210.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_down__C5__grid_4849.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_down__C6__grid_1524.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_down__N10776__grid_10776.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_down__N1121__grid_1121.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_down__N11610__grid_11610.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_down__N12052__grid_12052.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_down__N1754__grid_1754.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_down__N4239__grid_4239.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_down__N4735__grid_4735.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_down__N5953__grid_5953.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_down__N6199__grid_6199.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_down__N8117__grid_8117.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_down__N8703__grid_8703.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_down__N8769__grid_8769.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_down__N9106__grid_9106.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_down__N921__grid_921.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_up__C0__grid_12618.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_up__C1__grid_3788.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_up__C2__grid_10026.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_up__C3__grid_10925.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_up__C4__grid_5210.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_up__C5__grid_4849.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_up__C6__grid_1524.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_up__N10776__grid_10776.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_up__N1121__grid_1121.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_up__N11610__grid_11610.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_up__N12052__grid_12052.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_up__N1754__grid_1754.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_up__N4239__grid_4239.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_up__N4735__grid_4735.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_up__N5953__grid_5953.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_up__N6199__grid_6199.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_up__N8117__grid_8117.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_up__N8703__grid_8703.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_up__N8769__grid_8769.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_up__N9106__grid_9106.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/spatial_road_up__N921__grid_921.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/timing_flat__C0__grid_12618.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/timing_flat__C1__grid_3788.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/timing_flat__C2__grid_10026.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/timing_flat__C3__grid_10925.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/timing_flat__C4__grid_5210.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/timing_flat__C5__grid_4849.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/timing_flat__C6__grid_1524.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/timing_late__C0__grid_12618.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/timing_late__C1__grid_3788.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/timing_late__C2__grid_10026.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/timing_late__C3__grid_10925.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/timing_late__C4__grid_5210.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/timing_late__C5__grid_4849.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/configs/timing_late__C6__grid_1524.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
+| `research/supplementary/heat_sensitivity/fit_population_heat_scenarios.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/heat_sensitivity/nonmedoid_selection_frozen.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/heat_sensitivity/reproduce_heat.py` | Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv. |
+| `research/supplementary/heat_sensitivity/results/all_127_subsets.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/heat_sensitivity/results/epw_field_scope.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/heat_sensitivity/results/medoid_compression_errors.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/heat_sensitivity/results/medoid_pairwise_periods.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/heat_sensitivity/results/monthly_day_night_medoid_response.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/heat_sensitivity/results/nonmedoid_errors.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/heat_sensitivity/results/output_quality.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/heat_sensitivity/results/reduction_curves.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/heat_sensitivity/results/scenario_summary.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/heat_sensitivity/results/support_characteristics.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/heat_sensitivity/results/support_responses.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/heat_sensitivity/run_manifest.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/heat_sensitivity/schedule_audit.json` | Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv. |
+| `research/supplementary/source_hashes.json` | Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv. |
+| `research/supplementary/supplementary_material.docx` | Clean supplementary document or numbered research figure; see research/supplementary/README.md. |
+| `research/supplementary/supplementary_material.pdf` | Clean supplementary document or numbered research figure; see research/supplementary/README.md. |
+| `research/supplementary/tables/S10_heat_scenarios.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/tables/S11_heat_scenario_summary.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/tables/S12_heat_nonmedoid_summary.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/tables/S13_heat_support_characteristics.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/tables/S1_minimax_curve.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/tables/S2_representative_centres.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/tables/S3_feature_sensitivity.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/tables/S4_parameter_scenarios.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/tables/S5_station_2022_intervals.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/tables/S6_station_2022_periods.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/tables/S7_canopy_imputation.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/tables/S8_scale_statistics.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/tables/S9_industrial_sites.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
 | `research/uwg/configs/k7_cluster_00_grid_12618.json` | Exact annual k7-medoid UWG configuration, indexed and hashed in the run manifest. |
 | `research/uwg/configs/k7_cluster_01_grid_3788.json` | Exact annual k7-medoid UWG configuration, indexed and hashed in the run manifest. |
 | `research/uwg/configs/k7_cluster_02_grid_10026.json` | Exact annual k7-medoid UWG configuration, indexed and hashed in the run manifest. |
@@ -158,9 +328,11 @@ not an atlas DOI; no atlas archival identifier is claimed until one is issued.
 | `scripts/reproduce_reduction.py` | Exhaustive representative subset search from seven supplied hourly temperature series. |
 | `scripts/stage_site.py` | Repository application, licensing, attribution, dependency, release or contributor metadata: stage_site.py |
 | `scripts/validate_release.py` | Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy. |
+| `scripts/validate_supplement.py` | Validates supplementary files and creates the deterministic versioned ZIP and document downloads. |
 | `tests/browser_qa.cjs` | Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy. |
 | `tests/test_lookup.py` | Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy. |
 | `tests/test_release_science.py` | Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy. |
+| `tests/test_supplement.py` | Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy. |
 | `validation_report.json` | Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy. |
 | `web/data/metadata.json` | Browser lookup geometry, metadata or boundary generated from the canonical grid. |
 | `web/data/torino_boundary.geojson` | Browser lookup geometry, metadata or boundary generated from the canonical grid. |

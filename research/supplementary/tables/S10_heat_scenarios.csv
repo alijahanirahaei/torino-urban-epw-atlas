@@ -1,0 +1,9 @@
+scenario_id,changed_key,value,purpose
+heat_10,sensanth,10 W/m2 amplitude,Half prescribed heat
+heat_40,sensanth,40 W/m2 amplitude,Double prescribed heat
+timing_flat,schtraffic,Flat by day type; equal annual heat,Diurnal-profile shape
+timing_late,schtraffic,Four-hour delay; equal annual heat,Timing at fixed heat
+hvac_0,h_mix,0,HVAC heat released at roof
+hvac_half,h_mix,0.5,Half HVAC heat to canyon
+spatial_road_up,sensanth,10 + 20q W/m2,Increasing road-ranked heat
+spatial_road_down,sensanth,30 - 20q W/m2,Reverse road-ranked heat

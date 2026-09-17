@@ -1,0 +1,163 @@
+donor_route,donor_group,missing_tree_count,donor_count,donor_q25_m,donor_median_m,donor_q75_m,donor_min_m,donor_max_m
+global_hotdeck,all,247,71126,5.0,7.0,9.0,0.5,35.0
+height_bin_hotdeck,"[10.0, 15.0)",35,20706,5.0,7.0,8.0,1.0,32.0
+height_bin_hotdeck,"[15.0, 20.0)",13,22687,6.0,8.0,10.0,1.0,35.0
+height_bin_hotdeck,"[5.0, 10.0)",20,12544,3.0,4.0,6.0,0.5,35.0
+species_hotdeck,(NON SPECIFICATA),14281,511,4.0,5.0,7.0,1.0,16.0
+species_hotdeck,ABIES ALBA,10,28,4.375,5.0,7.0,2.0,10.0
+species_hotdeck,ABIES NORDMANNIANA,5,56,5.0,6.0,7.25,1.0,14.0
+species_hotdeck,ACACIA DEALBATA,1,7,3.5,6.0,6.5,2.0,8.0
+species_hotdeck,ACER,8,23,3.5,6.0,7.5,1.0,12.0
+species_hotdeck,ACER CAMPESTRE,318,718,5.0,6.0,8.0,1.0,35.0
+species_hotdeck,ACER DASYCARPUM,2,67,4.0,5.0,6.0,2.0,16.0
+species_hotdeck,ACER FREEMANII AUTUMN BLAZE,88,11,1.5,1.5,1.75,1.5,2.0
+species_hotdeck,ACER NEGUNDO,383,1889,6.0,7.0,8.0,1.0,28.0
+species_hotdeck,ACER OPALUS,3,7,4.5,5.0,6.0,2.0,7.0
+species_hotdeck,ACER PALMATUM,26,349,5.0,6.0,8.0,1.0,21.0
+species_hotdeck,ACER PLATANOIDES,178,962,5.0,6.0,8.0,1.0,17.0
+species_hotdeck,ACER PLATANOIDES CRIMSON KING,15,36,2.0,6.0,8.25,1.0,12.0
+species_hotdeck,ACER PLATANOIDES FAASSEN'S BLACK,49,201,5.0,6.0,7.0,1.0,11.0
+species_hotdeck,ACER PLATANOIDES GLOBOSUM,43,60,1.0,2.0,4.0,1.0,7.0
+species_hotdeck,ACER PLATANOIDES SCHWEDLERI,66,46,5.0,5.0,6.0,2.0,12.0
+species_hotdeck,ACER PSEUDOPLATANUS,778,1178,5.0,6.0,8.0,1.0,15.0
+species_hotdeck,ACER RUBRUM,23,47,4.0,5.0,6.0,1.0,12.0
+species_hotdeck,ACER SACCHARINUM,289,1130,6.0,7.0,9.0,1.0,20.0
+species_hotdeck,AESCULUS CARNEA,27,25,2.0,4.0,5.0,1.0,8.0
+species_hotdeck,AESCULUS HIPPOCASTANUM,569,3934,5.0,6.0,8.0,1.0,18.0
+species_hotdeck,AILANTHUS GLANDULOSA,18,112,5.0,6.0,8.0,3.0,16.0
+species_hotdeck,ALBIZIA JULIBRISSIN,27,29,5.0,8.0,11.0,2.0,16.0
+species_hotdeck,ALNUS GLUTINOSA,3,7,3.0,5.0,5.5,2.0,10.0
+species_hotdeck,BETULA ALBA,98,120,4.0,5.0,6.0,1.0,10.0
+species_hotdeck,BETULA PENDULA,5,5,3.0,4.0,5.0,1.0,5.0
+species_hotdeck,BROUSSONETIA PAPYRIFERA,3,33,3.0,4.0,4.0,2.0,12.0
+species_hotdeck,CALOCEDRUS DECURRENS,3,101,4.0,4.0,5.0,2.0,8.0
+species_hotdeck,CARPINUS BETULUS,365,1163,5.0,6.0,7.0,0.5,16.0
+species_hotdeck,CARPINUS BETULUS PYRAMIDALIS,834,1406,4.0,5.0,6.0,1.0,15.0
+species_hotdeck,CATALPA BIGNONIOIDES,13,11,4.5,6.0,7.0,2.0,11.0
+species_hotdeck,CATALPA BUNGEI,7,7,5.0,8.0,8.0,3.0,10.0
+species_hotdeck,CEDRUS  ATLANTICA GLAUCA,18,353,7.0,9.0,10.0,1.0,16.0
+species_hotdeck,CEDRUS ATLANTICA,26,353,7.0,9.0,11.0,1.8,25.0
+species_hotdeck,CEDRUS DEODARA,41,296,8.0,10.0,12.0,1.0,20.0
+species_hotdeck,CEDRUS DEODARA VAR PENDULA,3,19,4.0,6.0,7.5,1.0,10.0
+species_hotdeck,CELTIS AUSTRALIS,1292,5609,7.0,9.0,10.0,0.7,35.0
+species_hotdeck,CELTIS DAVIDIANA,5,65,8.0,10.0,13.0,5.0,18.0
+species_hotdeck,CELTIS OCCIDENTALIS,23,34,7.25,9.5,12.0,4.0,20.0
+species_hotdeck,CERCIDIPHYLLUM JAPONICUM,3,9,1.0,6.0,7.0,0.5,13.0
+species_hotdeck,CERCIS SILIQUASTRUM,384,303,4.0,5.0,6.0,1.0,16.0
+species_hotdeck,CHAMAECYPARIS LAWSONIANA,7,230,3.0,4.0,4.0,1.0,9.0
+species_hotdeck,CLERODENDRON TRICHOTOMUM,4,13,2.0,4.0,4.0,0.5,6.0
+species_hotdeck,CORYLUS AVELLANA,10,29,4.0,6.0,7.0,3.0,8.0
+species_hotdeck,CORYLUS COLURNA,327,118,2.0,4.0,5.0,1.0,14.0
+species_hotdeck,CRATAEGUS AZAROLUS,2,10,3.0,3.5,4.0,1.0,7.0
+species_hotdeck,CRATAEGUS CARRIEREI,8,10,2.0,4.0,4.75,2.0,6.0
+species_hotdeck,CRATAEGUS LAEVIGATA PAUL SCARLETT,7,38,2.0,3.0,3.0,1.0,35.0
+species_hotdeck,CRATAEGUS MONOGYNA,32,61,2.0,3.0,3.0,1.0,9.0
+species_hotdeck,CRATAEGUS OXIACANTA,35,39,2.5,3.0,4.0,2.0,6.0
+species_hotdeck,CRYPTOMERIA JAPONICA,2,140,3.0,4.0,4.0,2.0,12.0
+species_hotdeck,CUPRESSUS ARIZONICA,1,139,3.0,3.0,4.25,1.5,11.0
+species_hotdeck,CUPRESSUS SEMPERVIRENS,22,32,1.0,2.0,5.0,1.0,9.0
+species_hotdeck,DYOSPYROS KAKI,1,63,4.0,6.0,7.0,1.0,28.0
+species_hotdeck,DYOSPYROS LOTUS,2,65,5.0,6.0,8.0,4.0,16.0
+species_hotdeck,ERIOBOTRYA JAPONICA,25,192,3.0,4.0,6.0,1.0,11.0
+species_hotdeck,FAGUS SYLVATICA,58,472,6.0,8.0,10.0,1.0,22.0
+species_hotdeck,FAGUS SYLVATICA PENDULA,1,30,7.0,9.0,11.0,5.0,20.0
+species_hotdeck,FAGUS SYLVATICA PURPUREA,19,99,6.0,9.0,10.0,3.0,15.0
+species_hotdeck,FICUS CARICA,17,169,3.0,5.0,6.0,1.0,13.0
+species_hotdeck,FRAXINUS,5,63,4.5,6.0,8.0,1.0,16.0
+species_hotdeck,FRAXINUS ANGUSTIFOLIA,34,28,8.0,8.5,10.0,2.0,12.0
+species_hotdeck,FRAXINUS EXCELSIOR,157,1123,5.0,6.0,8.0,1.0,20.0
+species_hotdeck,FRAXINUS EXCELSIOR PENDULA,1,18,4.5,6.0,6.0,4.0,8.0
+species_hotdeck,GINKGO BILOBA,54,526,5.0,6.0,8.0,1.0,20.0
+species_hotdeck,GLEDITSCHIA TRIACANTHOS,21,326,6.0,8.0,10.0,2.0,17.0
+species_hotdeck,HIBISCUS SYRIACUS,238,130,1.0,2.65,4.0,0.8,8.0
+species_hotdeck,ILEX AQUIFOLIUM,7,51,2.0,4.0,5.0,1.0,10.0
+species_hotdeck,JUGLANS NIGRA,163,456,7.0,8.0,10.0,3.0,16.0
+species_hotdeck,JUGLANS REGIA,14,45,6.0,7.0,8.0,3.0,13.0
+species_hotdeck,KOELREUTERIA PANICULATA,15,21,6.0,7.0,7.0,1.0,9.0
+species_hotdeck,LAGERSTROEMIA INDICA,229,150,2.0,2.0,3.0,0.5,10.0
+species_hotdeck,LARIX DECIDUA,3,33,4.0,5.0,6.0,3.0,9.0
+species_hotdeck,LAURUS NOBILIS,5,77,3.0,5.0,7.0,1.0,12.0
+species_hotdeck,LIGUSTRUM LUCIDUM,3,42,3.0,5.0,6.0,2.0,8.0
+species_hotdeck,LIQUIDAMBAR STYRACIFLUA,230,710,4.0,6.0,7.0,0.5,16.0
+species_hotdeck,LIRIODENDRON TULIPIFERA,80,426,5.0,6.5,9.0,1.0,16.0
+species_hotdeck,MACLURA POMIFERA,2,31,5.0,6.0,8.0,2.0,15.0
+species_hotdeck,MAGNOLIA GRANDIFLORA,29,258,4.0,5.0,6.0,1.0,11.0
+species_hotdeck,MAGNOLIA SOULANGEANA,7,53,2.0,4.0,6.0,1.0,12.0
+species_hotdeck,MAGNOLIA STELLATA,6,15,3.0,4.0,8.5,2.0,12.0
+species_hotdeck,MALUS,7,39,2.0,3.0,5.0,0.5,10.0
+species_hotdeck,MALUS DOMESTICA,1,32,2.0,3.5,5.0,1.0,8.0
+species_hotdeck,MALUS FLORIBUNDA,18,80,2.0,2.0,3.0,1.0,9.0
+species_hotdeck,METASEQUOIA GLYPTOSTROBOIDES,2,10,7.0,12.0,12.0,7.0,16.0
+species_hotdeck,MORUS ALBA,224,74,4.0,7.0,9.0,0.5,18.0
+species_hotdeck,MORUS NIGRA,8,16,3.5,6.5,10.0,2.0,13.0
+species_hotdeck,OLEA EUROPAEA,6,31,2.0,3.0,5.0,1.0,8.0
+species_hotdeck,OSTRYA CARPINIFOLIA,51,94,6.0,8.0,10.75,2.0,16.0
+species_hotdeck,PARROTIA PERSICA,46,58,4.0,5.0,7.0,1.0,16.0
+species_hotdeck,PAULOWNIA IMPERIALIS,7,31,5.0,8.0,10.5,3.5,15.0
+species_hotdeck,PAULOWNIA TOMENTOSA,12,26,8.0,9.0,10.0,6.0,14.0
+species_hotdeck,PHOTINIA X FRASERI,22,140,1.0,1.0,1.0,1.0,4.0
+species_hotdeck,PICEA ABIES,84,544,5.0,6.0,7.0,0.5,15.0
+species_hotdeck,PICEA EXCELSA,8,8,5.0,8.0,8.25,4.0,14.0
+species_hotdeck,PICEA PUNGENS,2,46,3.0,4.0,6.0,1.0,8.0
+species_hotdeck,PINUS,1,98,4.0,5.0,6.75,3.0,13.0
+species_hotdeck,PINUS EXCELSA,4,32,7.0,8.0,9.0,4.0,13.0
+species_hotdeck,PINUS MUGO,2,44,3.0,4.0,5.0,1.0,8.0
+species_hotdeck,PINUS NIGRA,131,613,4.0,6.0,6.0,2.0,10.0
+species_hotdeck,PINUS NIGRA VAR AUSTRIACA,48,650,4.0,5.0,7.0,1.0,12.0
+species_hotdeck,PINUS PINEA,80,33,6.0,7.0,8.0,3.0,12.0
+species_hotdeck,PINUS STROBUS,64,295,5.0,6.0,8.0,2.0,20.0
+species_hotdeck,PINUS SYLVESTRIS,3,149,4.0,6.0,7.0,2.0,12.0
+species_hotdeck,PINUS WALLICHIANA,6,167,7.0,8.0,10.0,1.0,16.0
+species_hotdeck,PLATANOR VALLIS CLAUSA,9,11,2.0,2.0,2.0,2.0,3.0
+species_hotdeck,PLATANUS ACERIFOLIA,299,2596,7.0,9.0,11.0,1.0,26.0
+species_hotdeck,PLATANUS OCCIDENTALIS,282,2733,7.0,9.0,10.0,1.0,23.0
+species_hotdeck,PLATANUS ORIENTALIS,774,9754,6.0,8.0,10.0,0.5,20.0
+species_hotdeck,PLATANUS X ACERIFOLIA,159,1199,6.0,8.0,10.0,1.0,26.0
+species_hotdeck,POPULUS,2,34,7.0,8.5,10.0,3.0,18.0
+species_hotdeck,POPULUS ALBA,13,175,7.0,9.0,12.0,1.0,30.0
+species_hotdeck,POPULUS NIGRA,21,425,7.0,10.0,15.0,2.0,30.0
+species_hotdeck,POPULUS NIGRA ITALICA,230,1028,3.0,4.0,5.0,1.0,22.0
+species_hotdeck,PRUNUS,15,127,3.0,4.0,6.0,1.0,15.0
+species_hotdeck,PRUNUS ARMENIACA,2,48,3.0,4.0,6.0,1.0,7.0
+species_hotdeck,PRUNUS AVIUM,77,335,3.0,5.0,7.0,0.5,16.0
+species_hotdeck,PRUNUS AVIUM FLOREPLENO,188,133,4.0,5.0,7.0,2.0,12.0
+species_hotdeck,PRUNUS CERASIFERA,6,105,3.0,4.5,6.0,1.0,12.0
+species_hotdeck,PRUNUS CERASIFERA PISSARDI NIGRA,705,897,2.0,4.0,5.0,1.0,18.0
+species_hotdeck,PRUNUS DOMESTICA,1,68,2.0,3.0,5.0,1.0,12.0
+species_hotdeck,PRUNUS FRUTICOSA GLOBOSA,18,27,2.0,3.0,3.0,2.0,6.0
+species_hotdeck,PRUNUS LAUROCERASUS,8,25,5.5,6.0,8.0,2.0,12.0
+species_hotdeck,PRUNUS SERRULATA,77,159,4.0,5.0,6.0,0.5,12.0
+species_hotdeck,PRUNUS SERRULATA VAR KANZAN,54,98,3.0,4.0,6.0,0.5,10.0
+species_hotdeck,PRUNUS SUBHIRTELLA,9,12,1.0,3.0,5.0,0.5,6.0
+species_hotdeck,PSEUDOTSUGA MENZIESII,9,46,5.0,6.0,7.75,3.0,11.0
+species_hotdeck,PTEROCARYA FRAXINIFOLIA,21,222,9.0,12.0,15.0,3.0,20.0
+species_hotdeck,PYRUS CALLERYANA,469,304,2.0,3.0,4.0,1.0,10.0
+species_hotdeck,PYRUS COMMUNIS,11,162,2.0,2.0,4.0,1.0,9.0
+species_hotdeck,QUERCUS ROBUR,38,339,6.0,8.0,10.0,1.0,21.0
+species_hotdeck,QUERCUS ROBUR FASTIGIATA,189,993,4.0,5.0,7.0,0.5,30.0
+species_hotdeck,QUERCUS RUBRA,166,852,7.0,9.0,11.0,1.0,21.0
+species_hotdeck,ROBINIA PSEUDOACACIA,24,255,4.0,6.0,8.0,2.0,14.0
+species_hotdeck,ROBINIA PSEUDOACACIA BESSONIANA,15,6,6.5,8.0,8.0,6.0,10.0
+species_hotdeck,ROBINIA PSEUDOACACIA UMBRACULIFERA,51,48,4.0,5.0,6.0,3.0,9.0
+species_hotdeck,SALIX ALBA,10,288,5.0,6.0,9.0,1.0,26.0
+species_hotdeck,SALIX BABYLONICA,6,18,4.25,5.5,7.5,3.0,13.0
+species_hotdeck,SALIX MATSUDANA,1,10,6.0,7.5,9.75,1.0,15.0
+species_hotdeck,SAMBUCUS NIGRA,2,35,4.0,4.0,6.0,3.0,10.0
+species_hotdeck,SOPHORA JAPONICA,32,164,4.0,7.0,9.0,2.0,21.0
+species_hotdeck,SORBUS AUCUPARIA,32,6,3.0,3.0,3.0,3.0,3.0
+species_hotdeck,STERCULIA PLATANIFOLIA,5,113,7.0,8.0,9.0,2.0,14.0
+species_hotdeck,TAXUS BACCATA,8,287,4.0,6.0,7.0,1.0,16.0
+species_hotdeck,THUJA OCCIDENTALIS,3,39,3.0,4.0,5.0,1.0,8.0
+species_hotdeck,THUJA ORIENTALIS,7,59,2.0,4.0,5.0,1.0,8.0
+species_hotdeck,TILIA ARGENTEA,189,837,5.0,7.0,8.0,1.0,16.0
+species_hotdeck,TILIA CORDATA,206,668,4.0,5.0,7.0,1.0,16.0
+species_hotdeck,TILIA CORDATA GREEN SPIRE,172,112,3.0,5.0,8.0,1.0,16.0
+species_hotdeck,TILIA DASYSTYLA,53,185,6.0,7.0,9.0,3.0,12.0
+species_hotdeck,TILIA PLATYPHYLLOS,30,378,6.0,7.0,9.0,1.0,16.0
+species_hotdeck,TILIA X EUROPEA,2547,11012,6.0,7.0,9.0,0.5,32.0
+species_hotdeck,TRACHYCARPUS FORTUNEI,10,59,2.0,2.0,2.0,1.0,8.0
+species_hotdeck,ULMUS CAMPESTRE,61,179,4.0,7.0,9.0,1.0,30.0
+species_hotdeck,ULMUS CARPINIFOLIA,12,82,6.0,8.0,9.0,1.0,16.0
+species_hotdeck,ULMUS LAEVI,19,12,8.5,10.0,12.5,5.0,15.0
+species_hotdeck,ULMUS PUMILA,164,1656,6.0,7.0,9.0,1.0,21.0
+species_hotdeck,ZELKOVA CARPINIFOLIA,1,13,9.0,10.0,12.0,6.0,21.0
