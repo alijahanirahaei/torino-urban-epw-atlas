@@ -36,7 +36,7 @@ def generate(repo, grid, profiles, metrics, boundary):
         )
         boundary.boundary.plot(ax=ax, color="#333333", linewidth=0.6)
         ax.set_title(
-            f"Torino morphology | k={k}\nCorrected fixed assignments, v0.2.0", pad=16
+            f"Torino morphology | k={k}\nCorrected fixed assignments", pad=16
         )
         ax.set_axis_off()
         ax.legend(

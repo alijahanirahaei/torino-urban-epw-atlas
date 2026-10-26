@@ -1,0 +1,11 @@
+{
+  "version": "1.1.0",
+  "prepared_date": "2026-10-26",
+  "publication_status": "published",
+  "released": "2026-10-26",
+  "atlas_version": "0.3.0",
+  "weather_library_version": "0.2.0",
+  "supersedes_supplement": "1.0.0",
+  "release_tag": "supplement-v1.1.0",
+  "scientific_data_policy": "Exact configurations, original numerical CSVs and simulation outputs are unchanged; displayed document values are rounded. Additional audit tables document the revised interpretation."
+}

@@ -262,7 +262,9 @@
     }
 
     const warnings = [];
-    if (props.outside_domain) warnings.push("Out of domain: this dense C6 industrial support exceeds the tested applicability of the common building-stock assumptions. Its morphology class is retained, but no location EPW is recommended.");
+    if (props.outside_domain) warnings.push("Restricted: this high-density C6 support is excluded by a conservative post hoc safeguard, not a validated applicability boundary. Its morphology class is retained, but no location EPW is recommended.");
+    if (props.caution) warnings.push("Caution: C6 building fraction lies between the strict-fit 90th and 95th percentiles, approaching the restriction. This candidate EPW is not validated for the location.");
+    if (props.cat === "A" || props.cat === "B") warnings.push("No urban station evaluates the observational accuracy of this weather category.");
     if (!category) warnings.push("No EPW is assigned because this support lacks usable morphology inputs.");
     if (props.edge) warnings.push("The 500 m support crosses the municipal boundary and is provisional.");
     if (props.out7) warnings.push("The morphology exceeds its k=7 class 99th-percentile medoid distance.");

@@ -39,8 +39,9 @@ scientific evidence, portable reconstruction and the limits of reproducibility.
 The [supplementary package](../research/supplementary/README.md) includes its
 PDF/Word document, CSV tables S1-S13, figures S1-S6 and heat-sensitivity
 configurations, results and runner. A separate
-[supplement-v1.0.0 release](https://github.com/alijahanirahaei/torino-urban-epw-atlas/releases/tag/supplement-v1.0.0)
-provides the complete ZIP. The atlas data and weather files remain at v0.2.0.
+[supplement-v1.1.0 release](https://github.com/alijahanirahaei/torino-urban-epw-atlas/releases/tag/supplement-v1.1.0)
+provides the complete ZIP. Atlas v0.3.0 adds applicability flags; the four
+weather files and exact configurations retain their v0.2.0 identities.
 
 ## Repository Automation
 

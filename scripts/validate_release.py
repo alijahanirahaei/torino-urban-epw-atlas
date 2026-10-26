@@ -130,7 +130,9 @@ def main() -> int:
         .reset_index(drop=True)
     )
     grid = grid.sort_values("grid_id").reset_index(drop=True)
-    check(metadata["version"] == "0.2.0", "release_version")
+    check(metadata["version"] == "0.3.0", "release_version")
+    check(metadata["weather_version"] == "0.2.0", "preserved_weather_version")
+    check(metadata["supplement_version"] == "1.1.0", "supplement_version")
     check(
         table.epw_category.value_counts().to_dict()
         == {"C": 6662, "A": 4697, "B": 1090, "D": 413},
@@ -138,6 +140,7 @@ def main() -> int:
     )
     check(int(table.epw_category.isna().sum()) == 135, "unassigned_135")
     check(int(table.c6_out_of_domain.sum()) == 20, "c6_guard_20")
+    check(int(table.c6_caution.sum()) == 19, "c6_caution_19")
     check(int(table.canopy_corrected_gt_2p5_m2.sum()) == 75, "canopy_75_supports")
     corrected = (
         pd.read_csv(repo / "research/inputs/diagnostic_corrected_features.csv")
@@ -168,6 +171,7 @@ def main() -> int:
         "epw_filename",
         "epw_recommendation_available",
         "c6_out_of_domain",
+        "c6_caution",
     ]:
         check(
             table[field]
@@ -188,6 +192,7 @@ def main() -> int:
         "epw": "epw_filename",
         "available": "epw_recommendation_available",
         "outside_domain": "c6_out_of_domain",
+        "caution": "c6_caution",
     }.items():
         check(
             web_rows[short]
@@ -262,6 +267,7 @@ def main() -> int:
                 .reset_index(drop=True)
             )
             check(frame.GRID_ID.equals(table.grid_id), f"shapefile_ids:{stem}")
+            check(frame.C6_CAUTION.astype(bool).equals(table.c6_caution), f"shapefile_caution:{stem}")
             check(
                 frame.REC_STATUS.equals(table.recommendation_status),
                 f"shapefile_domain:{stem}",

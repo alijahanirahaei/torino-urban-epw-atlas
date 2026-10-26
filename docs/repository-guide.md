@@ -39,8 +39,9 @@ scientific evidence, portable reconstruction and the limits of reproducibility.
 The [supplementary package](../research/supplementary/README.md) includes its
 PDF/Word document, CSV tables S1-S13, figures S1-S6 and heat-sensitivity
 configurations, results and runner. A separate
-[supplement-v1.0.0 release](https://github.com/alijahanirahaei/torino-urban-epw-atlas/releases/tag/supplement-v1.0.0)
-provides the complete ZIP. The atlas data and weather files remain at v0.2.0.
+[supplement-v1.1.0 release](https://github.com/alijahanirahaei/torino-urban-epw-atlas/releases/tag/supplement-v1.1.0)
+provides the complete ZIP. Atlas v0.3.0 adds applicability flags; the four
+weather files and exact configurations retain their v0.2.0 identities.
 
 ## Repository Automation
 
@@ -118,6 +119,7 @@ not an atlas DOI; no atlas archival identifier is claimed until one is issued.
 | `data/tables/epw_library_manifest.csv` | Tabular research export; field names, units and population identified in data/research guides. |
 | `data/tables/epw_period_metrics.csv` | Tabular research export; field names, units and population identified in data/research guides. |
 | `data/tables/grid_assignments.csv` | Tabular research export; field names, units and population identified in data/research guides. |
+| `docs/applicability-caution.md` | Public user/research documentation or verified desktop/mobile atlas screenshot. |
 | `docs/atlas-mobile.png` | Public user/research documentation or verified desktop/mobile atlas screenshot. |
 | `docs/atlas-preview.png` | Public user/research documentation or verified desktop/mobile atlas screenshot. |
 | `docs/data-guide.html` | Public user/research documentation or verified desktop/mobile atlas screenshot. |
@@ -125,7 +127,9 @@ not an atlas DOI; no atlas archival identifier is claimed until one is issued.
 | `docs/methodology.html` | Public user/research documentation or verified desktop/mobile atlas screenshot. |
 | `docs/methodology.md` | Public user/research documentation or verified desktop/mobile atlas screenshot. |
 | `docs/release-notes-supplement-v1.0.0.md` | Public user/research documentation or verified desktop/mobile atlas screenshot. |
+| `docs/release-notes-supplement-v1.1.0.md` | Public user/research documentation or verified desktop/mobile atlas screenshot. |
 | `docs/release-notes-v0.2.0.md` | Public user/research documentation or verified desktop/mobile atlas screenshot. |
+| `docs/release-notes-v0.3.0.md` | Public user/research documentation or verified desktop/mobile atlas screenshot. |
 | `docs/repository-guide-intro.md` | Public user/research documentation or verified desktop/mobile atlas screenshot. |
 | `docs/repository-guide.html` | Public user/research documentation or verified desktop/mobile atlas screenshot. |
 | `docs/repository-guide.md` | Public user/research documentation or verified desktop/mobile atlas screenshot. |
@@ -163,6 +167,12 @@ not an atlas DOI; no atlas archival identifier is claimed until one is issued.
 | `research/supplementary/configs/category_D.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
 | `research/supplementary/configs/common_template.json` | Supplementary UWG configuration; exact roles and hashes are documented in the package manifests. |
 | `research/supplementary/configuration_provenance.json` | Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv. |
+| `research/supplementary/diagnostics/README.md` | Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv. |
+| `research/supplementary/diagnostics/c6_applicability_by_grid.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/diagnostics/c6_threshold_sensitivity.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/diagnostics/elbow_threshold_diagnostic.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/diagnostics/scale_estimands_reconciled.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
+| `research/supplementary/diagnostics/year2022_selection.json` | Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv. |
 | `research/supplementary/figures/figureS1_official_building_use.png` | Clean supplementary document or numbered research figure; see research/supplementary/README.md. |
 | `research/supplementary/figures/figureS2_official_building_use.png` | Clean supplementary document or numbered research figure; see research/supplementary/README.md. |
 | `research/supplementary/figures/figureS3_medoid_reduction_curves.pdf` | Clean supplementary document or numbered research figure; see research/supplementary/README.md. |
@@ -296,6 +306,7 @@ not an atlas DOI; no atlas archival identifier is claimed until one is issued.
 | `research/supplementary/heat_sensitivity/results/support_responses.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
 | `research/supplementary/heat_sensitivity/run_manifest.csv` | Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv. |
 | `research/supplementary/heat_sensitivity/schedule_audit.json` | Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv. |
+| `research/supplementary/package_manifest.json` | Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv. |
 | `research/supplementary/source_hashes.json` | Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv. |
 | `research/supplementary/supplementary_material.docx` | Clean supplementary document or numbered research figure; see research/supplementary/README.md. |
 | `research/supplementary/supplementary_material.pdf` | Clean supplementary document or numbered research figure; see research/supplementary/README.md. |
@@ -330,6 +341,7 @@ not an atlas DOI; no atlas archival identifier is claimed until one is issued.
 | `scripts/validate_release.py` | Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy. |
 | `scripts/validate_supplement.py` | Validates supplementary files and creates the deterministic versioned ZIP and document downloads. |
 | `tests/browser_qa.cjs` | Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy. |
+| `tests/test_c6_caution.py` | Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy. |
 | `tests/test_lookup.py` | Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy. |
 | `tests/test_release_science.py` | Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy. |
 | `tests/test_supplement.py` | Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy. |

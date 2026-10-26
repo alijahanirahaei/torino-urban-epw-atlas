@@ -51,9 +51,13 @@ Canopy percentage and mapped green percentage are distinct fields and can overla
 errors (weighted mean about 0.05 C and weighted P95 about 0.10 C). Stress testing
 reveals an industrial tail error up to 1.33 C even relative to its own C6 medoid.
 Accordingly, k7=C6 supports with unrounded building fraction at or above
-0.7951808541001185 have no location EPW recommendation. There are 20 overlapping
+the strict-fit 95th percentile (approximately 0.795) have no location EPW recommendation. There are 20 overlapping
 supports at two industrial sites, not 20 independent neighborhoods. The cutoff
-is an empirical guard for this setup, not a universal physical threshold.
+is a conservative post hoc guard for this setup, not a validated applicability
+boundary. Another 19 C6 supports between the strict-fitting 90th and 95th
+percentiles retain downloads with a caution flag. Neither being below the cutoff
+nor being assigned to a category validates a location. The [applicability
+record](applicability-caution.md) defines the population, sensitivity and counts.
 
 Classifications have moderate feature/spatial robustness. k4 was strongest on
 the statistical ranking; k7 was retained to distinguish useful morphology strata.
@@ -77,7 +81,8 @@ and fresh reconstruction from upstream municipal GIS.
 
 Public files use one-decimal EPW serialization. The three-decimal diagnostics
 are supplied separately; the maximum four-file medoid RMSE is respectively
-0.05820 and 0.04019 C. Extra serialization digits do not imply weather accuracy.
+0.058 and 0.040 C, rounded for display. The source tables retain full precision.
+Extra serialization digits do not imply weather accuracy.
 Temperature-series compression is not equivalence of every EPW variable.
 
 Period summaries use Apr-Sep and Oct-Mar seasons and EPW clock hours 07-18

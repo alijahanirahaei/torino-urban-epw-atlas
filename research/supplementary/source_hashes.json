@@ -40,6 +40,30 @@
     {
       "source_id": "representative_configuration_provenance_source",
       "sha256": "4762ef8eb79a3ae8ac80af0b66df9dc79f06e2732f740cbafedb99cb05f5f8f1"
+    },
+    {
+      "source_id": "matched_scale_metrics_source",
+      "sha256": "86e9c96eabceafc21199f2d98fd6952a221ce95e116c5d9fe7795a1050262840"
+    },
+    {
+      "source_id": "scale_feature_statistics_source",
+      "sha256": "5781e2dca2d54f2a765d4f6724445467f7845ce4f87a6610675d836cf4cc4ca2"
+    },
+    {
+      "source_id": "atlas_assignments_source",
+      "sha256": "8ee21387c06c46d6f8dc9c80154cb4d394afe1400e9e6bfb2d11eaf25b11ee9b"
+    },
+    {
+      "source_id": "station_year_ranking_source",
+      "sha256": "bb0617ec3bd720a0e46dbd3e30cd708915bec8f257fb308fd99afd78a7a01594"
+    },
+    {
+      "source_id": "heat_reduction_curves_source",
+      "sha256": "c1571d235c72a6b4bcb29c45adcf560c5d4650ca41fb09d639d94a7bc2c9f882"
+    },
+    {
+      "source_id": "heat_scenario_summary_source",
+      "sha256": "532a5ef4db4f10da5665e4a78ddea308e4461fde70ef1db7b7ec44c684ad8272"
     }
   ]
 }

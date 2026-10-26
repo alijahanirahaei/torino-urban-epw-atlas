@@ -9,8 +9,8 @@ The simulation script is provided under the MIT License; its full text is in
 separately from the atlas repository.
 
 Credit Ali JahaniRahaei and Giacomo Chiesa, the title of the accompanying study,
-Supplementary material version 1.0.0, and the release URL:
-https://github.com/alijahanirahaei/torino-urban-epw-atlas/releases/tag/supplement-v1.0.0.
+Supplementary material version 1.1.0, and the release URL:
+https://github.com/alijahanirahaei/torino-urban-epw-atlas/releases/tag/supplement-v1.1.0.
 Identify modifications when redistributing adapted text, data or configurations.
 
 ## Upstream Sources

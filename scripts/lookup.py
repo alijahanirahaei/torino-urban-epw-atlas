@@ -75,8 +75,12 @@ def lookup(repo: Path, lat: float, lon: float) -> dict | None:
     warnings = []
     if props["outside_domain"]:
         warnings.append(
-            "Out of domain: dense C6 industrial supports exceed the tested applicability of the common building-stock assumptions. No location EPW recommendation."
+            "Restricted: this high-density C6 support is excluded by a conservative post hoc safeguard, not a validated applicability boundary. No location EPW recommendation."
         )
+    if props["caution"]:
+        warnings.append("Caution: C6 building fraction lies between the strict-fit 90th and 95th percentiles, approaching the restriction. The candidate EPW is not validated for this location.")
+    if props["cat"] in ("A", "B"):
+        warnings.append("No urban station evaluates the observational accuracy of this weather category.")
     if not category:
         warnings.append("No assignment: incomplete morphology inputs.")
     if props["edge"]:
@@ -96,6 +100,7 @@ def lookup(repo: Path, lat: float, lon: float) -> dict | None:
         "release_version": metadata["version"],
         "recommendation_status": props["recommendation"],
         "epw_recommendation_available": available,
+        "c6_caution": bool(props["caution"]),
         "clusters": {"k4": props["k4"], "k7": props["k7"], "k8": props["k8"]},
         "epw_category": props["cat"],
         "epw_category_name": category["name"] if category else None,

@@ -15,7 +15,11 @@ GeoJSON and browser lookup use EPSG:4326.</p>
 <li><code>epw_category</code> is the reduced A-D weather category derived from the k=7 medoid
   weather outputs.</li>
 <li><code>epw_filename</code> identifies the candidate annual EPW, or is null when withheld.</li>
-<li><code>recommendation_status</code> is candidate, provisional, out_of_domain or unassigned.</li>
+<li><code>recommendation_status</code> is candidate, caution, provisional, out_of_domain or unassigned.</li>
+<li><code>c6_caution</code> marks 19 C6 supports between the strict-fitting 90th and 95th
+  building-fraction percentiles. Downloads remain available with a warning.
+  See <a href="applicability-caution.md">applicability safeguards</a> for exact thresholds,
+  sensitivity and the distinction between a post hoc precaution and validation.</li>
 <li><code>epw_recommendation_available</code> is false for the 20 C6-domain exclusions and
   135 incomplete-feature locations. Retained category labels are not approval.</li>
 <li><code>fit_eligible</code> indicates whether the row entered model fitting.</li>
@@ -85,7 +89,7 @@ grid = gpd.read_file(path, layer=&quot;grid_assignments&quot;)
 k7 = gpd.read_file(path, layer=&quot;morphology_k7&quot;)
 </code></pre>
 <p>Shapefile equivalents abbreviate fields: GRID_ID, CLUSTER/LABEL or EPW_CAT,
-EPW_FILE, REC_STATUS, EPW_AVAIL, OUT_DOMAIN, EDGE and QA_SCORE. Preserve these
+EPW_FILE, REC_STATUS, EPW_AVAIL, OUT_DOMAIN, C6_CAUTION, EDGE and QA_SCORE. Preserve these
 flags in downstream analyses. The four-file library remains available for expert
 inspection, but a withheld location has no recommended filename in any format.</p>
 <h2 id="coordinate-lookup">Coordinate Lookup</h2>

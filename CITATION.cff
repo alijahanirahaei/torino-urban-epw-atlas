@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "Please cite this atlas version and acknowledge the stated upstream sources. Code is MIT licensed; derived data, configurations, figures, and EPWs are CC BY 4.0."
 title: "Torino Urban EPW Atlas"
 type: software
-version: 0.2.0
-date-released: 2026-09-09
+version: 0.3.0
+date-released: 2026-10-26
 authors:
   - family-names: "JahaniRahaei"
     given-names: "Ali"

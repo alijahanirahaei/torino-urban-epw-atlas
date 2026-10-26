@@ -25,8 +25,9 @@ scientific evidence, portable reconstruction and the limits of reproducibility.<
 <p>The <a href="../research/supplementary/README.md">supplementary package</a> includes its
 PDF/Word document, CSV tables S1-S13, figures S1-S6 and heat-sensitivity
 configurations, results and runner. A separate
-<a href="https://github.com/alijahanirahaei/torino-urban-epw-atlas/releases/tag/supplement-v1.0.0">supplement-v1.0.0 release</a>
-provides the complete ZIP. The atlas data and weather files remain at v0.2.0.</p>
+<a href="https://github.com/alijahanirahaei/torino-urban-epw-atlas/releases/tag/supplement-v1.1.0">supplement-v1.1.0 release</a>
+provides the complete ZIP. Atlas v0.3.0 adds applicability flags; the four
+weather files and exact configurations retain their v0.2.0 identities.</p>
 <h2 id="repository-automation">Repository Automation</h2>
 <p>GitHub Actions validates pull requests and validates <code>main</code> before deploying
 GitHub Pages. The site is staged from an explicit public-file allowlist; local
@@ -276,6 +277,10 @@ not an atlas DOI; no atlas archival identifier is claimed until one is issued.</
 <td>Tabular research export; field names, units and population identified in data/research guides.</td>
 </tr>
 <tr>
+<td><code>docs/applicability-caution.md</code></td>
+<td>Public user/research documentation or verified desktop/mobile atlas screenshot.</td>
+</tr>
+<tr>
 <td><code>docs/atlas-mobile.png</code></td>
 <td>Public user/research documentation or verified desktop/mobile atlas screenshot.</td>
 </tr>
@@ -304,7 +309,15 @@ not an atlas DOI; no atlas archival identifier is claimed until one is issued.</
 <td>Public user/research documentation or verified desktop/mobile atlas screenshot.</td>
 </tr>
 <tr>
+<td><code>docs/release-notes-supplement-v1.1.0.md</code></td>
+<td>Public user/research documentation or verified desktop/mobile atlas screenshot.</td>
+</tr>
+<tr>
 <td><code>docs/release-notes-v0.2.0.md</code></td>
+<td>Public user/research documentation or verified desktop/mobile atlas screenshot.</td>
+</tr>
+<tr>
+<td><code>docs/release-notes-v0.3.0.md</code></td>
 <td>Public user/research documentation or verified desktop/mobile atlas screenshot.</td>
 </tr>
 <tr>
@@ -453,6 +466,30 @@ not an atlas DOI; no atlas archival identifier is claimed until one is issued.</
 </tr>
 <tr>
 <td><code>research/supplementary/configuration_provenance.json</code></td>
+<td>Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/diagnostics/README.md</code></td>
+<td>Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/diagnostics/c6_applicability_by_grid.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/diagnostics/c6_threshold_sensitivity.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/diagnostics/elbow_threshold_diagnostic.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/diagnostics/scale_estimands_reconciled.csv</code></td>
+<td>Supplementary table, scenario definition or result; purpose and hash in research/supplementary/FILE_INDEX.csv.</td>
+</tr>
+<tr>
+<td><code>research/supplementary/diagnostics/year2022_selection.json</code></td>
 <td>Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv.</td>
 </tr>
 <tr>
@@ -988,6 +1025,10 @@ not an atlas DOI; no atlas archival identifier is claimed until one is issued.</
 <td>Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv.</td>
 </tr>
 <tr>
+<td><code>research/supplementary/package_manifest.json</code></td>
+<td>Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv.</td>
+</tr>
+<tr>
 <td><code>research/supplementary/source_hashes.json</code></td>
 <td>Supplementary documentation, licence, provenance or reproduction script; see its README and FILE_INDEX.csv.</td>
 </tr>
@@ -1121,6 +1162,10 @@ not an atlas DOI; no atlas archival identifier is claimed until one is issued.</
 </tr>
 <tr>
 <td><code>tests/browser_qa.cjs</code></td>
+<td>Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy.</td>
+</tr>
+<tr>
+<td><code>tests/test_c6_caution.py</code></td>
 <td>Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy.</td>
 </tr>
 <tr>

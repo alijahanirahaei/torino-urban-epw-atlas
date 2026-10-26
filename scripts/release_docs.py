@@ -120,13 +120,17 @@ def write_dictionary(repo, grid):
             "boolean",
             "k7=C6 and unrounded building fraction >= 0.7951808541001185",
         ),
+        "c6_caution": (
+            "boolean",
+            "k7=C6 and 0.7547746566077667 <= building fraction < 0.7951808541001185; post hoc precaution, not a validated boundary",
+        ),
         "epw_recommendation_available": (
             "boolean",
             "False for missing assignment or the diagnosed C6 high-density domain",
         ),
         "recommendation_status": (
             "text",
-            "candidate, provisional (edge/QA/distance), out_of_domain, or unassigned",
+            "candidate, caution (C6 near restriction), provisional (edge/QA/distance), out_of_domain, or unassigned",
         ),
     }
     for k in (4, 7, 8):

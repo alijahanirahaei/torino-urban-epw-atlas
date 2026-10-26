@@ -12,10 +12,12 @@ import geopandas as gpd
 import numpy as np
 import pandas as pd
 
-VERSION = "0.2.0"
+VERSION = "0.3.0"
+WEATHER_VERSION = "0.2.0"
 REPOSITORY_URL = "https://github.com/alijahanirahaei/torino-urban-epw-atlas"
 SITE_URL = "https://alijahanirahaei.github.io/torino-urban-epw-atlas/"
 C6_LIMIT = 0.7951808541001185
+C6_CAUTION = 0.7547746566077667
 FEATURES = [
     "building_fraction",
     "avg_height_m",
@@ -175,6 +177,9 @@ def apply_domain(grid):
     grid["c6_out_of_domain"] = (grid.cluster_k7_provisional == 6) & (
         grid.building_fraction >= C6_LIMIT
     )
+    grid["c6_caution"] = (grid.cluster_k7_provisional == 6) & (
+        grid.building_fraction >= C6_CAUTION
+    ) & ~grid.c6_out_of_domain
     grid["epw_recommendation_available"] = (
         grid.epw_category.notna() & ~grid.c6_out_of_domain
     )
@@ -182,8 +187,8 @@ def apply_domain(grid):
         grid.edge_support | (grid.qa_score > 0) | grid.outlier_gt_cluster_p99_k7
     )
     grid["recommendation_status"] = np.select(
-        [grid.epw_category.isna(), grid.c6_out_of_domain, provisional],
-        ["unassigned", "out_of_domain", "provisional"],
+        [grid.epw_category.isna(), grid.c6_out_of_domain, grid.c6_caution, provisional],
+        ["unassigned", "out_of_domain", "caution", "provisional"],
         default="candidate",
     )
     grid["epw_category_name"] = grid.epw_category.map(
@@ -195,7 +200,7 @@ def apply_domain(grid):
     ]:
         grid[col] = grid.epw_category.map({c: m[key] for c, m in CATEGORIES.items()})
     grid["epw_filename"] = grid.epw_category.map(
-        {c: f"torino_urban_epw_{c}_v{VERSION}.epw" for c in CATEGORIES}
+        {c: f"torino_urban_epw_{c}_v{WEATHER_VERSION}.epw" for c in CATEGORIES}
     )
     grid.loc[~grid.epw_recommendation_available, "epw_filename"] = None
     grid["release_version"] = VERSION
@@ -220,7 +225,7 @@ def period_metrics(repo):
     rows = []
     for cat in CATEGORIES:
         frame = pd.read_csv(
-            repo / f"data/epw/torino_urban_epw_{cat}_v{VERSION}.epw",
+            repo / f"data/epw/torino_urban_epw_{cat}_v{WEATHER_VERSION}.epw",
             skiprows=8,
             header=None,
         )
@@ -262,6 +267,7 @@ def write_shapefile(grid, path, k=None):
         "recommendation_status": "REC_STATUS",
         "epw_recommendation_available": "EPW_AVAIL",
         "c6_out_of_domain": "OUT_DOMAIN",
+        "c6_caution": "C6_CAUTION",
         "edge_support": "EDGE",
         "qa_score": "QA_SCORE",
     }
@@ -351,6 +357,7 @@ def build(repo):
                     f"cluster_k{k}_provisional",
                     f"cluster_k{k}_label",
                     "recommendation_status",
+                    "c6_caution",
                     "geometry",
                 ]
             ].to_file(target, layer=f"morphology_k{k}", driver="GPKG", mode="a")
@@ -362,6 +369,7 @@ def build(repo):
                 "epw_filename",
                 "recommendation_status",
                 "epw_recommendation_available",
+                "c6_caution",
                 "geometry",
             ]
         ].to_file(target, layer="weather_categories", driver="GPKG", mode="a")
@@ -392,6 +400,7 @@ def build(repo):
         "assignment_status": "status",
         "recommendation_status": "recommendation",
         "c6_out_of_domain": "outside_domain",
+        "c6_caution": "caution",
         "epw_recommendation_available": "available",
         "edge_support": "edge",
         "qa_score": "qa",
@@ -444,15 +453,21 @@ def build(repo):
         repository_url=REPOSITORY_URL,
         site_url=SITE_URL,
         version=VERSION,
-        status="candidate research release",
-        released="2026-09-09",
+        status="candidate research release with applicability limits",
+        publication_status="published",
+        weather_version=WEATHER_VERSION,
+        supplement_version="1.1.0",
+        released="2026-10-26",
         location_count=len(grid),
         fit_location_count=int(grid.fit_eligible.sum()),
         edge_location_count=int(grid.edge_support.sum()),
         unassigned_location_count=int(grid.epw_category.isna().sum()),
         out_of_domain_count=int(grid.c6_out_of_domain.sum()),
+        caution_location_count=int(grid.c6_caution.sum()),
         support={"assignment_grid_m": 100, "morphology_support_m": 500},
         c6_building_fraction_limit=C6_LIMIT,
+        c6_building_fraction_caution=C6_CAUTION,
+        c6_threshold_population="390 original strict-fitting C6 supports; linear 90th and 95th percentiles",
         categories=categories,
         cluster_colors={str(k): v for k, v in K_COLORS.items()},
         cluster_descriptors={
@@ -464,7 +479,9 @@ def build(repo):
         },
         limitations=[
             "Modeled, not measured local weather; observation agreement is location dependent.",
-            "High-density C6 recommendations are withheld; below-threshold membership is not an accuracy guarantee.",
+            "The C6 restriction and caution band are conservative post hoc safeguards, not validated applicability boundaries.",
+            "C6 supports from the strict-fit 90th percentile to below the 95th percentile carry a caution flag; recommendations at or above the 95th percentile are withheld.",
+            "No urban station evaluates the observational accuracy of categories A or B.",
             "Overlapping supports are not independent neighborhoods or 100 m climate resolution.",
             "No resolved morphology-dependent humidity-ratio response in this workflow.",
         ],
@@ -478,6 +495,9 @@ def build(repo):
         repo / "release_manifest.json",
         dict(
             release_version=VERSION,
+            weather_library_version=WEATHER_VERSION,
+            supplement_version="1.1.0",
+            publication_status=metadata["publication_status"],
             authors=metadata["authors"],
             licenses=metadata["licenses"],
             repository_url=REPOSITORY_URL,

@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "baseUrl": "http://127.0.0.1:8127",
+  "baseUrl": "http://127.0.0.1:8763/",
   "desktop": {
     "viewport": {
       "width": 1440,
@@ -16,6 +16,8 @@
     "repositoryHref": "https://github.com/alijahanirahaei/torino-urban-epw-atlas",
     "authorsVerified": true,
     "loadedTiles": 25,
+    "cautionDownloadsVerified": true,
+    "abObservationalWarningsVerified": true,
     "restrictedDownloadsVerified": true,
     "layout": {
       "bodyWidth": 1440,
@@ -61,6 +63,8 @@
     "repositoryHref": "https://github.com/alijahanirahaei/torino-urban-epw-atlas",
     "authorsVerified": true,
     "loadedTiles": 6,
+    "cautionDownloadsVerified": true,
+    "abObservationalWarningsVerified": true,
     "restrictedDownloadsVerified": true,
     "layout": {
       "bodyWidth": 390,

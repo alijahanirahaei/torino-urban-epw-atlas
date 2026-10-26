@@ -93,6 +93,19 @@ async function testViewport(browser, viewport, screenshotName) {
   await page.screenshot({ path: path.join(root, "docs", screenshotName), fullPage: true });
 
   const geo = await (await page.request.get(new URL("web/data/torino_lookup.geojson",baseUrl).href)).json();
+  const caution = geo.features.find(f => f.properties.caution && !f.properties.edge).properties;
+  await page.locator("#latitude").fill(String(caution.lat));
+  await page.locator("#longitude").fill(String(caution.lon));
+  await page.locator("#find-button").click();
+  if (!(await page.locator("#quality-text").textContent()).includes("Caution")) throw new Error("Missing C6 caution warning");
+  if (!(await page.locator("#epw-download").getAttribute("href"))) throw new Error("Caution must retain candidate download");
+  for (const cat of ["A", "B"]) {
+    const props=geo.features.find(f => f.properties.cat===cat && !f.properties.edge).properties;
+    await page.locator("#latitude").fill(String(props.lat));
+    await page.locator("#longitude").fill(String(props.lon));
+    await page.locator("#find-button").click();
+    if (!(await page.locator("#quality-text").textContent()).includes("observational accuracy")) throw new Error(`Missing ${cat} observational warning`);
+  }
   for (const status of ["out_of_domain", "unassigned"]) {
     const p=geo.features.find((f)=>f.properties.recommendation===status && !f.properties.edge).properties;
     await page.locator("#latitude").fill(String(p.lat));
@@ -122,6 +135,8 @@ async function testViewport(browser, viewport, screenshotName) {
     repositoryHref,
     authorsVerified: true,
     loadedTiles,
+    cautionDownloadsVerified: true,
+    abObservationalWarningsVerified: true,
     restrictedDownloadsVerified: true,
     layout,
     consoleErrors,

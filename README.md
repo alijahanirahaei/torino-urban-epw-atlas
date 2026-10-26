@@ -14,7 +14,7 @@ and the machine-readable [CITATION.cff](CITATION.cff).
 
 - **Web atlas:** https://alijahanirahaei.github.io/torino-urban-epw-atlas/
 - **Source repository:** https://github.com/alijahanirahaei/torino-urban-epw-atlas
-- **Supplementary methods and data:** [version 1.0.0 downloads](https://github.com/alijahanirahaei/torino-urban-epw-atlas/releases/tag/supplement-v1.0.0)
+- **Supplementary methods and data:** [version 1.1.0 package](research/supplementary/README.md)
 
 ![Torino Urban EPW Atlas](docs/atlas-preview.png)
 
@@ -35,7 +35,12 @@ The EPW categories were obtained by reducing the outputs of the seven morphology
 medoids: A represents C0+C1, B represents C2, C represents C3+C4+C5, and D retains
 C6.
 
-**v0.2.0 updates the earlier prototype.** B and C have new representatives;
+**Atlas v0.3.0.** This version adds a C6
+near-threshold caution flag and explicit A/B observational-coverage warnings;
+the v0.2.0 EPWs, configurations, representative identities and assignments are
+unchanged. See [applicability safeguards](docs/applicability-caution.md).
+
+**The v0.2.0 scientific update is retained.** B and C have revised representatives;
 2,445 C3 assignments move from B to C, including Alenia. Morphology k=7 is
 unchanged. The atlas withholds location EPW recommendations for 20 high-density
 C6 supports and 135 incomplete assignments. These are counts of overlapping
@@ -128,9 +133,10 @@ and maintainers actually need.
 The [supplementary package](research/supplementary/README.md) contains the
 readable PDF and Word document, all 13 CSV tables, six figures, and the exact
 configurations and results for the heat-sensitivity experiment. Its
-[version 1.0.0 release](https://github.com/alijahanirahaei/torino-urban-epw-atlas/releases/tag/supplement-v1.0.0)
+[version 1.1.0 release](https://github.com/alijahanirahaei/torino-urban-epw-atlas/releases/tag/supplement-v1.1.0)
 provides a complete ZIP and separate document downloads. The supplement is
-versioned separately; the atlas data and EPWs remain at v0.2.0.
+versioned separately. Atlas v0.3.0 adds applicability flags; its EPWs and exact
+UWG configurations retain their v0.2.0 filenames and hashes.
 
 Run `python3 scripts/validate_supplement.py` to check its file inventory,
 checksums, CSV structure and configuration provenance without simulating UWG.
@@ -156,16 +162,23 @@ the seven-medoid reduction and the reusable UWG runner.
 
 ## Scientific Status
 
-Version 0.2.0 is a **candidate research release with explicit applicability limits**.
+Version 0.3.0 is a **candidate research release with explicit applicability limits**.
 
 - Seven-medoid reduction and 105 stratified non-medoid supports support small
   typical temperature-compression errors, but stress testing found a dense
   industrial failure domain. Four files are a fidelity/complexity compromise,
   not a uniquely necessary minimum for Torino.
-- For k7=C6 and building fraction >= 0.7951808541001185, location downloads are
+- For k7=C6 and building fraction at or above its strict-fit 95th percentile
+  (approximately 0.795), location downloads are
   withheld. Raw category D remains available for expert inspection, not as an
   approved recommendation for those locations. Below-threshold membership is
   not an accuracy guarantee.
+- A further 19 C6 supports between the strict-fit 90th and 95th percentiles
+  (approximately 0.755 to 0.795) retain downloads with a caution flag. Exact,
+  unrounded thresholds are used in code. Neither threshold is a validated
+  boundary of model accuracy.
+- Categories A and B have no urban observation station in this evaluation;
+  their observational accuracy remains untested.
 - Corrected canopy fields use the archived scaler and medoid identities. Two
   k4 and three k8 labels change, no k7 labels change; archived inputs are retained.
 - Library EPWs closely reproduce their assigned fixed-template UWG outputs, but
@@ -185,12 +198,13 @@ observationally exact local weather file.
 Public EPWs use standard one-decimal serialization. Three-decimal diagnostic
 temperature series are supplied for research reproduction; extra digits are not
 extra meteorological accuracy. The four-representative maximum medoid RMSE is
-0.05820 C at one decimal and 0.04019 C at three decimals.
+0.058 C at one decimal and 0.040 C at three decimals. These displayed diagnostics
+are rounded; the supplied numerical data retain full precision.
 
 ## Citation
 
-Citation metadata are provided in `CITATION.cff`. The companion journal citation
-and archived release DOI will be added when they become publicly available.
+Citation metadata are provided in `CITATION.cff`. Cite the version and GitHub
+release URL. The companion journal citation will be added when available.
 
 The atlas itself should be credited to **Ali JahaniRahaei and Giacomo Chiesa**.
 

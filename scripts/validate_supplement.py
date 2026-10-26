@@ -7,6 +7,7 @@ import json
 from pathlib import Path, PurePosixPath
 import re
 import shutil
+from datetime import date
 import xml.etree.ElementTree as ET
 from zipfile import ZipFile, ZIP_DEFLATED, ZipInfo
 
@@ -24,7 +25,19 @@ def safe_path(name):
     return bool(name) and not p.is_absolute() and ".." not in p.parts and "\\" not in name and ":" not in name
 
 
+def package_metadata(package):
+    metadata = json.loads((package / "package_manifest.json").read_text())
+    if not re.fullmatch(r"\d+\.\d+\.\d+", metadata["version"]):
+        raise ValueError("Invalid supplementary version")
+    date.fromisoformat(metadata["prepared_date"])
+    citation = (package / "CITATION.cff").read_text()
+    if f"version: {metadata['version']}\n" not in citation:
+        raise ValueError("Supplementary version differs from citation metadata")
+    return metadata
+
+
 def validate(package=PACKAGE):
+    metadata = package_metadata(package)
     files = {}
     for p in package.rglob("*"):
         if p.is_symlink():
@@ -98,6 +111,20 @@ def validate(package=PACKAGE):
                 if any(tree.findall(".//w:" + tag, NS) for tag in ("ins", "del", "moveFrom", "moveTo", "trackRevisions")):
                     raise ValueError("Word revisions or tracking enabled")
         body = ET.fromstring(doc.read("word/document.xml"))
+        rels = ET.fromstring(doc.read("word/_rels/document.xml.rels"))
+        images = {r.attrib["Id"]: r.attrib["Target"] for r in rels
+                  if r.attrib.get("Type", "").endswith("/image")}
+        drawing_ns = "http://schemas.openxmlformats.org/drawingml/2006/main"
+        relationship_ns = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+        embedded = []
+        for blip in body.findall(f".//{{{drawing_ns}}}blip"):
+            target = images[blip.attrib[f"{{{relationship_ns}}}embed"]]
+            if not safe_path(target):
+                raise ValueError("Unsafe document image path")
+            embedded.append(hashlib.sha256(doc.read("word/" + target)).hexdigest())
+        supplied = {sha(p) for p in (package / "figures").glob("*.png")}
+        if len(embedded) != 6 or set(embedded) != supplied:
+            raise ValueError("Embedded figures differ from the six supplied PNGs")
         paragraphs = ["".join(p.itertext()) for p in body.findall("w:body/w:p", NS)]
         for n in range(1, 8):
             if not any(p.startswith(f"S{n} ") for p in paragraphs):
@@ -119,7 +146,7 @@ def validate(package=PACKAGE):
     for pattern in patterns:
         if re.search(pattern, joined, re.I):
             raise ValueError("Private path, editorial placeholder, or unintended tool text in public supplement")
-    return {"status": "PASS", "files": len(files), "table_csvs": 13, "heat_configurations": 105,
+    return {"status": "PASS", "version": metadata["version"], "files": len(files), "table_csvs": 13, "heat_configurations": 105,
             "embedded_tables": 5, "sections": 7, "figures": 6}
 
 
@@ -129,11 +156,13 @@ def build(output, package=PACKAGE):
     if output == ROOT or ROOT in output.parents:
         raise ValueError("Release artifacts must be built outside the repository")
     output.mkdir(parents=True, exist_ok=True)
-    archive = output / "torino_uwg_supplement_v1.0.0.zip"
+    metadata = package_metadata(package)
+    prepared = date.fromisoformat(metadata["prepared_date"])
+    archive = output / f"torino_uwg_supplement_v{metadata['version']}.zip"
     with ZipFile(archive, "w", ZIP_DEFLATED) as z:
         for p in sorted(package.rglob("*")):
             if p.is_file():
-                entry = ZipInfo(p.relative_to(package).as_posix(), date_time=(2026, 9, 17, 0, 0, 0))
+                entry = ZipInfo(p.relative_to(package).as_posix(), date_time=(prepared.year, prepared.month, prepared.day, 0, 0, 0))
                 entry.compress_type = ZIP_DEFLATED
                 entry.external_attr = 0o100644 << 16
                 z.writestr(entry, p.read_bytes())

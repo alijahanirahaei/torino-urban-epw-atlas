@@ -10,19 +10,25 @@
   },
   "repository_url": "https://github.com/alijahanirahaei/torino-urban-epw-atlas",
   "site_url": "https://alijahanirahaei.github.io/torino-urban-epw-atlas/",
-  "version": "0.2.0",
-  "status": "candidate research release",
-  "released": "2026-09-09",
+  "version": "0.3.0",
+  "status": "candidate research release with applicability limits",
+  "publication_status": "published",
+  "weather_version": "0.2.0",
+  "supplement_version": "1.1.0",
+  "released": "2026-10-26",
   "location_count": 12997,
   "fit_location_count": 10593,
   "edge_location_count": 1980,
   "unassigned_location_count": 135,
   "out_of_domain_count": 20,
+  "caution_location_count": 19,
   "support": {
     "assignment_grid_m": 100,
     "morphology_support_m": 500
   },
   "c6_building_fraction_limit": 0.7951808541001185,
+  "c6_building_fraction_caution": 0.7547746566077667,
+  "c6_threshold_population": "390 original strict-fitting C6 supports; linear 90th and 95th percentiles",
   "categories": {
     "A": {
       "name": "Open low-rise",
@@ -38,7 +44,7 @@
       "location_count": 4697,
       "available_location_count": 4697,
       "uhi_mean_c": {
-        "annual": 1.6885045662100457,
+        "annual": 1.6885045662100455,
         "daytime_07_18": 0.2762100456621004,
         "nighttime_19_06": 3.100799086757991,
         "summer_apr_sep": 1.6323315118397084,
@@ -88,7 +94,7 @@
       "location_count": 6662,
       "available_location_count": 6662,
       "uhi_mean_c": {
-        "annual": 1.8137100456621005,
+        "annual": 1.8137100456621007,
         "daytime_07_18": 0.33664383561643835,
         "nighttime_19_06": 3.290776255707762,
         "summer_apr_sep": 1.7464708561020037,
@@ -180,7 +186,9 @@
   },
   "limitations": [
     "Modeled, not measured local weather; observation agreement is location dependent.",
-    "High-density C6 recommendations are withheld; below-threshold membership is not an accuracy guarantee.",
+    "The C6 restriction and caution band are conservative post hoc safeguards, not validated applicability boundaries.",
+    "C6 supports from the strict-fit 90th percentile to below the 95th percentile carry a caution flag; recommendations at or above the 95th percentile are withheld.",
+    "No urban station evaluates the observational accuracy of categories A or B.",
     "Overlapping supports are not independent neighborhoods or 100 m climate resolution.",
     "No resolved morphology-dependent humidity-ratio response in this workflow."
   ]

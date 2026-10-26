@@ -1,5 +1,14 @@
 # Changelog
 
+## Atlas 0.3.0 and supplement 1.1.0 - 2026-10-26
+
+- Added the C6 caution band to browser/CLI lookup and all spatial/tabular exports.
+- Clarified the absence of observational evaluation for categories A and B.
+- Updated supplementary interpretation, figure readability and displayed precision.
+- Added diagnostic tables for scale variances, thresholds and year selection.
+- Retained all model files, scientific assignments and existing restrictions.
+- Preserved earlier release archives; no new simulations or clustering fits.
+
 ## Supplement 1.0.0 - 2026-09-17
 
 - Published the separate supplementary document, tables S1-S13 and figures S1-S6.

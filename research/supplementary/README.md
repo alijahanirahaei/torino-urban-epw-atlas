@@ -2,7 +2,7 @@
 
 Ali JahaniRahaei and Giacomo Chiesa
 
-Version 1.0.0, 17 September 2026.
+Version 1.1.0, prepared 26 October 2026.
 
 This package accompanies **Morphology-based classification and error-controlled
 reduction of urban weather files with Torino as a case study**, by Ali
@@ -15,10 +15,13 @@ Sections S1-S6 cover spatial inputs, classification, UWG execution, evaluation
 and reuse; S7 covers the traffic and HVAC heat experiment. All 13 supplementary
 tables have CSV versions; S1, S2 and S10-S12 are also printed in the document.
 
-The [versioned release](https://github.com/alijahanirahaei/torino-urban-epw-atlas/releases/tag/supplement-v1.0.0)
+The [versioned release](https://github.com/alijahanirahaei/torino-urban-epw-atlas/releases/tag/supplement-v1.1.0)
 provides the complete ZIP and separate PDF/Word downloads. This supplement uses
-the unchanged atlas v0.2.0 weather library and classifications. Its release
-does not introduce new EPWs, classes or simulation results.
+atlas v0.3.0 applicability flags and the unchanged v0.2.0 weather library and
+classifications. It does not introduce new EPWs, classes or simulations.
+The text clarifies the scale-variance decomposition, model applicability,
+2022 selection and representative-count criterion. Revised figures and rounded
+document tables improve readability. Version 1.0.0 remains a historical archive.
 
 The four-file library represents the tested UWG outputs, not validated local
 weather at every location. Recommendations exclude the diagnosed high-density
@@ -43,6 +46,11 @@ or a calibrated heat map.
 - `configuration_provenance.json`: inherited baseline key/provenance record.
 - `source_hashes.json`: descriptive identifiers and hashes of source analysis
   artifacts. These identifiers are not paths to files in this package.
+- `diagnostics/`: scale-variance reconciliation, C6 threshold sensitivity and
+  per-location flags, representative-count criterion sensitivity, and 2022
+  selection summary. See its README for populations, units and interpretation.
+- `package_manifest.json`: supplementary, atlas and weather-library versions,
+  preparation date and publication status.
 - `heat_sensitivity/`: exact additional-experiment configurations, portable
   run provenance, input selection and schedule audits, detailed result CSVs and
   a resumable annual simulation runner. See its README for execution instructions.
@@ -70,9 +78,20 @@ The heat tests use DJF/JJA and clock hours 07-18/19-06; main-text Table 9 uses O
 serialization effects, not physical accuracy. The heat test's 14 non-medoids
 are purposive selections and cannot supply population percentiles.
 
+Document and Markdown summaries are rounded for readability, usually to two
+decimal places, with three for small numerical diagnostics and five for
+coordinates. Machine-readable CSVs, JSON configurations and numerical thresholds
+retain their original precision for reproduction. Calculate decisions and
+differences from those unrounded values, not the rounded display tables.
+
+The C6 caution band contains 19 overlapping supports with candidate downloads;
+20 higher-density supports remain restricted. These post hoc safeguards are
+not validated physical accuracy boundaries. Categories A and B have no urban
+evaluation station, so observational accuracy is untested for those categories.
+
 The executable extension reproduces the heat integrations, but not the entire
 city GIS extraction, clustering and all scientific experiments. The
-[atlas v0.2.0 release](https://github.com/alijahanirahaei/torino-urban-epw-atlas/releases/tag/v0.2.0)
+[atlas v0.3.0 release](https://github.com/alijahanirahaei/torino-urban-epw-atlas/releases/tag/v0.3.0)
 provides fixed-classifier reconstruction, seven-medoid reduction and annual UWG
 tools. See Section S6 for their scope and limitations.
 
