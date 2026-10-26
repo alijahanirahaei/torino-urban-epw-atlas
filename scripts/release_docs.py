@@ -224,6 +224,8 @@ def describe(path):
         return "Builds complete field dictionary, file catalog and browser-readable guides."
     if p.name == "release_figures.py":
         return "Regenerates corrected maps, profiles and released EPW UHI chart."
+    if p.name == "publish_release.py":
+        return "Creates a tagged release once or verifies existing archives and checksums without overwriting assets."
     if "test" in p.name or "qa" in p.name or "validat" in p.name:
         return "Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy."
     if p.parts[0] == "docs":

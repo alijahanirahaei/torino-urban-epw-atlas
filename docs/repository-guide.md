@@ -334,6 +334,7 @@ not an atlas DOI; no atlas archival identifier is claimed until one is issued.
 | `research/uwg/run_manifest.csv` | Tabular research export; field names, units and population identified in data/research guides. |
 | `scripts/build_release.py` | Portable reconstruction of assignments, spatial exports, metrics and figures from supplied inputs. |
 | `scripts/lookup.py` | Standard-library coordinate lookup with explicit domain and outside-city handling. |
+| `scripts/publish_release.py` | Creates a tagged release once or verifies existing archives and checksums without overwriting assets. |
 | `scripts/release_docs.py` | Builds complete field dictionary, file catalog and browser-readable guides. |
 | `scripts/release_figures.py` | Regenerates corrected maps, profiles and released EPW UHI chart. |
 | `scripts/reproduce_reduction.py` | Exhaustive representative subset search from seven supplied hourly temperature series. |
@@ -343,6 +344,7 @@ not an atlas DOI; no atlas archival identifier is claimed until one is issued.
 | `tests/browser_qa.cjs` | Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy. |
 | `tests/test_c6_caution.py` | Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy. |
 | `tests/test_lookup.py` | Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy. |
+| `tests/test_publication.py` | Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy. |
 | `tests/test_release_science.py` | Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy. |
 | `tests/test_supplement.py` | Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy. |
 | `validation_report.json` | Automated quality checks, tests or their recorded technical results; not proof of local weather accuracy. |

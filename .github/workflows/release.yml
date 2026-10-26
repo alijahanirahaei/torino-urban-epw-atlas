@@ -3,9 +3,19 @@ name: Publish versioned research release
 on:
   push:
     tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing atlas tag to publish or verify
+        required: true
+        type: string
 
 permissions:
   contents: read
+
+concurrency:
+  group: atlas-release-${{ inputs.tag || github.ref_name }}
+  cancel-in-progress: false
 
 jobs:
   release:
@@ -15,6 +25,12 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
+          persist-credentials: false
+      - name: Retain current publication helper
+        run: cp scripts/publish_release.py "$RUNNER_TEMP/publish_release.py"
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.tag || github.ref }}
           persist-credentials: false
       - uses: actions/setup-python@v6
         with:
@@ -27,9 +43,7 @@ jobs:
       - name: Publish release and primary downloads
         env:
           GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
         run: >-
-          gh release create "$GITHUB_REF_NAME"
-          --verify-tag --title "Torino Urban EPW Atlas $GITHUB_REF_NAME"
-          --notes-file "docs/release-notes-$GITHUB_REF_NAME.md"
-          data/epw/*.epw data/spatial/torino_urban_morphology_epw_atlas.gpkg
-          checksums.sha256
+          python "$RUNNER_TEMP/publish_release.py"
+          --kind atlas --tag "$RELEASE_TAG" --repository "$GITHUB_REPOSITORY"
